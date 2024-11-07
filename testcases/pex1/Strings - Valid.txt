@@ -1,0 +1,4 @@
+﻿"this is a string"
+"so is this"
+"this string has \" \" lots of \\ escape\\ characters"
+"this is part of the string" but these are not

@@ -1,0 +1,7 @@
+﻿const int x:=12;
+const float y:=3.14;
+const str s;//does not initialize constant
+
+function main(){
+	
+}

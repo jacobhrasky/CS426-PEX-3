@@ -1,0 +1,10 @@
+﻿const int x:=0;
+
+//assignments cant go here
+	x:=1;
+	x:=1.2;
+	x:="hello";
+
+function main(){
+
+}

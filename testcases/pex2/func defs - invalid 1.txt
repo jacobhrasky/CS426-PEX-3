@@ -1,0 +1,27 @@
+﻿const int i:=1;
+const float f:=2.0;
+const str s:="hello world";
+
+function foo(,){//extra comma
+
+}
+
+function bar(int integer){
+
+}
+
+function foobar(int integer, float flt, str string){
+	foo();
+	bar();
+}
+
+function main(){
+	foo();
+	bar();
+	foobar();
+	foo();
+	bar();
+	foobar();
+
+
+}

@@ -1,0 +1,17 @@
+﻿//loops shouldnt go here
+	while(1>1){
+		foo();
+		bar();
+	}
+	while(1>1){
+		foo();
+		while(1>1){
+			foo();
+			while(1>1){
+				foo();
+			}
+		}
+	}
+	while(1>1){
+	}
+function main(){}

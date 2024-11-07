@@ -1,0 +1,17 @@
+﻿function main(){
+	while(1>1){
+		foo();
+		bar();
+	}
+	while(1>1){
+		foo();
+		while(1>1){
+			foo();
+			while(1>1){
+				foo();
+			}
+		}
+	}
+	while(1>1){
+	}
+}

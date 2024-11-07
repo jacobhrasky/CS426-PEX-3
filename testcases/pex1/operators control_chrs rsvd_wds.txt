@@ -1,0 +1,30 @@
+﻿:= // assignment
++ // plus sign
+* // star
+; // semi colon
+() // l_paren r_paren
+- // minus sign
+/ // div_sign
+< // lt
+<= // leq
+> // gt
+>= // geq
+= // eq
+!= // neq
+! // not
+& // and
+| // or
+{} // l_brace r_brace
+
+//types
+int
+float
+str
+
+//reserved words
+if
+else
+while
+const
+function
+main

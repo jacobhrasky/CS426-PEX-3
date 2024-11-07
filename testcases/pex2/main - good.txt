@@ -1,0 +1,3 @@
+﻿//comments up top are fine
+function main(){
+}

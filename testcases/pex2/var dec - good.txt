@@ -1,0 +1,14 @@
+﻿const int x:=12;
+const float y:=3.14;
+const str s:="hello world";
+
+function main(){
+	int a;
+	int b:=5;
+
+	float f;
+	float g:=1.2;
+
+	str s2;
+	str s3:="foo bar";
+}

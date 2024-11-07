@@ -1,0 +1,105 @@
+// This tells SableCC to put all of the code in a package called CS426
+Package CS426;
+
+// Helpers are sets that let you talk about multiple characters in the same way
+Helpers
+	whitespace_char = ' ' | 9 | 10 | 13;
+	non0digit = ['1'..'9'];
+	digit = ['0' + non0digit];
+	letter=[['a'..'z']+['A'..'Z']];
+	string_char = [[[0 .. 0xffff] - [10 + 13]]-['"' + '\']];
+
+// PEX 1 - Lexer Portion
+Tokens
+	// Operators and control characters
+	assign = ':=';
+	plus_sign = '+';
+	star = '*';
+	semi_colon = ';';
+	l_paren = '(';
+	r_paren = ')';
+	minus_sign = '-';
+	slash = '/';
+	lt_sign = '<';
+	leq_sign = '<=';
+	gt_sign = '>';
+	geq_sign = '>=';
+	eq_sign = '=';
+	neq_sign = '!=';
+	not_sign = '!';
+	and_sign = '&';
+	or_sign = '|';
+	l_brace = '{';
+	r_brace = '}';
+	comma = ','; //added in PEX 2
+
+	//reserved words
+	rw_type = 'int' | 'float' | 'str';
+	rw_if = 'if';
+	rw_else = 'else';
+	rw_while = 'while';
+	rw_const = 'const';
+	rw_function = 'function';
+	rw_main = 'main';
+
+	//Literals
+	lit_integer = '0' | non0digit digit*;
+	lit_float = (('0' | non0digit digit*) '.' ('0' | digit* non0digit)) | (non0digit '.' ('0' | digit* non0digit) 'e' '-'? non0digit digit*);
+	lit_str= '"' (string_char | '\\' | '\"')* '"';
+
+	//other constructs
+	id =	(letter  ('_'? (letter | digit ))* '_'?) |
+			('_' ((letter | digit ) '_'?)*) ;
+	comment = '//' ([[0 .. 0xffff] - [10 + 13]])*;
+	whitespace = whitespace_char+;
+
+Ignored Tokens
+	whitespace, comment; //added comment in PEX2
+
+
+// PEX 2 - Parser Portion
+Productions
+	file = const_declarations funct_declarations main_declaration;
+
+	const_declarations = {some} rw_const rw_type id assign expression semi_colon const_declarations | {none};
+	funct_declarations = {some} funct_declarations rw_function id l_paren param_declarations r_paren l_brace statements r_brace | {none};
+	main_declaration = rw_function rw_main l_paren r_paren l_brace statements r_brace;
+
+	bool_exp = {mult} bool_exp or_sign bool_term | {single} bool_term;
+	bool_term = {mult} bool_term and_sign bool_not | {single} bool_not;
+	bool_not = {neg} not_sign bool_comp | {pos} bool_comp;
+	bool_comp = {equal} bool_comp eq_sign bool_parens | {not_equal} bool_comp neq_sign bool_parens | {solo} bool_parens;
+	bool_parens = {some} l_paren bool_exp r_paren | {none} num_comp;
+
+	num_comp =	{less} [lhs]:expression lt_sign [rhs]:expression | 
+				{less_equal} [lhs]:expression leq_sign [rhs]:expression | 
+				{greater} [lhs]:expression gt_sign [rhs]:expression | 
+				{greater_equal} [lhs]:expression geq_sign [rhs]:expression | 
+				{equal} [lhs]:expression eq_sign [rhs]:expression | 
+				{not_equal} [lhs]:expression neq_sign [rhs]:expression;
+
+	expression = {plus} expression plus_sign term | {minus} expression minus_sign term| {solo} term;
+	term = {mult} term star negation | {div} term slash negation | {single} negation;
+	negation = {neg} minus_sign parenthetical_exp | {pos} parenthetical_exp;
+	parenthetical_exp = {some} l_paren expression r_paren | {none} operand;
+	operand = {var} id | {lit} literal;
+	literal = {int} lit_integer | {float} lit_float | {str} lit_str;
+	
+	param_declarations = {some} param_declarations comma param_declaration| {one} param_declaration | {none};
+	param_declaration = rw_type id;
+	
+	statements = {some} statements statement | {none};
+	statement = {declaration} var_dec | {call} funct_call | {assignment} assignment | {if} if_stmt | {loop} loop_stmt;
+
+	var_dec = rw_type id opt_assignment semi_colon;
+	opt_assignment={opt_for} assign expression| {opt_against};
+	
+	funct_call = id l_paren call_params r_paren semi_colon;
+	call_params = {some} call_params comma expression| {one} expression | {none};
+		
+	assignment = id assign expression semi_colon;
+
+	if_stmt = rw_if l_paren bool_exp r_paren l_brace statements r_brace else_stmt;
+	else_stmt = {yes_else} rw_else l_brace statements r_brace | {no_else};
+
+	loop_stmt = rw_while l_paren bool_exp r_paren l_brace statements r_brace;

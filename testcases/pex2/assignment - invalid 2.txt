@@ -1,0 +1,9 @@
+﻿const int x:=0;
+
+
+
+
+function main(){
+//ada style assignment operators
+	x=1;
+}

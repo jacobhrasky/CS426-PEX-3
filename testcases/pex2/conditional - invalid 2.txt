@@ -1,0 +1,7 @@
+﻿//ifs need to be in a function
+if(1>1){
+}
+
+function main(){
+
+}

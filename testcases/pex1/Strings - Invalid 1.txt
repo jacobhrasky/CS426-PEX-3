@@ -1,0 +1,2 @@
+﻿//about to error on open string
+"this string hangs open \\ \"

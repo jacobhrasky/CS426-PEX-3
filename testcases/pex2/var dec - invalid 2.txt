@@ -1,0 +1,17 @@
+﻿const int x:=12;
+const float y:=3.14;
+const str s:="hello world";
+
+//variables outside a function
+int a;
+int b:=5;
+
+function main(){
+
+
+	float f;
+	float g:=1.2;
+
+	str s2;
+	str s3:="foo bar";
+}

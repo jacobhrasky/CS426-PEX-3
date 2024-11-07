@@ -1,0 +1,7 @@
+﻿function main(){
+	else {//else without if should error
+	}
+
+	if(1>1){
+	}
+}

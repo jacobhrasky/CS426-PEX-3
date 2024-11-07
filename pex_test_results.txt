@@ -1,0 +1,82 @@
+PEX TEST CASES (C1C Unnamed) 
+ 
+**main structure** 
+ 
+*main - good.txt 
+Test Passed.
+ 
+*main - invalid 1.txt 
+[4,1] expecting: EOF
+ 
+*main - invalid 2.txt 
+[1,15] expecting: ')'
+ 
+ 
+**Variable and Constant Declarations** 
+ 
+*var dec - good.txt 
+Test Passed.
+ 
+*var dec - invalid 1.txt 
+[3,12] expecting: ':='
+ 
+*var dec - invalid 2.txt 
+[6,1] expecting: 'function'
+ 
+*var dec - invalid 3.txt 
+[6,2] expecting: '}', rw type, 'if', 'while', id
+ 
+ 
+**Conditional Statements (IFs)** 
+ 
+*conditional - good.txt 
+Test Passed.
+ 
+*conditional - invalid 1.txt 
+[2,2] expecting: '}', rw type, 'if', 'while', id
+ 
+*conditional - invalid 2.txt 
+[2,1] expecting: 'function'
+ 
+ 
+**Iterative Statements (LOOPs)** 
+ 
+*conditional - good.txt 
+Test Passed.
+ 
+*conditional - invalid 1.txt 
+[2,2] expecting: 'function'
+ 
+ 
+**Assignment Statements (LOOPs)** 
+ 
+*conditional - good.txt 
+Test Passed.
+ 
+*conditional - invalid 1.txt 
+[4,2] expecting: 'function'
+ 
+*conditional - invalid 2.txt 
+[8,3] expecting: ':=', '('
+ 
+ 
+**function declarations w/ formal parameters** 
+ 
+*func defs - good.txt 
+Test Passed.
+ 
+*func defs - invalid 1.txt 
+[5,15] expecting: rw type
+ 
+*func defs - invalid 2.txt 
+[9,26] expecting: rw type
+ 
+*func defs - invalid 3.txt 
+[13,52] expecting: rw type
+ 
+ 
+**function calls w/ actual parameters** 
+ 
+*func defs - good.txt 
+Test Passed.
+ 

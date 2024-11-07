@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartWorkingDirectory>C:\Users\Christophe.Patterson\OneDrive - afacademy.af.edu\Documents\Academics-USAFA-Instructor\12th - Fall 24\CompSci 426\PEXes\PEX1\PEX Starter Pack v2\testcases\pex1\</StartWorkingDirectory>
+  </PropertyGroup>
+</Project>

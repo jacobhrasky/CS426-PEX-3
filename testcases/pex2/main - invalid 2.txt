@@ -1,0 +1,3 @@
+﻿function main(str args){
+}
+//should error out.  not allowed to have parameters in main
