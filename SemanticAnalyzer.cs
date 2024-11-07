@@ -125,7 +125,7 @@ namespace CS426.analysis
 
             if (!decoratedParseTree.TryGetValue(node.GetOperand(), out operandDefinition))
             {
-                // The error was already printed
+                // The error was already printed at a higher level
             }
             else
             {
@@ -137,9 +137,9 @@ namespace CS426.analysis
         {
             Definition expression;
 
-            if(!decoratedParseTree.TryGetValue(node.GetExpression(), out expression))
+            if (!decoratedParseTree.TryGetValue(node.GetExpression(), out expression))
             {
-
+                // The error was already printed at a higher level
             }
             else
             {
@@ -154,9 +154,9 @@ namespace CS426.analysis
         {
             Definition parentheticalExp;
 
-            if(!decoratedParseTree.TryGetValue(node.GetParentheticalExp(), out parentheticalExp))
+            if (!decoratedParseTree.TryGetValue(node.GetParentheticalExp(), out parentheticalExp))
             {
-
+                // The error was already printed at a higher level
             }
             else
             {
@@ -168,13 +168,13 @@ namespace CS426.analysis
         {
             Definition parentheticalExp;
 
-            if(!decoratedParseTree.TryGetValue(node.GetParentheticalExp(), out parentheticalExp))
+            if (!decoratedParseTree.TryGetValue(node.GetParentheticalExp(), out parentheticalExp))
             {
-
+                // The error was already printed at a higher level
             }
-            else if(!(parentheticalExp is FloatDefinition))
+            else if (!(parentheticalExp is NumberDefinition))
             {
-                PrintWarning(node.GetMinusSign(), "Only a number can be negated!");
+                PrintWarning(node.GetMinusSign(), "Only a number or float can be negated!");
             }
             else
             {
@@ -183,7 +183,130 @@ namespace CS426.analysis
         }
 
         // --------------------------------------------------------
-        // 
+        // Term
         // --------------------------------------------------------
+        public override void OutASingleTerm(ASingleTerm node)
+        {
+            Definition negationDefinition;
+
+            if (!decoratedParseTree.TryGetValue(node.GetNegation(), out negationDefinition))
+            {
+                // The error was already printed at a higher level
+            }
+            else
+            {
+                decoratedParseTree.Add(node, negationDefinition);
+            }
+        }
+
+        // --------------------------------------------------------
+        // Expression
+        // --------------------------------------------------------
+        public override void OutASoloExpression(ASoloExpression node)
+        {
+            Definition expressionDefinition;
+
+            if (!decoratedParseTree.TryGetValue(node.GetTerm(), out expressionDefinition))
+            {
+                // The error was already printed at a higher level
+            }
+            else
+            {
+                decoratedParseTree.Add(node, expressionDefinition);
+            }
+        }
+
+        public override void OutAMultTerm(AMultTerm node)
+        {
+            Definition termDef;
+            Definition negationDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetTerm(), out termDef))
+            {
+                // Error already printed
+            }
+            else if(!decoratedParseTree.TryGetValue(node.GetNegation(), out negationDef))
+            {
+                // Error already printed
+            }
+            else if(termDef.GetType() != negationDef.GetType())
+            {
+                PrintWarning(node.GetStar(), "Cannot multiply " + termDef.name + " by " + negationDef.name);
+            }
+            else if(!(termDef is NumberDefinition))
+            {
+                PrintWarning(node.GetStar(), "You can only multiply numbers");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, termDef);
+            }
+        }
+
+        // --------------------------------------------------------
+        // Variable Declaration
+        // --------------------------------------------------------
+        public override void OutAVarDec(AVarDec node)
+        {
+            Definition typeDef;
+            Definition idDef;
+
+            if(!globalSymbolTable.TryGetValue(node.GetRwType().Text, out typeDef))
+            {
+                PrintWarning(node.GetRwType() , "Type " + node.GetType().Name + " does not exist");
+            }
+            else if(!(typeDef is TypeDefinition))
+            {
+                PrintWarning(node.GetRwType(), "Identifier " + node.GetRwType().Text + " is not a recognized data type");
+            }
+            else if(localSymbolTable.TryGetValue(node.GetId().Text, out idDef))
+            {
+                PrintWarning(node.GetId(), "Identifier " + node.GetId().Text + " is already being used");
+            }
+            else if (globalSymbolTable.TryGetValue(node.GetId().Text, out idDef))
+            {
+                PrintWarning(node.GetId(), "Identifier " + node.GetId().Text + " is already being used");
+            }
+            else
+            {
+                VariableDefinition newVarDef = new VariableDefinition();
+                newVarDef.name = node.GetId().Text;
+                newVarDef.variableType = (TypeDefinition)typeDef;
+
+                localSymbolTable.Add(node.GetId().Text, newVarDef);
+            }
+        }
+
+        // --------------------------------------------------------
+        // Assignment
+        // --------------------------------------------------------
+        public override void OutAAssignment(AAssignment node)
+        {
+            Definition idDef;
+            Definition expressionDef;
+
+            if(!localSymbolTable.TryGetValue(node.GetId().Text, out idDef))
+            {
+                PrintWarning(node.GetId(), "Identifier " + node.GetId().Text + " does not exist");
+            }
+            else if(!(idDef is VariableDefinition))
+            {
+                PrintWarning(node.GetId(), "Identifier " + node.GetId().Text + " is not a variable");
+            }
+            else if(!decoratedParseTree.TryGetValue(node.GetExpression(), out expressionDef))
+            {
+                // Error would have already been printed
+            }
+            else if(((VariableDefinition)idDef).variableType.name != expressionDef.name)
+            {
+                PrintWarning(node.GetId(), "Types don't match");
+            }
+            else
+            {
+                // No need to decorate parse tree
+            }
+
+        }
+
     }
 }

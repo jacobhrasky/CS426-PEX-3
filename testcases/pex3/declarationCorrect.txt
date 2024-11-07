@@ -1,8 +1,7 @@
 function foo() {
-	float y := -5.5;
+
 }
 
 function main() {
 	int x;
-	x := -5;
 }

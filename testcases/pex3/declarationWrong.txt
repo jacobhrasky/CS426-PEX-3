@@ -1,0 +1,4 @@
+function main() {
+	int x := 7;
+	str x;
+}

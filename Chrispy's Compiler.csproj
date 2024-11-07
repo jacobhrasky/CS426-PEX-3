@@ -91,8 +91,16 @@
     <Content Include="testcases\pex2\var dec - invalid 1.txt" />
     <Content Include="testcases\pex2\var dec - invalid 2.txt" />
     <Content Include="testcases\pex2\var dec - good.txt" />
+    <Content Include="testcases\pex3\assignCorrect.txt" />
+    <Content Include="testcases\pex3\assignWrong.txt" />
+    <Content Include="testcases\pex3\declarationCorrect.txt" />
+    <Content Include="testcases\pex3\declarationWrong.txt" />
+    <Content Include="testcases\pex3\multCorrect.txt" />
+    <Content Include="testcases\pex3\multWrong.txt" />
     <Content Include="testcases\pex3\negationCorrect.txt" />
     <Content Include="testcases\pex3\negationWrong.txt" />
+    <Content Include="testcases\pex3\parensCorrect.txt" />
+    <Content Include="testcases\pex3\parensWrong.txt" />
     <Content Include="testcases\pex3\test1.txt" />
   </ItemGroup>
   <ItemGroup>
