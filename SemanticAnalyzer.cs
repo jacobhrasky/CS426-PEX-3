@@ -6,6 +6,37 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
+/* TODO:
+ * file                 |
+ * const_declarations   |
+ * funct_declarations   |
+ * main_declaration     |
+ * bool_exp             |
+ * bool_term            |
+ * bool_not             |
+ * bool_comp            |
+ * bool_parens          |
+ * num_comp             |   Done
+ * expression           |   Done
+ * term                 |   Divide needs to check if divisor is a zero
+ * negation             |   Done
+ * parenthetical_exp    |   Done
+ * operand              |   Done
+ * literal              |   Done           
+ * param_declarations   |
+ * param_declaration    |
+ * statements           |
+ * statement            |
+ * var_dec              |   Done
+ * opt_assignment       |
+ * funct_call           |
+ * call_params          |
+ * assignment           |   Done
+ * if_stmt              |
+ * else_stmt            |
+ * loop_stmt            |
+ */
+
 namespace CS426.analysis
 {
     class SemanticAnalyzer : DepthFirstAdapter
@@ -111,7 +142,12 @@ namespace CS426.analysis
 
         public override void OutALitOperand(ALitOperand node)
         {
-            Definition litDefintion = new LiteralDefintion();
+            Definition litDefintion;
+
+            if (!decoratedParseTree.TryGetValue(node.GetLiteral(), out litDefintion))
+            {
+                Console.WriteLine("Literal does not exist");
+            }
 
             decoratedParseTree.Add(node, litDefintion);
         }
@@ -172,7 +208,7 @@ namespace CS426.analysis
             {
                 // The error was already printed at a higher level
             }
-            else if (!(parentheticalExp is NumberDefinition))
+            else if (!((parentheticalExp is NumberDefinition) || (parentheticalExp is FloatDefinition)))
             {
                 PrintWarning(node.GetMinusSign(), "Only a number or float can be negated!");
             }
@@ -199,6 +235,73 @@ namespace CS426.analysis
             }
         }
 
+        public override void OutAMultTerm(AMultTerm node)
+        {
+            Definition termDef;
+            Definition negationDef;
+
+            // Check if term expression is already in the decorated tree
+            if (!decoratedParseTree.TryGetValue(node.GetTerm(), out termDef))
+            {
+                // Error already printed
+            }
+            // Check if negation expression is already in the decorated tree
+            else if (!decoratedParseTree.TryGetValue(node.GetNegation(), out negationDef))
+            {
+                // Error already printed
+            }
+            // Check if the types of the expressions match
+            else if ((termDef.name == "str") || (negationDef.name == "str"))
+            {
+                PrintWarning(node.GetStar(), "Cannot multiply " + termDef.name + " by " + negationDef.name);
+            }
+            // Check if the expressions are numbers
+            else if (!((termDef is NumberDefinition) || (termDef is FloatDefinition) || (negationDef is NumberDefinition) || (negationDef is FloatDefinition)))
+            {
+                PrintWarning(node.GetStar(), "You can only multiply numbers or floats");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, termDef);
+            }
+        }
+
+        public override void OutADivTerm(ADivTerm node)
+        {
+            Definition termDef;
+            Definition negationDef;
+
+            // Check if term expression is already in the decorated tree
+            if (!decoratedParseTree.TryGetValue(node.GetTerm(), out termDef))
+            {
+                // Error already printed
+            }
+            // Check if negation expression is already in the decorated tree
+            else if (!decoratedParseTree.TryGetValue(node.GetNegation(), out negationDef))
+            {
+                // Error already printed
+            }
+            // Check if the types of the expressions match
+            else if ((termDef.name == "str") || (negationDef.name == "str"))
+            {
+                PrintWarning(node.GetSlash(), "Cannot divide " + termDef.name + " by " + negationDef.name);
+            }
+            // TODO: Check if the negation term is not zero
+            else if (negationDef.Equals(0))
+            {
+                PrintWarning(node.GetSlash(), "You can't divide by zero");
+            }
+            // Check if the expressions are numbers
+            else if (!((termDef is NumberDefinition) || (termDef is FloatDefinition) || (negationDef is NumberDefinition) || (negationDef is FloatDefinition)))
+            {
+                PrintWarning(node.GetSlash(), "You can only divide numbers");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, termDef);
+            }
+        }
+
         // --------------------------------------------------------
         // Expression
         // --------------------------------------------------------
@@ -216,30 +319,224 @@ namespace CS426.analysis
             }
         }
 
-        public override void OutAMultTerm(AMultTerm node)
+        public override void OutAPlusExpression(APlusExpression node)
         {
+            Definition expressionDef;
             Definition termDef;
-            Definition negationDef;
 
-            if(!decoratedParseTree.TryGetValue(node.GetTerm(), out termDef))
+            // Check if expression is already in the decorated tree
+            if (!decoratedParseTree.TryGetValue(node.GetExpression(), out expressionDef))
             {
                 // Error already printed
             }
-            else if(!decoratedParseTree.TryGetValue(node.GetNegation(), out negationDef))
+            // Check if term expression is already in the decorated tree
+            else if (!decoratedParseTree.TryGetValue(node.GetTerm(), out termDef))
             {
                 // Error already printed
             }
-            else if(termDef.GetType() != negationDef.GetType())
+            // Check if any type is a string
+            else if ((termDef.name == "str") || (expressionDef.name == "str"))
             {
-                PrintWarning(node.GetStar(), "Cannot multiply " + termDef.name + " by " + negationDef.name);
+                PrintWarning(node.GetPlusSign(), "Cannot add " + expressionDef.name + " by " + termDef.name);
             }
-            else if(!(termDef is NumberDefinition))
+            // Check if the expressions are numbers
+            else if (!((termDef is NumberDefinition) || (termDef is FloatDefinition) || (expressionDef is NumberDefinition) || (expressionDef is FloatDefinition)))
             {
-                PrintWarning(node.GetStar(), "You can only multiply numbers");
+                PrintWarning(node.GetPlusSign(), "You can only add numbers or floats");
             }
             else
             {
-                decoratedParseTree.Add(node, termDef);
+                decoratedParseTree.Add(node, expressionDef);
+            }
+        }
+
+        public override void OutAMinusExpression(AMinusExpression node)
+        {
+            Definition expressionDef;
+            Definition termDef;
+
+            // Check if expression is already in the decorated tree
+            if (!decoratedParseTree.TryGetValue(node.GetExpression(), out expressionDef))
+            {
+                // Error already printed
+            }
+            // Check if term expression is already in the decorated tree
+            else if (!decoratedParseTree.TryGetValue(node.GetTerm(), out termDef))
+            {
+                // Error already printed
+            }
+            // Check if any type is a string
+            else if ((termDef.name == "str") || (expressionDef.name == "str"))
+            {
+                PrintWarning(node.GetMinusSign(), "Cannot subtract " + expressionDef.name + " by " + termDef.name);
+            }
+            // Check if the expressions are numbers
+            else if (!((termDef is NumberDefinition) || (termDef is FloatDefinition) || (expressionDef is NumberDefinition) || (expressionDef is FloatDefinition)))
+            {
+                PrintWarning(node.GetMinusSign(), "You can only subtract numbers or floats");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, expressionDef);
+            }
+        }
+
+        // --------------------------------------------------------
+        // Number Comparison
+        // --------------------------------------------------------
+        public override void OutANotEqualNumComp(ANotEqualNumComp node)
+        {
+            Definition LHSExpressionDef;
+            Definition RHSExpressionDef;
+
+            // Check if lhs is already in decorated tree
+            if (!decoratedParseTree.TryGetValue(node.GetLhs(), out LHSExpressionDef))
+            {
+                // Error already printed
+            }
+            // Check if rhs is already in decorated tree
+            else if(!decoratedParseTree.TryGetValue(node.GetRhs(), out RHSExpressionDef))
+            {
+                // Error already printed
+            }
+            // Check is the lhs and rhs are the same types
+            else if(LHSExpressionDef.name != RHSExpressionDef.name)
+            {
+                PrintWarning(node.GetNeqSign(), "Cannot compare different types");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, LHSExpressionDef);
+            }
+        }
+
+        public override void OutAEqualNumComp(AEqualNumComp node)
+        {
+            Definition LHSExpressionDef;
+            Definition RHSExpressionDef;
+
+            // Check if lhs is already in decorated tree
+            if (!decoratedParseTree.TryGetValue(node.GetLhs(), out LHSExpressionDef))
+            {
+                // Error already printed
+            }
+            // Check if rhs is already in decorated tree
+            else if (!decoratedParseTree.TryGetValue(node.GetRhs(), out RHSExpressionDef))
+            {
+                // Error already printed
+            }
+            // Check is the lhs and rhs are the same types
+            else if (LHSExpressionDef.name != RHSExpressionDef.name)
+            {
+                PrintWarning(node.GetEqSign(), "Cannot compare different types");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, LHSExpressionDef);
+            }
+        }
+
+        public override void OutAGreaterEqualNumComp(AGreaterEqualNumComp node)
+        {
+            Definition LHSExpressionDef;
+            Definition RHSExpressionDef;
+
+            // Check if lhs is already in decorated tree
+            if (!decoratedParseTree.TryGetValue(node.GetLhs(), out LHSExpressionDef))
+            {
+                // Error already printed
+            }
+            // Check if rhs is already in decorated tree
+            else if (!decoratedParseTree.TryGetValue(node.GetRhs(), out RHSExpressionDef))
+            {
+                // Error already printed
+            }
+            // Check is the lhs and rhs are the same types
+            else if (LHSExpressionDef.name != RHSExpressionDef.name)
+            {
+                PrintWarning(node.GetGeqSign(), "Cannot compare different types");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, LHSExpressionDef);
+            }
+        }
+
+        public override void OutAGreaterNumComp(AGreaterNumComp node)
+        {
+            Definition LHSExpressionDef;
+            Definition RHSExpressionDef;
+
+            // Check if lhs is already in decorated tree
+            if (!decoratedParseTree.TryGetValue(node.GetLhs(), out LHSExpressionDef))
+            {
+                // Error already printed
+            }
+            // Check if rhs is already in decorated tree
+            else if (!decoratedParseTree.TryGetValue(node.GetRhs(), out RHSExpressionDef))
+            {
+                // Error already printed
+            }
+            // Check is the lhs and rhs are the same types
+            else if (LHSExpressionDef.name != RHSExpressionDef.name)
+            {
+                PrintWarning(node.GetGtSign(), "Cannot compare different types");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, LHSExpressionDef);
+            }
+        }
+
+        public override void OutALessEqualNumComp(ALessEqualNumComp node)
+        {
+            Definition LHSExpressionDef;
+            Definition RHSExpressionDef;
+
+            // Check if lhs is already in decorated tree
+            if (!decoratedParseTree.TryGetValue(node.GetLhs(), out LHSExpressionDef))
+            {
+                // Error already printed
+            }
+            // Check if rhs is already in decorated tree
+            else if (!decoratedParseTree.TryGetValue(node.GetRhs(), out RHSExpressionDef))
+            {
+                // Error already printed
+            }
+            // Check is the lhs and rhs are the same types
+            else if (LHSExpressionDef.name != RHSExpressionDef.name)
+            {
+                PrintWarning(node.GetLeqSign(), "Cannot compare different types");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, LHSExpressionDef);
+            }
+        }
+
+        public override void OutALessNumComp(ALessNumComp node)
+        {
+            Definition LHSExpressionDef;
+            Definition RHSExpressionDef;
+
+            // Check if lhs is already in decorated tree
+            if (!decoratedParseTree.TryGetValue(node.GetLhs(), out LHSExpressionDef))
+            {
+                // Error already printed
+            }
+            // Check if rhs is already in decorated tree
+            else if (!decoratedParseTree.TryGetValue(node.GetRhs(), out RHSExpressionDef))
+            {
+                // Error already printed
+            }
+            // Check is the lhs and rhs are the same types
+            else if (LHSExpressionDef.name != RHSExpressionDef.name)
+            {
+                PrintWarning(node.GetLtSign(), "Cannot compare different types");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, LHSExpressionDef);
             }
         }
 

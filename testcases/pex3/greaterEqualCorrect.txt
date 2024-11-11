@@ -1,0 +1,11 @@
+﻿function main() {
+	if(3 >= 3) {
+	
+	}
+	
+	int x;
+	int y;
+	if(x >= y) {
+	
+	}
+}

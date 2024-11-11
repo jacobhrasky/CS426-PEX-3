@@ -1,0 +1,10 @@
+function main() {
+
+	if(3 > "hi") {
+	
+	}
+
+	if(x > y) {
+	
+	}
+}

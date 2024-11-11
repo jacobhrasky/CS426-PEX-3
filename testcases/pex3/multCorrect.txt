@@ -4,4 +4,10 @@ function main() {
 
 	float y;
 	y := 3.3 * 3.3;
+
+	float z;
+	z := 3.3 * 3;
+
+	int a;
+	a := 3 * 3.3;
 }

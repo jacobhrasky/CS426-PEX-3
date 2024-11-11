@@ -1,0 +1,6 @@
+function main() {
+
+	int x := y + 4;
+
+	x := 5 + "hi";
+}

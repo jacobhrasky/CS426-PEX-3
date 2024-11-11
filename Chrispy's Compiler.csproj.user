@@ -3,6 +3,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <StartWorkingDirectory>
     </StartWorkingDirectory>
-    <StartArguments>"../../testcases/pex3/multCorrect.txt"</StartArguments>
+    <StartArguments>"../../testcases/pex3/lessWrong.txt"</StartArguments>
   </PropertyGroup>
 </Project>

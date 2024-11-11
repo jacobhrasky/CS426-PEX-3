@@ -53,6 +53,13 @@
     <Compile Include="prods.cs" />
     <Compile Include="PEX_Main.cs" />
     <Compile Include="SemanticAnalyzer.cs" />
+    <Content Include="testcases\pex3\equalWrong.txt" />
+    <Content Include="testcases\pex3\greaterEqualWrong.txt" />
+    <Content Include="testcases\pex3\greaterWrong.txt" />
+    <Content Include="testcases\pex3\lessEqualWrong.txt" />
+    <Content Include="testcases\pex3\lessWrong.txt" />
+    <Content Include="testcases\pex3\equalCorrect.txt" />
+    <Content Include="testcases\pex3\greaterEqualCorrect.txt" />
     <Compile Include="tokens.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -95,13 +102,22 @@
     <Content Include="testcases\pex3\assignWrong.txt" />
     <Content Include="testcases\pex3\declarationCorrect.txt" />
     <Content Include="testcases\pex3\declarationWrong.txt" />
+    <Content Include="testcases\pex3\divideCorrect.txt" />
+    <Content Include="testcases\pex3\greaterCorrect.txt" />
+    <Content Include="testcases\pex3\lessCorrect.txt" />
+    <Content Include="testcases\pex3\lessEqualCorrect.txt" />
     <Content Include="testcases\pex3\multCorrect.txt" />
     <Content Include="testcases\pex3\multWrong.txt" />
     <Content Include="testcases\pex3\negationCorrect.txt" />
     <Content Include="testcases\pex3\negationWrong.txt" />
+    <Content Include="testcases\pex3\NotEqualCorrect.txt" />
+    <Content Include="testcases\pex3\NotEqualWrong.txt" />
     <Content Include="testcases\pex3\parensCorrect.txt" />
     <Content Include="testcases\pex3\parensWrong.txt" />
-    <Content Include="testcases\pex3\test1.txt" />
+    <Content Include="testcases\pex3\plusCorrect.txt" />
+    <Content Include="testcases\pex3\plusWrong.txt" />
+    <Content Include="testcases\pex3\subCorrect.txt" />
+    <Content Include="testcases\pex3\subWrong.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -112,6 +128,7 @@
     <None Include="PEX_TEST - PEX1.bat" />
     <None Include="PEX_TEST.bat" />
     <None Include="README.parser" />
+    <Content Include="testcases\pex3\divideWrong.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="testcases\pex4\" />
