@@ -11,26 +11,26 @@ using System.Threading.Tasks;
  * const_declarations   |
  * funct_declarations   |
  * main_declaration     |
- * bool_exp             |
- * bool_term            |
- * bool_not             |
- * bool_comp            |
- * bool_parens          |
+ * bool_exp             |   Done
+ * bool_term            |   Done
+ * bool_not             |   Done
+ * bool_comp            |   Done
+ * bool_parens          |   Done?
  * num_comp             |   Done
  * expression           |   Done
  * term                 |   Divide needs to check if divisor is a zero
  * negation             |   Done
- * parenthetical_exp    |   Done
+ * parenthetical_exp    |   Done? Not really tested though
  * operand              |   Done
  * literal              |   Done           
- * param_declarations   |
- * param_declaration    |
- * statements           |
- * statement            |
+ * param_declarations   |   Needs more work
+ * param_declaration    |   Needs more work
+ * statements           |   Done
+ * statement            |   Done
  * var_dec              |   Done
- * opt_assignment       |
- * funct_call           |
- * call_params          |
+ * opt_assignment       |   ?
+ * funct_call           |   Needs more work
+ * call_params          |   Needs more work
  * assignment           |   Done
  * if_stmt              |
  * else_stmt            |
@@ -541,6 +541,380 @@ namespace CS426.analysis
         }
 
         // --------------------------------------------------------
+        // Bool_parens
+        // --------------------------------------------------------
+
+        public override void OutASomeBoolParens(ASomeBoolParens node)
+        {
+            Definition boolExpDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetBoolExp(), out boolExpDef))
+            {
+                // Error already printed
+            }
+            else
+            {
+                decoratedParseTree.Add(node, boolExpDef);
+            }
+        }
+
+        public override void OutANoneBoolParens(ANoneBoolParens node)
+        {
+            Definition numCompDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetNumComp(), out  numCompDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, numCompDef);
+            }
+        }
+
+        // --------------------------------------------------------
+        // Bool_Comp
+        // --------------------------------------------------------
+        public override void OutASoloBoolComp(ASoloBoolComp node)
+        {
+            Definition boolParensDef;
+
+            if (!decoratedParseTree.TryGetValue(node.GetBoolParens(), out boolParensDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, boolParensDef);
+            }
+        }
+
+        public override void OutAEqualBoolComp(AEqualBoolComp node)
+        {
+            Definition boolCompDef;
+            Definition boolParensDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetBoolComp(), out boolCompDef))
+            {
+                // Error already printed above
+            }
+            else if(!decoratedParseTree.TryGetValue(node.GetBoolParens(), out boolParensDef))
+            {
+                // Error already printed above
+            }
+            else if(boolCompDef.name != boolParensDef.name)
+            {
+                PrintWarning(node.GetEqSign(), "Cannot compare different types");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, boolCompDef);
+            }
+        }
+
+        public override void OutANotEqualBoolComp(ANotEqualBoolComp node)
+        {
+            Definition boolCompDef;
+            Definition boolParensDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetBoolComp(), out boolCompDef))
+            {
+                // Error already printed above
+            }
+            else if(!decoratedParseTree.TryGetValue(node.GetBoolParens(), out boolParensDef))
+            {
+                // Error already printed above
+            }
+            else if(boolCompDef.name != boolParensDef.name)
+            {
+                PrintWarning(node.GetNeqSign(), "Cannot compare different types");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, boolCompDef);
+            }
+        }
+
+        // --------------------------------------------------------
+        // Bool_Not
+        // --------------------------------------------------------
+
+        public override void OutANegBoolNot(ANegBoolNot node)
+        {
+            Definition boolCompDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetBoolComp(), out boolCompDef))
+            {
+                // Error already printed above
+            }
+            else if(!((boolCompDef is NumberDefinition) || (boolCompDef is FloatDefinition)))
+            {
+                PrintWarning(node.GetNotSign(), "Can only not numbers and floats");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, boolCompDef);
+            }
+        }
+
+        public override void OutAPosBoolNot(APosBoolNot node)
+        {
+            Definition boolCompDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetBoolComp(), out boolCompDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, boolCompDef);
+            }
+        }
+
+        // --------------------------------------------------------
+        // Bool_Term
+        // --------------------------------------------------------
+
+        public override void OutASingleBoolTerm(ASingleBoolTerm node)
+        {
+            Definition boolNotDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetBoolNot(), out boolNotDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, boolNotDef);
+            }
+        }
+
+        public override void OutAMultBoolTerm(AMultBoolTerm node)
+        {
+            Definition boolTermDef;
+            Definition boolNotDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetBoolTerm(), out boolTermDef))
+            {
+                // Error already printed above
+            }
+            else if(!decoratedParseTree.TryGetValue(node.GetBoolNot(), out boolNotDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, boolTermDef);
+            }
+        }
+
+        // --------------------------------------------------------
+        // Bool_Exp
+        // --------------------------------------------------------
+
+        public override void OutASingleBoolExp(ASingleBoolExp node)
+        {
+            Definition boolTermDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetBoolTerm(), out boolTermDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, boolTermDef);
+            }
+        }
+
+        public override void OutAMultBoolExp(AMultBoolExp node)
+        {
+            Definition boolExpDef;
+            Definition boolTermDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetBoolExp(), out boolExpDef))
+            {
+                // Error already printed above
+            }
+            else if(!decoratedParseTree.TryGetValue(node.GetBoolTerm(), out boolTermDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, boolExpDef);
+            }
+        }
+
+        // --------------------------------------------------------
+        // Param Declarations
+        // --------------------------------------------------------
+
+        public override void OutASomeParamDeclarations(ASomeParamDeclarations node)
+        {
+            Definition paramDeclarationsDef;
+            Definition paramDeclarationDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetParamDeclarations(), out paramDeclarationsDef))
+            {
+                // Error already printed above
+            }
+            else if(!decoratedParseTree.TryGetValue(node.GetParamDeclaration(), out paramDeclarationDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, paramDeclarationsDef);
+            }
+        }
+
+        public override void OutAOneParamDeclarations(AOneParamDeclarations node)
+        {
+            Definition paramDeclarationDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetParamDeclaration(), out paramDeclarationDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, paramDeclarationDef);
+            }
+        }
+
+        // --------------------------------------------------------
+        // Param Declaration
+        // --------------------------------------------------------
+
+        public override void OutAParamDeclaration(AParamDeclaration node)
+        {
+            Definition typeDef;
+            Definition idDef;
+
+            if (!globalSymbolTable.TryGetValue(node.GetRwType().Text, out typeDef))
+            {
+                PrintWarning(node.GetRwType(), "Type " + node.GetType().Name + " does not exist");
+            }
+            else if (!(typeDef is TypeDefinition))
+            {
+                PrintWarning(node.GetRwType(), "Identifier " + node.GetRwType().Text + " is not a recognized data type");
+            }
+            else if (localSymbolTable.TryGetValue(node.GetId().Text, out idDef))
+            {
+                PrintWarning(node.GetId(), "Identifier " + node.GetId().Text + " is already being used");
+            }
+            else if (globalSymbolTable.TryGetValue(node.GetId().Text, out idDef))
+            {
+                PrintWarning(node.GetId(), "Identifier " + node.GetId().Text + " is already being used");
+            }
+            else
+            {
+                VariableDefinition newVarDef = new VariableDefinition();
+                newVarDef.name = node.GetId().Text;
+                newVarDef.variableType = (TypeDefinition)typeDef;
+
+                localSymbolTable.Add(node.GetId().Text, newVarDef);
+            }
+        }
+
+        // --------------------------------------------------------
+        // Statements
+        // --------------------------------------------------------
+
+        public override void OutASomeStatements(ASomeStatements node)
+        {
+            Definition statementsDef;
+            Definition statementDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetStatements(), out statementsDef))
+            {
+                // Error already printed above
+            }
+            else if(!decoratedParseTree.TryGetValue(node.GetStatement(), out statementDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, statementsDef);
+            }
+        }
+
+        // --------------------------------------------------------
+        // Statement
+        // --------------------------------------------------------
+
+        public override void OutADeclarationStatement(ADeclarationStatement node)
+        {
+            Definition varDecDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetVarDec(), out varDecDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, varDecDef);
+            }
+        }
+
+        public override void OutACallStatement(ACallStatement node)
+        {
+            Definition funcCallDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetFunctCall(), out  funcCallDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, funcCallDef);
+            }
+        }
+
+        public override void OutAAssignmentStatement(AAssignmentStatement node)
+        {
+            Definition assignmentDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetAssignment(), out assignmentDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, assignmentDef);
+            }
+        }
+
+        public override void OutAIfStatement(AIfStatement node)
+        {
+            Definition ifStmtDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetIfStmt(), out ifStmtDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, ifStmtDef);
+            }
+        }
+
+        public override void OutALoopStatement(ALoopStatement node)
+        {
+            Definition loopStmtDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetLoopStmt(), out loopStmtDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, loopStmtDef);
+            }
+        }
+
+        // --------------------------------------------------------
         // Variable Declaration
         // --------------------------------------------------------
         public override void OutAVarDec(AVarDec node)
@@ -571,6 +945,66 @@ namespace CS426.analysis
                 newVarDef.variableType = (TypeDefinition)typeDef;
 
                 localSymbolTable.Add(node.GetId().Text, newVarDef);
+            }
+        }
+
+        // --------------------------------------------------------
+        // Function Call
+        // --------------------------------------------------------
+
+        public override void OutAFunctCall(AFunctCall node)
+        {
+            Definition idDef;
+            Definition callParamsDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetId(), out idDef))
+            {
+                // Error already printed above
+            }
+            else if(!decoratedParseTree.TryGetValue(node.GetCallParams(), out  callParamsDef))
+            {
+                //Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, idDef);
+            }
+        }
+
+        // --------------------------------------------------------
+        // Call Params
+        // --------------------------------------------------------
+
+        public override void OutASomeCallParams(ASomeCallParams node)
+        {
+            Definition callParamsDef;
+            Definition expressionDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetCallParams(), out callParamsDef))
+            {
+                // Error already printed above
+            }
+            else if(!decoratedParseTree.TryGetValue(node.GetExpression(), out  expressionDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, callParamsDef);
+            }
+        }
+
+        public override void OutAOneCallParams(AOneCallParams node)
+        {
+            Definition expressionDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetExpression(), out expressionDef))
+            {
+                // Error already printed above
+            }
+            else
+            {
+                decoratedParseTree.Add(node, expressionDef);
             }
         }
 

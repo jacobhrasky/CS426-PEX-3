@@ -1,0 +1,12 @@
+function main() {
+	str x := "hi";
+	int y := 1;
+	if(!(x < 0)) {
+	
+	}
+
+	int z := 9;
+	if(!(r = 0)) {
+	
+	}
+}

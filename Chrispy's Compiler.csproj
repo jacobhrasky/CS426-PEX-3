@@ -53,14 +53,30 @@
     <Compile Include="prods.cs" />
     <Compile Include="PEX_Main.cs" />
     <Compile Include="SemanticAnalyzer.cs" />
+    <Content Include="testcases\pex3\boolAndCorrect.txt" />
+    <Content Include="testcases\pex3\boolAndWrong.txt" />
+    <Content Include="testcases\pex3\boolEqualCorrect.txt" />
+    <Content Include="testcases\pex3\boolEqualWrong.txt" />
+    <Content Include="testcases\pex3\boolNotCorrect.txt" />
+    <Content Include="testcases\pex3\boolNotEqualCorrect.txt" />
+    <Content Include="testcases\pex3\boolNotEqualWrong.txt" />
+    <Content Include="testcases\pex3\boolNotWrong.txt" />
+    <Content Include="testcases\pex3\boolOrWrong.txt" />
+    <Content Include="testcases\pex3\boolParensCorrect.txt" />
+    <Content Include="testcases\pex3\boolParensWrong.txt" />
     <Content Include="testcases\pex3\equalWrong.txt" />
+    <Content Include="testcases\pex3\funcCallCorrect.txt" />
+    <Content Include="testcases\pex3\funcCallWrong.txt" />
     <Content Include="testcases\pex3\greaterEqualWrong.txt" />
     <Content Include="testcases\pex3\greaterWrong.txt" />
     <Content Include="testcases\pex3\lessEqualWrong.txt" />
     <Content Include="testcases\pex3\lessWrong.txt" />
     <Content Include="testcases\pex3\equalCorrect.txt" />
     <Content Include="testcases\pex3\greaterEqualCorrect.txt" />
+    <Content Include="testcases\pex3\boolOrCorrect.txt" />
     <Compile Include="tokens.cs" />
+    <Content Include="testcases\pex3\varDeclarationCorrect.txt" />
+    <Content Include="testcases\pex3\varDeclarationWrong.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Documentation.txt" />
@@ -112,6 +128,8 @@
     <Content Include="testcases\pex3\negationWrong.txt" />
     <Content Include="testcases\pex3\NotEqualCorrect.txt" />
     <Content Include="testcases\pex3\NotEqualWrong.txt" />
+    <Content Include="testcases\pex3\paramDeclarationCorrect.txt" />
+    <Content Include="testcases\pex3\paramDeclarationWrong.txt" />
     <Content Include="testcases\pex3\parensCorrect.txt" />
     <Content Include="testcases\pex3\parensWrong.txt" />
     <Content Include="testcases\pex3\plusCorrect.txt" />

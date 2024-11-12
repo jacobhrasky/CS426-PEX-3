@@ -1,0 +1,7 @@
+function foo(int x, float y, str z) {
+
+}
+
+function main() {
+	foo(1, 1.1, "hi");
+}
