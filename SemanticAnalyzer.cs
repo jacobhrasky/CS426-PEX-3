@@ -118,7 +118,7 @@ namespace CS426.analysis
                     Definition exprDef;
                     if (!decoratedParseTree.TryGetValue(node.GetExpression(), out exprDef))
                     {
-                        // Expression error already reported
+                        // Error already printed above
                     }
                     else if (exprDef.name != typeDef.name)
                     {
@@ -136,14 +136,9 @@ namespace CS426.analysis
                     }
                 }
             }
-
-            // No need to process const_declarations recursively as the visitor pattern handles it
         }
 
-        public override void OutANoneConstDeclarations(ANoneConstDeclarations node)
-        {
-            // No action needed for empty const declarations
-        }
+        public override void OutANoneConstDeclarations(ANoneConstDeclarations node) {}
 
         // --------------------------------------------------------
         // Param Declarations
@@ -163,14 +158,11 @@ namespace CS426.analysis
             node.GetParamDeclaration().Apply(this);
         }
 
-        public override void InANoneParamDeclarations(ANoneParamDeclarations node)
-        {
-            // No parameters to process
-        }
+        public override void InANoneParamDeclarations(ANoneParamDeclarations node) {}
 
 
         // --------------------------------------------------------
-        // funct declarations
+        // Funct Declarations
         // --------------------------------------------------------
         public override void InASomeFunctDeclarations(ASomeFunctDeclarations node)
         {
@@ -217,13 +209,10 @@ namespace CS426.analysis
             }
         }
 
-        public override void OutANoneFunctDeclarations(ANoneFunctDeclarations node)
-        {
-            // No action needed
-        }
+        public override void OutANoneFunctDeclarations(ANoneFunctDeclarations node) {}
 
         // --------------------------------------------------------
-        // main_declaration
+        // Main Declaration
         // --------------------------------------------------------
 
         public override void InAMainDeclaration(AMainDeclaration node)
@@ -335,7 +324,7 @@ namespace CS426.analysis
 
                 if (actualParams == null)
                 {
-                    // Error already reported during call_params traversal
+                        // Error already printed above
                 }
                 else if (actualParams.Count != functionDef.parameters.Count)
                 {
@@ -369,7 +358,7 @@ namespace CS426.analysis
                 Definition exprDef;
                 if (!decoratedParseTree.TryGetValue(someCallParams.GetExpression(), out exprDef))
                 {
-                    // Error already reported
+                    // Error already printed above
                     return null;
                 }
                 else
@@ -381,7 +370,7 @@ namespace CS426.analysis
                 List<Definition> restParams = GetActualParameters(someCallParams.GetCallParams());
                 if (restParams == null)
                 {
-                    // Error already reported
+                    // Error already printed above
                     return null;
                 }
                 else
@@ -395,7 +384,7 @@ namespace CS426.analysis
                 Definition exprDef;
                 if (!decoratedParseTree.TryGetValue(oneCallParams.GetExpression(), out exprDef))
                 {
-                    // Error already reported
+                    // Error already printed above
                     return null;
                 }
                 else
@@ -414,14 +403,6 @@ namespace CS426.analysis
                 return null;
             }
         }
-
-
-
-
-
-
-
-
 
         // --------------------------------------------------------
         // Literals
@@ -702,9 +683,6 @@ namespace CS426.analysis
                 decoratedParseTree.Add(node, termDef);
             }
         }
-
-
-
 
         // --------------------------------------------------------
         // Expression
@@ -1187,12 +1165,6 @@ namespace CS426.analysis
         }
 
         // --------------------------------------------------------
-        // Param Declaration
-        // --------------------------------------------------------
-
-       
-
-        // --------------------------------------------------------
         // Statements
         // --------------------------------------------------------
 
@@ -1291,9 +1263,6 @@ namespace CS426.analysis
 
         // --------------------------------------------------------
         // Variable Declaration
-        // --------------------------------------------------------
-        // --------------------------------------------------------
-        // Variable Declaration with Optional Assignment
         // --------------------------------------------------------
         public override void OutAVarDec(AVarDec node)
         {
@@ -1406,7 +1375,7 @@ namespace CS426.analysis
             }
             else if(!decoratedParseTree.TryGetValue(node.GetExpression(), out expressionDef))
             {
-                // Error would have already been printed
+                 // Error already printed above
             }
             else if(((VariableDefinition)idDef).variableType.name != expressionDef.name)
             {
@@ -1434,8 +1403,6 @@ namespace CS426.analysis
             {
                 PrintWarning(node.GetRwIf(), "Condition in 'if' statement must be a boolean expression.");
             }
-
-            // Statements inside the 'if' are processed during traversal
         }
 
 
@@ -1444,13 +1411,12 @@ namespace CS426.analysis
         // --------------------------------------------------------
         public override void OutAYesElseElseStmt(AYesElseElseStmt node)
         {
-            // The 'else' block exists and statements are processed during traversal
             // No additional action needed here
         }
 
         public override void OutANoElseElseStmt(ANoElseElseStmt node)
         {
-            // No 'else' block; nothing to do
+            // No additional action needed here
         }
 
         // --------------------------------------------------------
@@ -1462,21 +1428,12 @@ namespace CS426.analysis
 
             if (!decoratedParseTree.TryGetValue(node.GetBoolExp(), out boolExpDef))
             {
-                // Error already printed during bool_exp processing
+                // Error already printed above
             }
             else if (!(boolExpDef is BooleanDefinition))
             {
                 PrintWarning(node.GetRwWhile(), "Condition in 'while' loop must be a boolean expression.");
             }
-
-            // Statements inside the loop are processed during traversal
         }
-
-
-
-
-
-
-
     }
 }

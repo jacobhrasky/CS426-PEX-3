@@ -1,0 +1,7 @@
+funcation foo(int x, float y, str z) {
+
+}
+
+function main() {
+
+}
