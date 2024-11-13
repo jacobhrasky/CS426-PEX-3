@@ -1,0 +1,4313 @@
+PEX3 TEST CASES 
+ 
+**Variable Declarations** 
+ 
+*varDeclarationCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ANoneStatements
+        |  |  |  `- ADeclarationStatement
+        |  |  |     `- AVarDec
+        |  |  |        |- int
+        |  |  |        `- x
+        |  |  |        |- AOptAgainstOptAssignment
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- float
+        |  |        `- y
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- ADeclarationStatement
+        |     `- AVarDec
+        |        |- str
+        |        `- z
+        |        |- AOptAgainstOptAssignment
+        |        `- ;
+        `- }
+
+ 
+*varDeclarationWrong.txt 
+Line 3, Col 8: Identifier x is already being used
+Line 4, Col 6: Identifier x is already being used
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ANoneStatements
+        |  |  |  |  `- ADeclarationStatement
+        |  |  |  |     `- AVarDec
+        |  |  |  |        |- int
+        |  |  |  |        `- x
+        |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |        `- ;
+        |  |  |  `- ADeclarationStatement
+        |  |  |     `- AVarDec
+        |  |  |        |- float
+        |  |  |        `- x
+        |  |  |        |- AOptAgainstOptAssignment
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- str
+        |  |        `- x
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- ADeclarationStatement
+        |     `- AVarDec
+        |        |- int
+        |        `- y
+        |        |- AOptAgainstOptAssignment
+        |        `- ;
+        `- }
+
+ 
+ 
+**Parameter Declarations** 
+ 
+*paramDeclarationCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ASomeFunctDeclarations
+     |  |- ANoneFunctDeclarations
+     |  |- function
+     |  |- foo
+     |  |- (
+     |  |- ASomeParamDeclarations
+     |  |  |- ASomeParamDeclarations
+     |  |  |  |- AOneParamDeclarations
+     |  |  |  |  `- AParamDeclaration
+     |  |  |  |     |- int
+     |  |  |  |     `- x
+     |  |  |  |- ,
+     |  |  |  `- AParamDeclaration
+     |  |  |     |- float
+     |  |  |     `- y
+     |  |  |- ,
+     |  |  `- AParamDeclaration
+     |  |     |- str
+     |  |     `- z
+     |  |- )
+     |  `- {
+     |  |- ANoneStatements
+     |  `- }
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ANoneStatements
+        `- }
+
+ 
+*paramDeclarationWrong.txt 
+Line 2, Col 28: Identifier x is already being used
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ASomeFunctDeclarations
+     |  |- ANoneFunctDeclarations
+     |  |- function
+     |  |- foo2
+     |  |- (
+     |  |- ASomeParamDeclarations
+     |  |  |- ASomeParamDeclarations
+     |  |  |  |- AOneParamDeclarations
+     |  |  |  |  `- AParamDeclaration
+     |  |  |  |     |- int
+     |  |  |  |     `- x
+     |  |  |  |- ,
+     |  |  |  `- AParamDeclaration
+     |  |  |     |- float
+     |  |  |     `- x
+     |  |  |- ,
+     |  |  `- AParamDeclaration
+     |  |     |- str
+     |  |     `- z
+     |  |- )
+     |  `- {
+     |  |- ANoneStatements
+     |  `- }
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ANoneStatements
+        `- }
+
+ 
+ 
+**Function Calls with Parameters** 
+ 
+*funcCallCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ASomeFunctDeclarations
+     |  |- ANoneFunctDeclarations
+     |  |- function
+     |  |- foo
+     |  |- (
+     |  |- ASomeParamDeclarations
+     |  |  |- ASomeParamDeclarations
+     |  |  |  |- AOneParamDeclarations
+     |  |  |  |  `- AParamDeclaration
+     |  |  |  |     |- int
+     |  |  |  |     `- x
+     |  |  |  |- ,
+     |  |  |  `- AParamDeclaration
+     |  |  |     |- float
+     |  |  |     `- y
+     |  |  |- ,
+     |  |  `- AParamDeclaration
+     |  |     |- str
+     |  |     `- z
+     |  |- )
+     |  `- {
+     |  |- ANoneStatements
+     |  `- }
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ANoneStatements
+        |  `- ACallStatement
+        |     `- AFunctCall
+        |        |- foo
+        |        |- (
+        |        |- ASomeCallParams
+        |        |  |- ASomeCallParams
+        |        |  |  |- AOneCallParams
+        |        |  |  |  `- ASoloExpression
+        |        |  |  |     `- ASingleTerm
+        |        |  |  |        `- APosNegation
+        |        |  |  |           `- ANoneParentheticalExp
+        |        |  |  |              `- ALitOperand
+        |        |  |  |                 `- AIntLiteral
+        |        |  |  |                    `- 1
+        |        |  |  |- ,
+        |        |  |  `- ASoloExpression
+        |        |  |     `- ASingleTerm
+        |        |  |        `- APosNegation
+        |        |  |           `- ANoneParentheticalExp
+        |        |  |              `- ALitOperand
+        |        |  |                 `- AFloatLiteral
+        |        |  |                    `- 1.1
+        |        |  |- ,
+        |        |  `- ASoloExpression
+        |        |     `- ASingleTerm
+        |        |        `- APosNegation
+        |        |           `- ANoneParentheticalExp
+        |        |              `- ALitOperand
+        |        |                 `- AStrLiteral
+        |        |                    `- "hi"
+        |        |- )
+        |        `- ;
+        `- }
+
+ 
+*funcCallWrong.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ASomeFunctDeclarations
+     |  |- ANoneFunctDeclarations
+     |  |- function
+     |  |- foo
+     |  |- (
+     |  |- ASomeParamDeclarations
+     |  |  |- ASomeParamDeclarations
+     |  |  |  |- AOneParamDeclarations
+     |  |  |  |  `- AParamDeclaration
+     |  |  |  |     |- int
+     |  |  |  |     `- x
+     |  |  |  |- ,
+     |  |  |  `- AParamDeclaration
+     |  |  |     |- float
+     |  |  |     `- y
+     |  |  |- ,
+     |  |  `- AParamDeclaration
+     |  |     |- str
+     |  |     `- z
+     |  |- )
+     |  `- {
+     |  |- ANoneStatements
+     |  `- }
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ANoneStatements
+        |  `- ACallStatement
+        |     `- AFunctCall
+        |        |- foo
+        |        |- (
+        |        |- ASomeCallParams
+        |        |  |- ASomeCallParams
+        |        |  |  |- AOneCallParams
+        |        |  |  |  `- ASoloExpression
+        |        |  |  |     `- ASingleTerm
+        |        |  |  |        `- APosNegation
+        |        |  |  |           `- ANoneParentheticalExp
+        |        |  |  |              `- ALitOperand
+        |        |  |  |                 `- AFloatLiteral
+        |        |  |  |                    `- 1.1
+        |        |  |  |- ,
+        |        |  |  `- ASoloExpression
+        |        |  |     `- ASingleTerm
+        |        |  |        `- APosNegation
+        |        |  |           `- ANoneParentheticalExp
+        |        |  |              `- ALitOperand
+        |        |  |                 `- AStrLiteral
+        |        |  |                    `- "hi"
+        |        |  |- ,
+        |        |  `- ASoloExpression
+        |        |     `- ASingleTerm
+        |        |        `- APosNegation
+        |        |           `- ANoneParentheticalExp
+        |        |              `- ALitOperand
+        |        |                 `- AIntLiteral
+        |        |                    `- 1
+        |        |- )
+        |        `- ;
+        `- }
+
+ 
+ 
+**Assignment Statements** 
+ 
+*assignCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ANoneStatements
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- x
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- ASoloExpression
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 5
+        |  |        `- ;
+        |  `- ADeclarationStatement
+        |     `- AVarDec
+        |        |- float
+        |        |- y
+        |        |- AOptForOptAssignment
+        |        |  |- :=
+        |        |  `- APlusExpression
+        |        |     |- ASoloExpression
+        |        |     |  `- ASingleTerm
+        |        |     |     `- APosNegation
+        |        |     |        `- ANoneParentheticalExp
+        |        |     |           `- ALitOperand
+        |        |     |              `- AFloatLiteral
+        |        |     |                 `- 5.5
+        |        |     |- +
+        |        |     `- ASingleTerm
+        |        |        `- APosNegation
+        |        |           `- ANoneParentheticalExp
+        |        |              `- ALitOperand
+        |        |                 `- AFloatLiteral
+        |        |                    `- 5.5
+        |        `- ;
+        `- }
+
+ 
+*assignWrong.txt 
+Line 2, Col 2: Identifier y does not exist
+Line 4, Col 2: Types don't match
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ANoneStatements
+        |  |  |  `- AAssignmentStatement
+        |  |  |     `- AAssignment
+        |  |  |        |- y
+        |  |  |        |- :=
+        |  |  |        |- ASoloExpression
+        |  |  |        |  `- ASingleTerm
+        |  |  |        |     `- APosNegation
+        |  |  |        |        `- ANoneParentheticalExp
+        |  |  |        |           `- ALitOperand
+        |  |  |        |              `- AIntLiteral
+        |  |  |        |                 `- 5
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- float
+        |  |        `- x
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- AAssignmentStatement
+        |     `- AAssignment
+        |        |- x
+        |        |- :=
+        |        |- ASoloExpression
+        |        |  `- ASingleTerm
+        |        |     `- APosNegation
+        |        |        `- ANoneParentheticalExp
+        |        |           `- ALitOperand
+        |        |              `- AStrLiteral
+        |        |                 `- "hello"
+        |        `- ;
+        `- }
+
+ 
+ 
+**Addition Operations** 
+ 
+*plusCorrect.txt 
+Line 9, Col 2: Types don't match
+Line 12, Col 2: Types don't match
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |  |  |  |- ANoneStatements
+        |  |  |  |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |  |  |  |     `- AVarDec
+        |  |  |  |  |  |  |  |        |- int
+        |  |  |  |  |  |  |  |        `- x
+        |  |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |  |  |  |  |        `- ;
+        |  |  |  |  |  |  |  `- AAssignmentStatement
+        |  |  |  |  |  |  |     `- AAssignment
+        |  |  |  |  |  |  |        |- x
+        |  |  |  |  |  |  |        |- :=
+        |  |  |  |  |  |  |        |- APlusExpression
+        |  |  |  |  |  |  |        |  |- ASoloExpression
+        |  |  |  |  |  |  |        |  |  `- ASingleTerm
+        |  |  |  |  |  |  |        |  |     `- APosNegation
+        |  |  |  |  |  |  |        |  |        `- ANoneParentheticalExp
+        |  |  |  |  |  |  |        |  |           `- ALitOperand
+        |  |  |  |  |  |  |        |  |              `- AIntLiteral
+        |  |  |  |  |  |  |        |  |                 `- 8
+        |  |  |  |  |  |  |        |  |- +
+        |  |  |  |  |  |  |        |  `- ASingleTerm
+        |  |  |  |  |  |  |        |     `- APosNegation
+        |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+        |  |  |  |  |  |  |        |           `- ALitOperand
+        |  |  |  |  |  |  |        |              `- AIntLiteral
+        |  |  |  |  |  |  |        |                 `- 8
+        |  |  |  |  |  |  |        `- ;
+        |  |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |  |     `- AVarDec
+        |  |  |  |  |  |        |- float
+        |  |  |  |  |  |        `- y
+        |  |  |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |  |  |        `- ;
+        |  |  |  |  |  `- AAssignmentStatement
+        |  |  |  |  |     `- AAssignment
+        |  |  |  |  |        |- y
+        |  |  |  |  |        |- :=
+        |  |  |  |  |        |- APlusExpression
+        |  |  |  |  |        |  |- ASoloExpression
+        |  |  |  |  |        |  |  `- ASingleTerm
+        |  |  |  |  |        |  |     `- APosNegation
+        |  |  |  |  |        |  |        `- ANoneParentheticalExp
+        |  |  |  |  |        |  |           `- ALitOperand
+        |  |  |  |  |        |  |              `- AFloatLiteral
+        |  |  |  |  |        |  |                 `- 3.3
+        |  |  |  |  |        |  |- +
+        |  |  |  |  |        |  `- ASingleTerm
+        |  |  |  |  |        |     `- APosNegation
+        |  |  |  |  |        |        `- ANoneParentheticalExp
+        |  |  |  |  |        |           `- ALitOperand
+        |  |  |  |  |        |              `- AFloatLiteral
+        |  |  |  |  |        |                 `- 3.3
+        |  |  |  |  |        `- ;
+        |  |  |  |  `- ADeclarationStatement
+        |  |  |  |     `- AVarDec
+        |  |  |  |        |- int
+        |  |  |  |        `- z
+        |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |        `- ;
+        |  |  |  `- AAssignmentStatement
+        |  |  |     `- AAssignment
+        |  |  |        |- z
+        |  |  |        |- :=
+        |  |  |        |- APlusExpression
+        |  |  |        |  |- ASoloExpression
+        |  |  |        |  |  `- ASingleTerm
+        |  |  |        |  |     `- APosNegation
+        |  |  |        |  |        `- ANoneParentheticalExp
+        |  |  |        |  |           `- ALitOperand
+        |  |  |        |  |              `- AFloatLiteral
+        |  |  |        |  |                 `- 3.3
+        |  |  |        |  |- +
+        |  |  |        |  `- ASingleTerm
+        |  |  |        |     `- APosNegation
+        |  |  |        |        `- ANoneParentheticalExp
+        |  |  |        |           `- ALitOperand
+        |  |  |        |              `- AIntLiteral
+        |  |  |        |                 `- 3
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- float
+        |  |        `- a
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- AAssignmentStatement
+        |     `- AAssignment
+        |        |- a
+        |        |- :=
+        |        |- APlusExpression
+        |        |  |- ASoloExpression
+        |        |  |  `- ASingleTerm
+        |        |  |     `- APosNegation
+        |        |  |        `- ANoneParentheticalExp
+        |        |  |           `- ALitOperand
+        |        |  |              `- AIntLiteral
+        |        |  |                 `- 3
+        |        |  |- +
+        |        |  `- ASingleTerm
+        |        |     `- APosNegation
+        |        |        `- ANoneParentheticalExp
+        |        |           `- ALitOperand
+        |        |              `- AFloatLiteral
+        |        |                 `- 3.3
+        |        `- ;
+        `- }
+
+ 
+*plusWrong.txt 
+Line 3, Col 11: y does not exist
+Line 5, Col 9: Cannot add int by str
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ANoneStatements
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- x
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- APlusExpression
+        |  |        |     |- ASoloExpression
+        |  |        |     |  `- ASingleTerm
+        |  |        |     |     `- APosNegation
+        |  |        |     |        `- ANoneParentheticalExp
+        |  |        |     |           `- AVarOperand
+        |  |        |     |              `- y
+        |  |        |     |- +
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 4
+        |  |        `- ;
+        |  `- AAssignmentStatement
+        |     `- AAssignment
+        |        |- x
+        |        |- :=
+        |        |- APlusExpression
+        |        |  |- ASoloExpression
+        |        |  |  `- ASingleTerm
+        |        |  |     `- APosNegation
+        |        |  |        `- ANoneParentheticalExp
+        |        |  |           `- ALitOperand
+        |        |  |              `- AIntLiteral
+        |        |  |                 `- 5
+        |        |  |- +
+        |        |  `- ASingleTerm
+        |        |     `- APosNegation
+        |        |        `- ANoneParentheticalExp
+        |        |           `- ALitOperand
+        |        |              `- AStrLiteral
+        |        |                 `- "hi"
+        |        `- ;
+        `- }
+
+ 
+ 
+**Subtraction Operations** 
+ 
+*subCorrect.txt 
+Line 9, Col 2: Types don't match
+Line 12, Col 2: Types don't match
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |  |  |  |- ANoneStatements
+        |  |  |  |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |  |  |  |     `- AVarDec
+        |  |  |  |  |  |  |  |        |- int
+        |  |  |  |  |  |  |  |        `- x
+        |  |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |  |  |  |  |        `- ;
+        |  |  |  |  |  |  |  `- AAssignmentStatement
+        |  |  |  |  |  |  |     `- AAssignment
+        |  |  |  |  |  |  |        |- x
+        |  |  |  |  |  |  |        |- :=
+        |  |  |  |  |  |  |        |- AMinusExpression
+        |  |  |  |  |  |  |        |  |- ASoloExpression
+        |  |  |  |  |  |  |        |  |  `- ASingleTerm
+        |  |  |  |  |  |  |        |  |     `- APosNegation
+        |  |  |  |  |  |  |        |  |        `- ANoneParentheticalExp
+        |  |  |  |  |  |  |        |  |           `- ALitOperand
+        |  |  |  |  |  |  |        |  |              `- AIntLiteral
+        |  |  |  |  |  |  |        |  |                 `- 8
+        |  |  |  |  |  |  |        |  |- -
+        |  |  |  |  |  |  |        |  `- ASingleTerm
+        |  |  |  |  |  |  |        |     `- APosNegation
+        |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+        |  |  |  |  |  |  |        |           `- ALitOperand
+        |  |  |  |  |  |  |        |              `- AIntLiteral
+        |  |  |  |  |  |  |        |                 `- 8
+        |  |  |  |  |  |  |        `- ;
+        |  |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |  |     `- AVarDec
+        |  |  |  |  |  |        |- float
+        |  |  |  |  |  |        `- y
+        |  |  |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |  |  |        `- ;
+        |  |  |  |  |  `- AAssignmentStatement
+        |  |  |  |  |     `- AAssignment
+        |  |  |  |  |        |- y
+        |  |  |  |  |        |- :=
+        |  |  |  |  |        |- AMinusExpression
+        |  |  |  |  |        |  |- ASoloExpression
+        |  |  |  |  |        |  |  `- ASingleTerm
+        |  |  |  |  |        |  |     `- APosNegation
+        |  |  |  |  |        |  |        `- ANoneParentheticalExp
+        |  |  |  |  |        |  |           `- ALitOperand
+        |  |  |  |  |        |  |              `- AFloatLiteral
+        |  |  |  |  |        |  |                 `- 3.3
+        |  |  |  |  |        |  |- -
+        |  |  |  |  |        |  `- ASingleTerm
+        |  |  |  |  |        |     `- APosNegation
+        |  |  |  |  |        |        `- ANoneParentheticalExp
+        |  |  |  |  |        |           `- ALitOperand
+        |  |  |  |  |        |              `- AFloatLiteral
+        |  |  |  |  |        |                 `- 3.3
+        |  |  |  |  |        `- ;
+        |  |  |  |  `- ADeclarationStatement
+        |  |  |  |     `- AVarDec
+        |  |  |  |        |- int
+        |  |  |  |        `- z
+        |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |        `- ;
+        |  |  |  `- AAssignmentStatement
+        |  |  |     `- AAssignment
+        |  |  |        |- z
+        |  |  |        |- :=
+        |  |  |        |- AMinusExpression
+        |  |  |        |  |- ASoloExpression
+        |  |  |        |  |  `- ASingleTerm
+        |  |  |        |  |     `- APosNegation
+        |  |  |        |  |        `- ANoneParentheticalExp
+        |  |  |        |  |           `- ALitOperand
+        |  |  |        |  |              `- AFloatLiteral
+        |  |  |        |  |                 `- 3.3
+        |  |  |        |  |- -
+        |  |  |        |  `- ASingleTerm
+        |  |  |        |     `- APosNegation
+        |  |  |        |        `- ANoneParentheticalExp
+        |  |  |        |           `- ALitOperand
+        |  |  |        |              `- AIntLiteral
+        |  |  |        |                 `- 3
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- float
+        |  |        `- a
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- AAssignmentStatement
+        |     `- AAssignment
+        |        |- a
+        |        |- :=
+        |        |- AMinusExpression
+        |        |  |- ASoloExpression
+        |        |  |  `- ASingleTerm
+        |        |  |     `- APosNegation
+        |        |  |        `- ANoneParentheticalExp
+        |        |  |           `- ALitOperand
+        |        |  |              `- AIntLiteral
+        |        |  |                 `- 3
+        |        |  |- -
+        |        |  `- ASingleTerm
+        |        |     `- APosNegation
+        |        |        `- ANoneParentheticalExp
+        |        |           `- ALitOperand
+        |        |              `- AFloatLiteral
+        |        |                 `- 3.3
+        |        `- ;
+        `- }
+
+ 
+*subWrong.txt 
+Line 3, Col 11: y does not exist
+Line 5, Col 9: Cannot subtract int by str
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ANoneStatements
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- x
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- AMinusExpression
+        |  |        |     |- ASoloExpression
+        |  |        |     |  `- ASingleTerm
+        |  |        |     |     `- APosNegation
+        |  |        |     |        `- ANoneParentheticalExp
+        |  |        |     |           `- AVarOperand
+        |  |        |     |              `- y
+        |  |        |     |- -
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 4
+        |  |        `- ;
+        |  `- AAssignmentStatement
+        |     `- AAssignment
+        |        |- x
+        |        |- :=
+        |        |- AMinusExpression
+        |        |  |- ASoloExpression
+        |        |  |  `- ASingleTerm
+        |        |  |     `- APosNegation
+        |        |  |        `- ANoneParentheticalExp
+        |        |  |           `- ALitOperand
+        |        |  |              `- AIntLiteral
+        |        |  |                 `- 5
+        |        |  |- -
+        |        |  `- ASingleTerm
+        |        |     `- APosNegation
+        |        |        `- ANoneParentheticalExp
+        |        |           `- ALitOperand
+        |        |              `- AStrLiteral
+        |        |                 `- "hi"
+        |        `- ;
+        `- }
+
+ 
+ 
+**Multiplication Operations** 
+ 
+*multCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |  |  |  |- ANoneStatements
+        |  |  |  |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |  |  |  |     `- AVarDec
+        |  |  |  |  |  |  |  |        |- int
+        |  |  |  |  |  |  |  |        `- x
+        |  |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |  |  |  |  |        `- ;
+        |  |  |  |  |  |  |  `- AAssignmentStatement
+        |  |  |  |  |  |  |     `- AAssignment
+        |  |  |  |  |  |  |        |- x
+        |  |  |  |  |  |  |        |- :=
+        |  |  |  |  |  |  |        |- ASoloExpression
+        |  |  |  |  |  |  |        |  `- AMultTerm
+        |  |  |  |  |  |  |        |     |- ASingleTerm
+        |  |  |  |  |  |  |        |     |  `- APosNegation
+        |  |  |  |  |  |  |        |     |     `- ANoneParentheticalExp
+        |  |  |  |  |  |  |        |     |        `- ALitOperand
+        |  |  |  |  |  |  |        |     |           `- AIntLiteral
+        |  |  |  |  |  |  |        |     |              `- 8
+        |  |  |  |  |  |  |        |     |- *
+        |  |  |  |  |  |  |        |     `- APosNegation
+        |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+        |  |  |  |  |  |  |        |           `- ALitOperand
+        |  |  |  |  |  |  |        |              `- AIntLiteral
+        |  |  |  |  |  |  |        |                 `- 8
+        |  |  |  |  |  |  |        `- ;
+        |  |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |  |     `- AVarDec
+        |  |  |  |  |  |        |- float
+        |  |  |  |  |  |        `- y
+        |  |  |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |  |  |        `- ;
+        |  |  |  |  |  `- AAssignmentStatement
+        |  |  |  |  |     `- AAssignment
+        |  |  |  |  |        |- y
+        |  |  |  |  |        |- :=
+        |  |  |  |  |        |- ASoloExpression
+        |  |  |  |  |        |  `- AMultTerm
+        |  |  |  |  |        |     |- ASingleTerm
+        |  |  |  |  |        |     |  `- APosNegation
+        |  |  |  |  |        |     |     `- ANoneParentheticalExp
+        |  |  |  |  |        |     |        `- ALitOperand
+        |  |  |  |  |        |     |           `- AFloatLiteral
+        |  |  |  |  |        |     |              `- 3.3
+        |  |  |  |  |        |     |- *
+        |  |  |  |  |        |     `- APosNegation
+        |  |  |  |  |        |        `- ANoneParentheticalExp
+        |  |  |  |  |        |           `- ALitOperand
+        |  |  |  |  |        |              `- AFloatLiteral
+        |  |  |  |  |        |                 `- 3.3
+        |  |  |  |  |        `- ;
+        |  |  |  |  `- ADeclarationStatement
+        |  |  |  |     `- AVarDec
+        |  |  |  |        |- float
+        |  |  |  |        `- z
+        |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |        `- ;
+        |  |  |  `- AAssignmentStatement
+        |  |  |     `- AAssignment
+        |  |  |        |- z
+        |  |  |        |- :=
+        |  |  |        |- ASoloExpression
+        |  |  |        |  `- AMultTerm
+        |  |  |        |     |- ASingleTerm
+        |  |  |        |     |  `- APosNegation
+        |  |  |        |     |     `- ANoneParentheticalExp
+        |  |  |        |     |        `- ALitOperand
+        |  |  |        |     |           `- AFloatLiteral
+        |  |  |        |     |              `- 3.3
+        |  |  |        |     |- *
+        |  |  |        |     `- APosNegation
+        |  |  |        |        `- ANoneParentheticalExp
+        |  |  |        |           `- ALitOperand
+        |  |  |        |              `- AIntLiteral
+        |  |  |        |                 `- 3
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        `- a
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- AAssignmentStatement
+        |     `- AAssignment
+        |        |- a
+        |        |- :=
+        |        |- ASoloExpression
+        |        |  `- AMultTerm
+        |        |     |- ASingleTerm
+        |        |     |  `- APosNegation
+        |        |     |     `- ANoneParentheticalExp
+        |        |     |        `- ALitOperand
+        |        |     |           `- AIntLiteral
+        |        |     |              `- 3
+        |        |     |- *
+        |        |     `- APosNegation
+        |        |        `- ANoneParentheticalExp
+        |        |           `- ALitOperand
+        |        |              `- AFloatLiteral
+        |        |                 `- 3.3
+        |        `- ;
+        `- }
+
+ 
+*multWrong.txt 
+Line 3, Col 11: y does not exist
+Line 5, Col 9: Cannot multiply int by str
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ANoneStatements
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- x
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- ASoloExpression
+        |  |        |     `- AMultTerm
+        |  |        |        |- ASingleTerm
+        |  |        |        |  `- APosNegation
+        |  |        |        |     `- ANoneParentheticalExp
+        |  |        |        |        `- AVarOperand
+        |  |        |        |           `- y
+        |  |        |        |- *
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 4
+        |  |        `- ;
+        |  `- AAssignmentStatement
+        |     `- AAssignment
+        |        |- x
+        |        |- :=
+        |        |- ASoloExpression
+        |        |  `- AMultTerm
+        |        |     |- ASingleTerm
+        |        |     |  `- APosNegation
+        |        |     |     `- ANoneParentheticalExp
+        |        |     |        `- ALitOperand
+        |        |     |           `- AIntLiteral
+        |        |     |              `- 5
+        |        |     |- *
+        |        |     `- APosNegation
+        |        |        `- ANoneParentheticalExp
+        |        |           `- ALitOperand
+        |        |              `- AStrLiteral
+        |        |                 `- "hi"
+        |        `- ;
+        `- }
+
+ 
+ 
+**Division Operations** 
+ 
+*divideCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |  |  |  |- ANoneStatements
+        |  |  |  |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |  |  |  |     `- AVarDec
+        |  |  |  |  |  |  |  |        |- int
+        |  |  |  |  |  |  |  |        `- x
+        |  |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |  |  |  |  |        `- ;
+        |  |  |  |  |  |  |  `- AAssignmentStatement
+        |  |  |  |  |  |  |     `- AAssignment
+        |  |  |  |  |  |  |        |- x
+        |  |  |  |  |  |  |        |- :=
+        |  |  |  |  |  |  |        |- ASoloExpression
+        |  |  |  |  |  |  |        |  `- ADivTerm
+        |  |  |  |  |  |  |        |     |- ASingleTerm
+        |  |  |  |  |  |  |        |     |  `- APosNegation
+        |  |  |  |  |  |  |        |     |     `- ANoneParentheticalExp
+        |  |  |  |  |  |  |        |     |        `- ALitOperand
+        |  |  |  |  |  |  |        |     |           `- AIntLiteral
+        |  |  |  |  |  |  |        |     |              `- 8
+        |  |  |  |  |  |  |        |     |- /
+        |  |  |  |  |  |  |        |     `- APosNegation
+        |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+        |  |  |  |  |  |  |        |           `- ALitOperand
+        |  |  |  |  |  |  |        |              `- AIntLiteral
+        |  |  |  |  |  |  |        |                 `- 8
+        |  |  |  |  |  |  |        `- ;
+        |  |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |  |     `- AVarDec
+        |  |  |  |  |  |        |- float
+        |  |  |  |  |  |        `- y
+        |  |  |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |  |  |        `- ;
+        |  |  |  |  |  `- AAssignmentStatement
+        |  |  |  |  |     `- AAssignment
+        |  |  |  |  |        |- y
+        |  |  |  |  |        |- :=
+        |  |  |  |  |        |- ASoloExpression
+        |  |  |  |  |        |  `- ADivTerm
+        |  |  |  |  |        |     |- ASingleTerm
+        |  |  |  |  |        |     |  `- APosNegation
+        |  |  |  |  |        |     |     `- ANoneParentheticalExp
+        |  |  |  |  |        |     |        `- ALitOperand
+        |  |  |  |  |        |     |           `- AFloatLiteral
+        |  |  |  |  |        |     |              `- 3.3
+        |  |  |  |  |        |     |- /
+        |  |  |  |  |        |     `- APosNegation
+        |  |  |  |  |        |        `- ANoneParentheticalExp
+        |  |  |  |  |        |           `- ALitOperand
+        |  |  |  |  |        |              `- AFloatLiteral
+        |  |  |  |  |        |                 `- 3.3
+        |  |  |  |  |        `- ;
+        |  |  |  |  `- ADeclarationStatement
+        |  |  |  |     `- AVarDec
+        |  |  |  |        |- float
+        |  |  |  |        `- z
+        |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |        `- ;
+        |  |  |  `- AAssignmentStatement
+        |  |  |     `- AAssignment
+        |  |  |        |- z
+        |  |  |        |- :=
+        |  |  |        |- ASoloExpression
+        |  |  |        |  `- ADivTerm
+        |  |  |        |     |- ASingleTerm
+        |  |  |        |     |  `- APosNegation
+        |  |  |        |     |     `- ANoneParentheticalExp
+        |  |  |        |     |        `- ALitOperand
+        |  |  |        |     |           `- AFloatLiteral
+        |  |  |        |     |              `- 3.3
+        |  |  |        |     |- /
+        |  |  |        |     `- APosNegation
+        |  |  |        |        `- ANoneParentheticalExp
+        |  |  |        |           `- ALitOperand
+        |  |  |        |              `- AIntLiteral
+        |  |  |        |                 `- 3
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        `- a
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- AAssignmentStatement
+        |     `- AAssignment
+        |        |- a
+        |        |- :=
+        |        |- ASoloExpression
+        |        |  `- ADivTerm
+        |        |     |- ASingleTerm
+        |        |     |  `- APosNegation
+        |        |     |     `- ANoneParentheticalExp
+        |        |     |        `- ALitOperand
+        |        |     |           `- AIntLiteral
+        |        |     |              `- 3
+        |        |     |- /
+        |        |     `- APosNegation
+        |        |        `- ANoneParentheticalExp
+        |        |           `- ALitOperand
+        |        |              `- AFloatLiteral
+        |        |                 `- 3.3
+        |        `- ;
+        `- }
+
+ 
+*divideWrong.txt 
+Line 7, Col 11: Cannot multiply float by str
+Line 10, Col 7: r does not exist
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |  |- ANoneStatements
+        |  |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |  |     `- AVarDec
+        |  |  |  |  |  |        |- int
+        |  |  |  |  |  |        `- x
+        |  |  |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |  |  |        `- ;
+        |  |  |  |  |  `- AAssignmentStatement
+        |  |  |  |  |     `- AAssignment
+        |  |  |  |  |        |- x
+        |  |  |  |  |        |- :=
+        |  |  |  |  |        |- ASoloExpression
+        |  |  |  |  |        |  `- ADivTerm
+        |  |  |  |  |        |     |- ASingleTerm
+        |  |  |  |  |        |     |  `- APosNegation
+        |  |  |  |  |        |     |     `- ANoneParentheticalExp
+        |  |  |  |  |        |     |        `- ALitOperand
+        |  |  |  |  |        |     |           `- AIntLiteral
+        |  |  |  |  |        |     |              `- 8
+        |  |  |  |  |        |     |- /
+        |  |  |  |  |        |     `- APosNegation
+        |  |  |  |  |        |        `- ANoneParentheticalExp
+        |  |  |  |  |        |           `- ALitOperand
+        |  |  |  |  |        |              `- AIntLiteral
+        |  |  |  |  |        |                 `- 0
+        |  |  |  |  |        `- ;
+        |  |  |  |  `- ADeclarationStatement
+        |  |  |  |     `- AVarDec
+        |  |  |  |        |- float
+        |  |  |  |        `- y
+        |  |  |  |        |- AOptAgainstOptAssignment
+        |  |  |  |        `- ;
+        |  |  |  `- AAssignmentStatement
+        |  |  |     `- AAssignment
+        |  |  |        |- y
+        |  |  |        |- :=
+        |  |  |        |- ASoloExpression
+        |  |  |        |  `- AMultTerm
+        |  |  |        |     |- ASingleTerm
+        |  |  |        |     |  `- APosNegation
+        |  |  |        |     |     `- ANoneParentheticalExp
+        |  |  |        |     |        `- ALitOperand
+        |  |  |        |     |           `- AFloatLiteral
+        |  |  |        |     |              `- 3.3
+        |  |  |        |     |- *
+        |  |  |        |     `- APosNegation
+        |  |  |        |        `- ANoneParentheticalExp
+        |  |  |        |           `- ALitOperand
+        |  |  |        |              `- AStrLiteral
+        |  |  |        |                 `- "hi"
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        `- z
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- AAssignmentStatement
+        |     `- AAssignment
+        |        |- z
+        |        |- :=
+        |        |- ASoloExpression
+        |        |  `- ADivTerm
+        |        |     |- ASingleTerm
+        |        |     |  `- APosNegation
+        |        |     |     `- ANoneParentheticalExp
+        |        |     |        `- AVarOperand
+        |        |     |           `- r
+        |        |     |- /
+        |        |     `- APosNegation
+        |        |        `- ANoneParentheticalExp
+        |        |           `- ALitOperand
+        |        |              `- AIntLiteral
+        |        |                 `- 4
+        |        `- ;
+        `- }
+
+ 
+ 
+**Negation Operations** 
+ 
+*negationCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ASomeFunctDeclarations
+     |  |- ANoneFunctDeclarations
+     |  |- function
+     |  |- foo
+     |  `- (
+     |  |- ANoneParamDeclarations
+     |  |- )
+     |  `- {
+     |  |- ASomeStatements
+     |  |  |- ANoneStatements
+     |  |  `- ADeclarationStatement
+     |  |     `- AVarDec
+     |  |        |- float
+     |  |        |- y
+     |  |        |- AOptForOptAssignment
+     |  |        |  |- :=
+     |  |        |  `- ASoloExpression
+     |  |        |     `- ASingleTerm
+     |  |        |        `- ANegNegation
+     |  |        |           |- -
+     |  |        |           `- ANoneParentheticalExp
+     |  |        |              `- ALitOperand
+     |  |        |                 `- AFloatLiteral
+     |  |        |                    `- 5.5
+     |  |        `- ;
+     |  `- }
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ANoneStatements
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        `- x
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- AAssignmentStatement
+        |     `- AAssignment
+        |        |- x
+        |        |- :=
+        |        |- ASoloExpression
+        |        |  `- ASingleTerm
+        |        |     `- ANegNegation
+        |        |        |- -
+        |        |        `- ANoneParentheticalExp
+        |        |           `- ALitOperand
+        |        |              `- AIntLiteral
+        |        |                 `- 5
+        |        `- ;
+        `- }
+
+ 
+*negationWrong.txt 
+Line 2, Col 7: Only a number or float can be negated!
+Line 2, Col 2: Identifier x does not exist
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ANoneStatements
+        |  `- AAssignmentStatement
+        |     `- AAssignment
+        |        |- x
+        |        |- :=
+        |        |- ASoloExpression
+        |        |  `- ASingleTerm
+        |        |     `- ANegNegation
+        |        |        |- -
+        |        |        `- ANoneParentheticalExp
+        |        |           `- ALitOperand
+        |        |              `- AStrLiteral
+        |        |                 `- "hello"
+        |        `- ;
+        `- }
+
+ 
+ 
+**Parentheses in Expressions** 
+ 
+*parensCorrect.txt 
+Line 2, Col 12: x does not exist
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ANoneStatements
+        |  `- ADeclarationStatement
+        |     `- AVarDec
+        |        |- int
+        |        |- x
+        |        |- AOptForOptAssignment
+        |        |  |- :=
+        |        |  `- ASoloExpression
+        |        |     `- AMultTerm
+        |        |        |- ASingleTerm
+        |        |        |  `- APosNegation
+        |        |        |     `- ASomeParentheticalExp
+        |        |        |        |- (
+        |        |        |        |- APlusExpression
+        |        |        |        |  |- ASoloExpression
+        |        |        |        |  |  `- ASingleTerm
+        |        |        |        |  |     `- APosNegation
+        |        |        |        |  |        `- ANoneParentheticalExp
+        |        |        |        |  |           `- AVarOperand
+        |        |        |        |  |              `- x
+        |        |        |        |  |- +
+        |        |        |        |  `- ASingleTerm
+        |        |        |        |     `- APosNegation
+        |        |        |        |        `- ANoneParentheticalExp
+        |        |        |        |           `- ALitOperand
+        |        |        |        |              `- AIntLiteral
+        |        |        |        |                 `- 2
+        |        |        |        `- )
+        |        |        |- *
+        |        |        `- APosNegation
+        |        |           `- ANoneParentheticalExp
+        |        |              `- ALitOperand
+        |        |                 `- AIntLiteral
+        |        |                    `- 4
+        |        `- ;
+        `- }
+
+ 
+*parensWrong.txt 
+[1,1] expecting: 'function'
+ 
+ 
+**Boolean AND Operations** 
+ 
+*boolAndCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ANoneStatements
+        |  |  |  `- ADeclarationStatement
+        |  |  |     `- AVarDec
+        |  |  |        |- int
+        |  |  |        |- x
+        |  |  |        |- AOptForOptAssignment
+        |  |  |        |  |- :=
+        |  |  |        |  `- ASoloExpression
+        |  |  |        |     `- ASingleTerm
+        |  |  |        |        `- APosNegation
+        |  |  |        |           `- ANoneParentheticalExp
+        |  |  |        |              `- ALitOperand
+        |  |  |        |                 `- AIntLiteral
+        |  |  |        |                    `- 0
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- y
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- ASoloExpression
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 0
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- AMultBoolTerm
+        |        |     |- ASingleBoolTerm
+        |        |     |  `- APosBoolNot
+        |        |     |     `- ASoloBoolComp
+        |        |     |        `- ASomeBoolParens
+        |        |     |           |- (
+        |        |     |           |- ASingleBoolExp
+        |        |     |           |  `- ASingleBoolTerm
+        |        |     |           |     `- APosBoolNot
+        |        |     |           |        `- ASoloBoolComp
+        |        |     |           |           `- ANoneBoolParens
+        |        |     |           |              `- AEqualNumComp
+        |        |     |           |                 |- ASoloExpression
+        |        |     |           |                 |  `- ASingleTerm
+        |        |     |           |                 |     `- APosNegation
+        |        |     |           |                 |        `- ANoneParentheticalExp
+        |        |     |           |                 |           `- AVarOperand
+        |        |     |           |                 |              `- y
+        |        |     |           |                 |- =
+        |        |     |           |                 `- ASoloExpression
+        |        |     |           |                    `- ASingleTerm
+        |        |     |           |                       `- APosNegation
+        |        |     |           |                          `- ANoneParentheticalExp
+        |        |     |           |                             `- ALitOperand
+        |        |     |           |                                `- AIntLiteral
+        |        |     |           |                                   `- 0
+        |        |     |           `- )
+        |        |     |- &
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ASomeBoolParens
+        |        |              |- (
+        |        |              |- ASingleBoolExp
+        |        |              |  `- ASingleBoolTerm
+        |        |              |     `- APosBoolNot
+        |        |              |        `- ASoloBoolComp
+        |        |              |           `- ANoneBoolParens
+        |        |              |              `- ALessNumComp
+        |        |              |                 |- ASoloExpression
+        |        |              |                 |  `- ASingleTerm
+        |        |              |                 |     `- APosNegation
+        |        |              |                 |        `- ANoneParentheticalExp
+        |        |              |                 |           `- AVarOperand
+        |        |              |                 |              `- x
+        |        |              |                 |- <
+        |        |              |                 `- ASoloExpression
+        |        |              |                    `- ASingleTerm
+        |        |              |                       `- APosNegation
+        |        |              |                          `- ANoneParentheticalExp
+        |        |              |                             `- ALitOperand
+        |        |              |                                `- AIntLiteral
+        |        |              |                                   `- 3
+        |        |              `- )
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+*boolAndWrong.txt 
+Line 4, Col 18: Cannot compare different types
+Line 9, Col 16: r does not exist
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |- ANoneStatements
+        |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |     `- AVarDec
+        |  |  |  |  |        |- str
+        |  |  |  |  |        |- x
+        |  |  |  |  |        |- AOptForOptAssignment
+        |  |  |  |  |        |  |- :=
+        |  |  |  |  |        |  `- ASoloExpression
+        |  |  |  |  |        |     `- ASingleTerm
+        |  |  |  |  |        |        `- APosNegation
+        |  |  |  |  |        |           `- ANoneParentheticalExp
+        |  |  |  |  |        |              `- ALitOperand
+        |  |  |  |  |        |                 `- AStrLiteral
+        |  |  |  |  |        |                    `- "hi"
+        |  |  |  |  |        `- ;
+        |  |  |  |  `- ADeclarationStatement
+        |  |  |  |     `- AVarDec
+        |  |  |  |        |- int
+        |  |  |  |        |- y
+        |  |  |  |        |- AOptForOptAssignment
+        |  |  |  |        |  |- :=
+        |  |  |  |        |  `- ASoloExpression
+        |  |  |  |        |     `- ASingleTerm
+        |  |  |  |        |        `- APosNegation
+        |  |  |  |        |           `- ANoneParentheticalExp
+        |  |  |  |        |              `- ALitOperand
+        |  |  |  |        |                 `- AIntLiteral
+        |  |  |  |        |                    `- 1
+        |  |  |  |        `- ;
+        |  |  |  `- AIfStatement
+        |  |  |     `- AIfStmt
+        |  |  |        |- if
+        |  |  |        |- (
+        |  |  |        |- ASingleBoolExp
+        |  |  |        |  `- AMultBoolTerm
+        |  |  |        |     |- ASingleBoolTerm
+        |  |  |        |     |  `- APosBoolNot
+        |  |  |        |     |     `- ASoloBoolComp
+        |  |  |        |     |        `- ASomeBoolParens
+        |  |  |        |     |           |- (
+        |  |  |        |     |           |- ASingleBoolExp
+        |  |  |        |     |           |  `- ASingleBoolTerm
+        |  |  |        |     |           |     `- APosBoolNot
+        |  |  |        |     |           |        `- ASoloBoolComp
+        |  |  |        |     |           |           `- ANoneBoolParens
+        |  |  |        |     |           |              `- AGreaterNumComp
+        |  |  |        |     |           |                 |- ASoloExpression
+        |  |  |        |     |           |                 |  `- ASingleTerm
+        |  |  |        |     |           |                 |     `- APosNegation
+        |  |  |        |     |           |                 |        `- ANoneParentheticalExp
+        |  |  |        |     |           |                 |           `- AVarOperand
+        |  |  |        |     |           |                 |              `- y
+        |  |  |        |     |           |                 |- >
+        |  |  |        |     |           |                 `- ASoloExpression
+        |  |  |        |     |           |                    `- ASingleTerm
+        |  |  |        |     |           |                       `- APosNegation
+        |  |  |        |     |           |                          `- ANoneParentheticalExp
+        |  |  |        |     |           |                             `- ALitOperand
+        |  |  |        |     |           |                                `- AIntLiteral
+        |  |  |        |     |           |                                   `- 0
+        |  |  |        |     |           `- )
+        |  |  |        |     |- &
+        |  |  |        |     `- APosBoolNot
+        |  |  |        |        `- ASoloBoolComp
+        |  |  |        |           `- ASomeBoolParens
+        |  |  |        |              |- (
+        |  |  |        |              |- ASingleBoolExp
+        |  |  |        |              |  `- ASingleBoolTerm
+        |  |  |        |              |     `- APosBoolNot
+        |  |  |        |              |        `- ASoloBoolComp
+        |  |  |        |              |           `- ANoneBoolParens
+        |  |  |        |              |              `- ALessNumComp
+        |  |  |        |              |                 |- ASoloExpression
+        |  |  |        |              |                 |  `- ASingleTerm
+        |  |  |        |              |                 |     `- APosNegation
+        |  |  |        |              |                 |        `- ANoneParentheticalExp
+        |  |  |        |              |                 |           `- AVarOperand
+        |  |  |        |              |                 |              `- x
+        |  |  |        |              |                 |- <
+        |  |  |        |              |                 `- ASoloExpression
+        |  |  |        |              |                    `- ASingleTerm
+        |  |  |        |              |                       `- APosNegation
+        |  |  |        |              |                          `- ANoneParentheticalExp
+        |  |  |        |              |                             `- ALitOperand
+        |  |  |        |              |                                `- AIntLiteral
+        |  |  |        |              |                                   `- 0
+        |  |  |        |              `- )
+        |  |  |        |- )
+        |  |  |        `- {
+        |  |  |        |- ANoneStatements
+        |  |  |        `- }
+        |  |  |        `- ANoElseElseStmt
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- z
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- ASoloExpression
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 9
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- AMultBoolTerm
+        |        |     |- ASingleBoolTerm
+        |        |     |  `- APosBoolNot
+        |        |     |     `- ASoloBoolComp
+        |        |     |        `- ASomeBoolParens
+        |        |     |           |- (
+        |        |     |           |- ASingleBoolExp
+        |        |     |           |  `- ASingleBoolTerm
+        |        |     |           |     `- APosBoolNot
+        |        |     |           |        `- ASoloBoolComp
+        |        |     |           |           `- ANoneBoolParens
+        |        |     |           |              `- AEqualNumComp
+        |        |     |           |                 |- ASoloExpression
+        |        |     |           |                 |  `- ASingleTerm
+        |        |     |           |                 |     `- APosNegation
+        |        |     |           |                 |        `- ANoneParentheticalExp
+        |        |     |           |                 |           `- AVarOperand
+        |        |     |           |                 |              `- z
+        |        |     |           |                 |- =
+        |        |     |           |                 `- ASoloExpression
+        |        |     |           |                    `- ASingleTerm
+        |        |     |           |                       `- APosNegation
+        |        |     |           |                          `- ANoneParentheticalExp
+        |        |     |           |                             `- ALitOperand
+        |        |     |           |                                `- AIntLiteral
+        |        |     |           |                                   `- 9
+        |        |     |           `- )
+        |        |     |- &
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ASomeBoolParens
+        |        |              |- (
+        |        |              |- ASingleBoolExp
+        |        |              |  `- ASingleBoolTerm
+        |        |              |     `- APosBoolNot
+        |        |              |        `- ASoloBoolComp
+        |        |              |           `- ANoneBoolParens
+        |        |              |              `- AEqualNumComp
+        |        |              |                 |- ASoloExpression
+        |        |              |                 |  `- ASingleTerm
+        |        |              |                 |     `- APosNegation
+        |        |              |                 |        `- ANoneParentheticalExp
+        |        |              |                 |           `- AVarOperand
+        |        |              |                 |              `- r
+        |        |              |                 |- =
+        |        |              |                 `- ASoloExpression
+        |        |              |                    `- ASingleTerm
+        |        |              |                       `- APosNegation
+        |        |              |                          `- ANoneParentheticalExp
+        |        |              |                             `- ALitOperand
+        |        |              |                                `- AIntLiteral
+        |        |              |                                   `- 0
+        |        |              `- )
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+ 
+**Boolean OR Operations** 
+ 
+*boolOrCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ANoneStatements
+        |  |  |  `- ADeclarationStatement
+        |  |  |     `- AVarDec
+        |  |  |        |- int
+        |  |  |        |- x
+        |  |  |        |- AOptForOptAssignment
+        |  |  |        |  |- :=
+        |  |  |        |  `- ASoloExpression
+        |  |  |        |     `- ASingleTerm
+        |  |  |        |        `- APosNegation
+        |  |  |        |           `- ANoneParentheticalExp
+        |  |  |        |              `- ALitOperand
+        |  |  |        |                 `- AIntLiteral
+        |  |  |        |                    `- 0
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- y
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- ASoloExpression
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 0
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- AMultBoolExp
+        |        |  |- ASingleBoolExp
+        |        |  |  `- ASingleBoolTerm
+        |        |  |     `- APosBoolNot
+        |        |  |        `- ASoloBoolComp
+        |        |  |           `- ASomeBoolParens
+        |        |  |              |- (
+        |        |  |              |- ASingleBoolExp
+        |        |  |              |  `- ASingleBoolTerm
+        |        |  |              |     `- APosBoolNot
+        |        |  |              |        `- ASoloBoolComp
+        |        |  |              |           `- ANoneBoolParens
+        |        |  |              |              `- AEqualNumComp
+        |        |  |              |                 |- ASoloExpression
+        |        |  |              |                 |  `- ASingleTerm
+        |        |  |              |                 |     `- APosNegation
+        |        |  |              |                 |        `- ANoneParentheticalExp
+        |        |  |              |                 |           `- AVarOperand
+        |        |  |              |                 |              `- y
+        |        |  |              |                 |- =
+        |        |  |              |                 `- ASoloExpression
+        |        |  |              |                    `- ASingleTerm
+        |        |  |              |                       `- APosNegation
+        |        |  |              |                          `- ANoneParentheticalExp
+        |        |  |              |                             `- ALitOperand
+        |        |  |              |                                `- AIntLiteral
+        |        |  |              |                                   `- 0
+        |        |  |              `- )
+        |        |  |- |
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ASomeBoolParens
+        |        |              |- (
+        |        |              |- ASingleBoolExp
+        |        |              |  `- ASingleBoolTerm
+        |        |              |     `- APosBoolNot
+        |        |              |        `- ASoloBoolComp
+        |        |              |           `- ANoneBoolParens
+        |        |              |              `- ALessNumComp
+        |        |              |                 |- ASoloExpression
+        |        |              |                 |  `- ASingleTerm
+        |        |              |                 |     `- APosNegation
+        |        |              |                 |        `- ANoneParentheticalExp
+        |        |              |                 |           `- AVarOperand
+        |        |              |                 |              `- x
+        |        |              |                 |- <
+        |        |              |                 `- ASoloExpression
+        |        |              |                    `- ASingleTerm
+        |        |              |                       `- APosNegation
+        |        |              |                          `- ANoneParentheticalExp
+        |        |              |                             `- ALitOperand
+        |        |              |                                `- AIntLiteral
+        |        |              |                                   `- 3
+        |        |              `- )
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+*boolOrWrong.txt 
+Line 4, Col 18: Cannot compare different types
+Line 9, Col 16: r does not exist
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |- ANoneStatements
+        |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |     `- AVarDec
+        |  |  |  |  |        |- str
+        |  |  |  |  |        |- x
+        |  |  |  |  |        |- AOptForOptAssignment
+        |  |  |  |  |        |  |- :=
+        |  |  |  |  |        |  `- ASoloExpression
+        |  |  |  |  |        |     `- ASingleTerm
+        |  |  |  |  |        |        `- APosNegation
+        |  |  |  |  |        |           `- ANoneParentheticalExp
+        |  |  |  |  |        |              `- ALitOperand
+        |  |  |  |  |        |                 `- AStrLiteral
+        |  |  |  |  |        |                    `- "hi"
+        |  |  |  |  |        `- ;
+        |  |  |  |  `- ADeclarationStatement
+        |  |  |  |     `- AVarDec
+        |  |  |  |        |- int
+        |  |  |  |        |- y
+        |  |  |  |        |- AOptForOptAssignment
+        |  |  |  |        |  |- :=
+        |  |  |  |        |  `- ASoloExpression
+        |  |  |  |        |     `- ASingleTerm
+        |  |  |  |        |        `- APosNegation
+        |  |  |  |        |           `- ANoneParentheticalExp
+        |  |  |  |        |              `- ALitOperand
+        |  |  |  |        |                 `- AIntLiteral
+        |  |  |  |        |                    `- 1
+        |  |  |  |        `- ;
+        |  |  |  `- AIfStatement
+        |  |  |     `- AIfStmt
+        |  |  |        |- if
+        |  |  |        |- (
+        |  |  |        |- AMultBoolExp
+        |  |  |        |  |- ASingleBoolExp
+        |  |  |        |  |  `- ASingleBoolTerm
+        |  |  |        |  |     `- APosBoolNot
+        |  |  |        |  |        `- ASoloBoolComp
+        |  |  |        |  |           `- ASomeBoolParens
+        |  |  |        |  |              |- (
+        |  |  |        |  |              |- ASingleBoolExp
+        |  |  |        |  |              |  `- ASingleBoolTerm
+        |  |  |        |  |              |     `- APosBoolNot
+        |  |  |        |  |              |        `- ASoloBoolComp
+        |  |  |        |  |              |           `- ANoneBoolParens
+        |  |  |        |  |              |              `- AGreaterNumComp
+        |  |  |        |  |              |                 |- ASoloExpression
+        |  |  |        |  |              |                 |  `- ASingleTerm
+        |  |  |        |  |              |                 |     `- APosNegation
+        |  |  |        |  |              |                 |        `- ANoneParentheticalExp
+        |  |  |        |  |              |                 |           `- AVarOperand
+        |  |  |        |  |              |                 |              `- y
+        |  |  |        |  |              |                 |- >
+        |  |  |        |  |              |                 `- ASoloExpression
+        |  |  |        |  |              |                    `- ASingleTerm
+        |  |  |        |  |              |                       `- APosNegation
+        |  |  |        |  |              |                          `- ANoneParentheticalExp
+        |  |  |        |  |              |                             `- ALitOperand
+        |  |  |        |  |              |                                `- AIntLiteral
+        |  |  |        |  |              |                                   `- 0
+        |  |  |        |  |              `- )
+        |  |  |        |  |- |
+        |  |  |        |  `- ASingleBoolTerm
+        |  |  |        |     `- APosBoolNot
+        |  |  |        |        `- ASoloBoolComp
+        |  |  |        |           `- ASomeBoolParens
+        |  |  |        |              |- (
+        |  |  |        |              |- ASingleBoolExp
+        |  |  |        |              |  `- ASingleBoolTerm
+        |  |  |        |              |     `- APosBoolNot
+        |  |  |        |              |        `- ASoloBoolComp
+        |  |  |        |              |           `- ANoneBoolParens
+        |  |  |        |              |              `- ALessNumComp
+        |  |  |        |              |                 |- ASoloExpression
+        |  |  |        |              |                 |  `- ASingleTerm
+        |  |  |        |              |                 |     `- APosNegation
+        |  |  |        |              |                 |        `- ANoneParentheticalExp
+        |  |  |        |              |                 |           `- AVarOperand
+        |  |  |        |              |                 |              `- x
+        |  |  |        |              |                 |- <
+        |  |  |        |              |                 `- ASoloExpression
+        |  |  |        |              |                    `- ASingleTerm
+        |  |  |        |              |                       `- APosNegation
+        |  |  |        |              |                          `- ANoneParentheticalExp
+        |  |  |        |              |                             `- ALitOperand
+        |  |  |        |              |                                `- AIntLiteral
+        |  |  |        |              |                                   `- 0
+        |  |  |        |              `- )
+        |  |  |        |- )
+        |  |  |        `- {
+        |  |  |        |- ANoneStatements
+        |  |  |        `- }
+        |  |  |        `- ANoElseElseStmt
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- z
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- ASoloExpression
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 9
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- AMultBoolExp
+        |        |  |- ASingleBoolExp
+        |        |  |  `- ASingleBoolTerm
+        |        |  |     `- APosBoolNot
+        |        |  |        `- ASoloBoolComp
+        |        |  |           `- ASomeBoolParens
+        |        |  |              |- (
+        |        |  |              |- ASingleBoolExp
+        |        |  |              |  `- ASingleBoolTerm
+        |        |  |              |     `- APosBoolNot
+        |        |  |              |        `- ASoloBoolComp
+        |        |  |              |           `- ANoneBoolParens
+        |        |  |              |              `- AEqualNumComp
+        |        |  |              |                 |- ASoloExpression
+        |        |  |              |                 |  `- ASingleTerm
+        |        |  |              |                 |     `- APosNegation
+        |        |  |              |                 |        `- ANoneParentheticalExp
+        |        |  |              |                 |           `- AVarOperand
+        |        |  |              |                 |              `- z
+        |        |  |              |                 |- =
+        |        |  |              |                 `- ASoloExpression
+        |        |  |              |                    `- ASingleTerm
+        |        |  |              |                       `- APosNegation
+        |        |  |              |                          `- ANoneParentheticalExp
+        |        |  |              |                             `- ALitOperand
+        |        |  |              |                                `- AIntLiteral
+        |        |  |              |                                   `- 9
+        |        |  |              `- )
+        |        |  |- |
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ASomeBoolParens
+        |        |              |- (
+        |        |              |- ASingleBoolExp
+        |        |              |  `- ASingleBoolTerm
+        |        |              |     `- APosBoolNot
+        |        |              |        `- ASoloBoolComp
+        |        |              |           `- ANoneBoolParens
+        |        |              |              `- AEqualNumComp
+        |        |              |                 |- ASoloExpression
+        |        |              |                 |  `- ASingleTerm
+        |        |              |                 |     `- APosNegation
+        |        |              |                 |        `- ANoneParentheticalExp
+        |        |              |                 |           `- AVarOperand
+        |        |              |                 |              `- r
+        |        |              |                 |- =
+        |        |              |                 `- ASoloExpression
+        |        |              |                    `- ASingleTerm
+        |        |              |                       `- APosNegation
+        |        |              |                          `- ANoneParentheticalExp
+        |        |              |                             `- ALitOperand
+        |        |              |                                `- AIntLiteral
+        |        |              |                                   `- 0
+        |        |              `- )
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+ 
+**Boolean NOT Operations** 
+ 
+*boolNotCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ANoneStatements
+        |  |  |  `- ADeclarationStatement
+        |  |  |     `- AVarDec
+        |  |  |        |- int
+        |  |  |        |- x
+        |  |  |        |- AOptForOptAssignment
+        |  |  |        |  |- :=
+        |  |  |        |  `- ASoloExpression
+        |  |  |        |     `- ASingleTerm
+        |  |  |        |        `- APosNegation
+        |  |  |        |           `- ANoneParentheticalExp
+        |  |  |        |              `- ALitOperand
+        |  |  |        |                 `- AIntLiteral
+        |  |  |        |                    `- 0
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- y
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- ASoloExpression
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 0
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- ANegBoolNot
+        |        |        |- !
+        |        |        `- ASoloBoolComp
+        |        |           `- ASomeBoolParens
+        |        |              |- (
+        |        |              |- ASingleBoolExp
+        |        |              |  `- ASingleBoolTerm
+        |        |              |     `- APosBoolNot
+        |        |              |        `- ASoloBoolComp
+        |        |              |           `- ANoneBoolParens
+        |        |              |              `- ALessNumComp
+        |        |              |                 |- ASoloExpression
+        |        |              |                 |  `- ASingleTerm
+        |        |              |                 |     `- APosNegation
+        |        |              |                 |        `- ANoneParentheticalExp
+        |        |              |                 |           `- AVarOperand
+        |        |              |                 |              `- x
+        |        |              |                 |- <
+        |        |              |                 `- ASoloExpression
+        |        |              |                    `- ASingleTerm
+        |        |              |                       `- APosNegation
+        |        |              |                          `- ANoneParentheticalExp
+        |        |              |                             `- ALitOperand
+        |        |              |                                `- AIntLiteral
+        |        |              |                                   `- 3
+        |        |              `- )
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+*boolNotWrong.txt 
+Line 4, Col 9: Cannot compare different types
+Line 9, Col 7: r does not exist
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |- ANoneStatements
+        |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |     `- AVarDec
+        |  |  |  |  |        |- str
+        |  |  |  |  |        |- x
+        |  |  |  |  |        |- AOptForOptAssignment
+        |  |  |  |  |        |  |- :=
+        |  |  |  |  |        |  `- ASoloExpression
+        |  |  |  |  |        |     `- ASingleTerm
+        |  |  |  |  |        |        `- APosNegation
+        |  |  |  |  |        |           `- ANoneParentheticalExp
+        |  |  |  |  |        |              `- ALitOperand
+        |  |  |  |  |        |                 `- AStrLiteral
+        |  |  |  |  |        |                    `- "hi"
+        |  |  |  |  |        `- ;
+        |  |  |  |  `- ADeclarationStatement
+        |  |  |  |     `- AVarDec
+        |  |  |  |        |- int
+        |  |  |  |        |- y
+        |  |  |  |        |- AOptForOptAssignment
+        |  |  |  |        |  |- :=
+        |  |  |  |        |  `- ASoloExpression
+        |  |  |  |        |     `- ASingleTerm
+        |  |  |  |        |        `- APosNegation
+        |  |  |  |        |           `- ANoneParentheticalExp
+        |  |  |  |        |              `- ALitOperand
+        |  |  |  |        |                 `- AIntLiteral
+        |  |  |  |        |                    `- 1
+        |  |  |  |        `- ;
+        |  |  |  `- AIfStatement
+        |  |  |     `- AIfStmt
+        |  |  |        |- if
+        |  |  |        |- (
+        |  |  |        |- ASingleBoolExp
+        |  |  |        |  `- ASingleBoolTerm
+        |  |  |        |     `- ANegBoolNot
+        |  |  |        |        |- !
+        |  |  |        |        `- ASoloBoolComp
+        |  |  |        |           `- ASomeBoolParens
+        |  |  |        |              |- (
+        |  |  |        |              |- ASingleBoolExp
+        |  |  |        |              |  `- ASingleBoolTerm
+        |  |  |        |              |     `- APosBoolNot
+        |  |  |        |              |        `- ASoloBoolComp
+        |  |  |        |              |           `- ANoneBoolParens
+        |  |  |        |              |              `- ALessNumComp
+        |  |  |        |              |                 |- ASoloExpression
+        |  |  |        |              |                 |  `- ASingleTerm
+        |  |  |        |              |                 |     `- APosNegation
+        |  |  |        |              |                 |        `- ANoneParentheticalExp
+        |  |  |        |              |                 |           `- AVarOperand
+        |  |  |        |              |                 |              `- x
+        |  |  |        |              |                 |- <
+        |  |  |        |              |                 `- ASoloExpression
+        |  |  |        |              |                    `- ASingleTerm
+        |  |  |        |              |                       `- APosNegation
+        |  |  |        |              |                          `- ANoneParentheticalExp
+        |  |  |        |              |                             `- ALitOperand
+        |  |  |        |              |                                `- AIntLiteral
+        |  |  |        |              |                                   `- 0
+        |  |  |        |              `- )
+        |  |  |        |- )
+        |  |  |        `- {
+        |  |  |        |- ANoneStatements
+        |  |  |        `- }
+        |  |  |        `- ANoElseElseStmt
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- z
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- ASoloExpression
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 9
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- ANegBoolNot
+        |        |        |- !
+        |        |        `- ASoloBoolComp
+        |        |           `- ASomeBoolParens
+        |        |              |- (
+        |        |              |- ASingleBoolExp
+        |        |              |  `- ASingleBoolTerm
+        |        |              |     `- APosBoolNot
+        |        |              |        `- ASoloBoolComp
+        |        |              |           `- ANoneBoolParens
+        |        |              |              `- AEqualNumComp
+        |        |              |                 |- ASoloExpression
+        |        |              |                 |  `- ASingleTerm
+        |        |              |                 |     `- APosNegation
+        |        |              |                 |        `- ANoneParentheticalExp
+        |        |              |                 |           `- AVarOperand
+        |        |              |                 |              `- r
+        |        |              |                 |- =
+        |        |              |                 `- ASoloExpression
+        |        |              |                    `- ASingleTerm
+        |        |              |                       `- APosNegation
+        |        |              |                          `- ANoneParentheticalExp
+        |        |              |                             `- ALitOperand
+        |        |              |                                `- AIntLiteral
+        |        |              |                                   `- 0
+        |        |              `- )
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+ 
+**Boolean Parentheses** 
+ 
+*boolParensCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ANoneStatements
+        |  |  |  `- ADeclarationStatement
+        |  |  |     `- AVarDec
+        |  |  |        |- int
+        |  |  |        |- x
+        |  |  |        |- AOptForOptAssignment
+        |  |  |        |  |- :=
+        |  |  |        |  `- ASoloExpression
+        |  |  |        |     `- ASingleTerm
+        |  |  |        |        `- APosNegation
+        |  |  |        |           `- ANoneParentheticalExp
+        |  |  |        |              `- ALitOperand
+        |  |  |        |                 `- AIntLiteral
+        |  |  |        |                    `- 0
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- y
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- ASoloExpression
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 1
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- AMultBoolTerm
+        |        |     |- ASingleBoolTerm
+        |        |     |  `- APosBoolNot
+        |        |     |     `- ASoloBoolComp
+        |        |     |        `- ASomeBoolParens
+        |        |     |           |- (
+        |        |     |           |- ASingleBoolExp
+        |        |     |           |  `- ASingleBoolTerm
+        |        |     |           |     `- APosBoolNot
+        |        |     |           |        `- ASoloBoolComp
+        |        |     |           |           `- ANoneBoolParens
+        |        |     |           |              `- AEqualNumComp
+        |        |     |           |                 |- ASoloExpression
+        |        |     |           |                 |  `- ASingleTerm
+        |        |     |           |                 |     `- APosNegation
+        |        |     |           |                 |        `- ANoneParentheticalExp
+        |        |     |           |                 |           `- AVarOperand
+        |        |     |           |                 |              `- x
+        |        |     |           |                 |- =
+        |        |     |           |                 `- ASoloExpression
+        |        |     |           |                    `- ASingleTerm
+        |        |     |           |                       `- APosNegation
+        |        |     |           |                          `- ANoneParentheticalExp
+        |        |     |           |                             `- ALitOperand
+        |        |     |           |                                `- AIntLiteral
+        |        |     |           |                                   `- 0
+        |        |     |           `- )
+        |        |     |- &
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ASomeBoolParens
+        |        |              |- (
+        |        |              |- ASingleBoolExp
+        |        |              |  `- ASingleBoolTerm
+        |        |              |     `- APosBoolNot
+        |        |              |        `- ASoloBoolComp
+        |        |              |           `- ANoneBoolParens
+        |        |              |              `- AEqualNumComp
+        |        |              |                 |- ASoloExpression
+        |        |              |                 |  `- ASingleTerm
+        |        |              |                 |     `- APosNegation
+        |        |              |                 |        `- ANoneParentheticalExp
+        |        |              |                 |           `- AVarOperand
+        |        |              |                 |              `- y
+        |        |              |                 |- =
+        |        |              |                 `- ASoloExpression
+        |        |              |                    `- ASingleTerm
+        |        |              |                       `- APosNegation
+        |        |              |                          `- ANoneParentheticalExp
+        |        |              |                             `- ALitOperand
+        |        |              |                                `- AIntLiteral
+        |        |              |                                   `- 1
+        |        |              `- )
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+*boolParensWrong.txt 
+Line 4, Col 8: Cannot compare different types
+Line 9, Col 16: r does not exist
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |- ANoneStatements
+        |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |     `- AVarDec
+        |  |  |  |  |        |- str
+        |  |  |  |  |        |- x
+        |  |  |  |  |        |- AOptForOptAssignment
+        |  |  |  |  |        |  |- :=
+        |  |  |  |  |        |  `- ASoloExpression
+        |  |  |  |  |        |     `- ASingleTerm
+        |  |  |  |  |        |        `- APosNegation
+        |  |  |  |  |        |           `- ANoneParentheticalExp
+        |  |  |  |  |        |              `- ALitOperand
+        |  |  |  |  |        |                 `- AStrLiteral
+        |  |  |  |  |        |                    `- "hi"
+        |  |  |  |  |        `- ;
+        |  |  |  |  `- ADeclarationStatement
+        |  |  |  |     `- AVarDec
+        |  |  |  |        |- int
+        |  |  |  |        |- y
+        |  |  |  |        |- AOptForOptAssignment
+        |  |  |  |        |  |- :=
+        |  |  |  |        |  `- ASoloExpression
+        |  |  |  |        |     `- ASingleTerm
+        |  |  |  |        |        `- APosNegation
+        |  |  |  |        |           `- ANoneParentheticalExp
+        |  |  |  |        |              `- ALitOperand
+        |  |  |  |        |                 `- AIntLiteral
+        |  |  |  |        |                    `- 1
+        |  |  |  |        `- ;
+        |  |  |  `- AIfStatement
+        |  |  |     `- AIfStmt
+        |  |  |        |- if
+        |  |  |        |- (
+        |  |  |        |- ASingleBoolExp
+        |  |  |        |  `- AMultBoolTerm
+        |  |  |        |     |- ASingleBoolTerm
+        |  |  |        |     |  `- APosBoolNot
+        |  |  |        |     |     `- ASoloBoolComp
+        |  |  |        |     |        `- ASomeBoolParens
+        |  |  |        |     |           |- (
+        |  |  |        |     |           |- ASingleBoolExp
+        |  |  |        |     |           |  `- ASingleBoolTerm
+        |  |  |        |     |           |     `- APosBoolNot
+        |  |  |        |     |           |        `- ASoloBoolComp
+        |  |  |        |     |           |           `- ANoneBoolParens
+        |  |  |        |     |           |              `- AEqualNumComp
+        |  |  |        |     |           |                 |- ASoloExpression
+        |  |  |        |     |           |                 |  `- ASingleTerm
+        |  |  |        |     |           |                 |     `- APosNegation
+        |  |  |        |     |           |                 |        `- ANoneParentheticalExp
+        |  |  |        |     |           |                 |           `- AVarOperand
+        |  |  |        |     |           |                 |              `- x
+        |  |  |        |     |           |                 |- =
+        |  |  |        |     |           |                 `- ASoloExpression
+        |  |  |        |     |           |                    `- ASingleTerm
+        |  |  |        |     |           |                       `- APosNegation
+        |  |  |        |     |           |                          `- ANoneParentheticalExp
+        |  |  |        |     |           |                             `- ALitOperand
+        |  |  |        |     |           |                                `- AIntLiteral
+        |  |  |        |     |           |                                   `- 0
+        |  |  |        |     |           `- )
+        |  |  |        |     |- &
+        |  |  |        |     `- APosBoolNot
+        |  |  |        |        `- ASoloBoolComp
+        |  |  |        |           `- ASomeBoolParens
+        |  |  |        |              |- (
+        |  |  |        |              |- ASingleBoolExp
+        |  |  |        |              |  `- ASingleBoolTerm
+        |  |  |        |              |     `- APosBoolNot
+        |  |  |        |              |        `- ASoloBoolComp
+        |  |  |        |              |           `- ANoneBoolParens
+        |  |  |        |              |              `- AEqualNumComp
+        |  |  |        |              |                 |- ASoloExpression
+        |  |  |        |              |                 |  `- ASingleTerm
+        |  |  |        |              |                 |     `- APosNegation
+        |  |  |        |              |                 |        `- ANoneParentheticalExp
+        |  |  |        |              |                 |           `- AVarOperand
+        |  |  |        |              |                 |              `- y
+        |  |  |        |              |                 |- =
+        |  |  |        |              |                 `- ASoloExpression
+        |  |  |        |              |                    `- ASingleTerm
+        |  |  |        |              |                       `- APosNegation
+        |  |  |        |              |                          `- ANoneParentheticalExp
+        |  |  |        |              |                             `- ALitOperand
+        |  |  |        |              |                                `- AIntLiteral
+        |  |  |        |              |                                   `- 1
+        |  |  |        |              `- )
+        |  |  |        |- )
+        |  |  |        `- {
+        |  |  |        |- ANoneStatements
+        |  |  |        `- }
+        |  |  |        `- ANoElseElseStmt
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- z
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- ASoloExpression
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 9
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- AMultBoolExp
+        |        |  |- ASingleBoolExp
+        |        |  |  `- ASingleBoolTerm
+        |        |  |     `- APosBoolNot
+        |        |  |        `- ASoloBoolComp
+        |        |  |           `- ASomeBoolParens
+        |        |  |              |- (
+        |        |  |              |- ASingleBoolExp
+        |        |  |              |  `- ASingleBoolTerm
+        |        |  |              |     `- APosBoolNot
+        |        |  |              |        `- ASoloBoolComp
+        |        |  |              |           `- ANoneBoolParens
+        |        |  |              |              `- AEqualNumComp
+        |        |  |              |                 |- ASoloExpression
+        |        |  |              |                 |  `- ASingleTerm
+        |        |  |              |                 |     `- APosNegation
+        |        |  |              |                 |        `- ANoneParentheticalExp
+        |        |  |              |                 |           `- AVarOperand
+        |        |  |              |                 |              `- z
+        |        |  |              |                 |- =
+        |        |  |              |                 `- ASoloExpression
+        |        |  |              |                    `- ASingleTerm
+        |        |  |              |                       `- APosNegation
+        |        |  |              |                          `- ANoneParentheticalExp
+        |        |  |              |                             `- ALitOperand
+        |        |  |              |                                `- AIntLiteral
+        |        |  |              |                                   `- 9
+        |        |  |              `- )
+        |        |  |- |
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ASomeBoolParens
+        |        |              |- (
+        |        |              |- ASingleBoolExp
+        |        |              |  `- ASingleBoolTerm
+        |        |              |     `- APosBoolNot
+        |        |              |        `- ASoloBoolComp
+        |        |              |           `- ANoneBoolParens
+        |        |              |              `- ALessNumComp
+        |        |              |                 |- ASoloExpression
+        |        |              |                 |  `- ASingleTerm
+        |        |              |                 |     `- APosNegation
+        |        |              |                 |        `- ANoneParentheticalExp
+        |        |              |                 |           `- AVarOperand
+        |        |              |                 |              `- r
+        |        |              |                 |- <
+        |        |              |                 `- ASoloExpression
+        |        |              |                    `- ASingleTerm
+        |        |              |                       `- APosNegation
+        |        |              |                          `- ANoneParentheticalExp
+        |        |              |                             `- ALitOperand
+        |        |              |                                `- AIntLiteral
+        |        |              |                                   `- 5
+        |        |              `- )
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+ 
+**Boolean Equal Operations** 
+ 
+*boolEqualCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ANoneStatements
+        |  |  |  `- ADeclarationStatement
+        |  |  |     `- AVarDec
+        |  |  |        |- int
+        |  |  |        |- x
+        |  |  |        |- AOptForOptAssignment
+        |  |  |        |  |- :=
+        |  |  |        |  `- ASoloExpression
+        |  |  |        |     `- ASingleTerm
+        |  |  |        |        `- APosNegation
+        |  |  |        |           `- ANoneParentheticalExp
+        |  |  |        |              `- ALitOperand
+        |  |  |        |                 `- AIntLiteral
+        |  |  |        |                    `- 0
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- y
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- ASoloExpression
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 0
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- AEqualBoolComp
+        |        |           |- ASoloBoolComp
+        |        |           |  `- ASomeBoolParens
+        |        |           |     |- (
+        |        |           |     |- AMultBoolExp
+        |        |           |     |  |- ASingleBoolExp
+        |        |           |     |  |  `- ASingleBoolTerm
+        |        |           |     |  |     `- APosBoolNot
+        |        |           |     |  |        `- ASoloBoolComp
+        |        |           |     |  |           `- ASomeBoolParens
+        |        |           |     |  |              |- (
+        |        |           |     |  |              |- ASingleBoolExp
+        |        |           |     |  |              |  `- ASingleBoolTerm
+        |        |           |     |  |              |     `- APosBoolNot
+        |        |           |     |  |              |        `- ASoloBoolComp
+        |        |           |     |  |              |           `- ANoneBoolParens
+        |        |           |     |  |              |              `- AEqualNumComp
+        |        |           |     |  |              |                 |- ASoloExpression
+        |        |           |     |  |              |                 |  `- ASingleTerm
+        |        |           |     |  |              |                 |     `- APosNegation
+        |        |           |     |  |              |                 |        `- ANoneParentheticalExp
+        |        |           |     |  |              |                 |           `- AVarOperand
+        |        |           |     |  |              |                 |              `- x
+        |        |           |     |  |              |                 |- =
+        |        |           |     |  |              |                 `- ASoloExpression
+        |        |           |     |  |              |                    `- ASingleTerm
+        |        |           |     |  |              |                       `- APosNegation
+        |        |           |     |  |              |                          `- ANoneParentheticalExp
+        |        |           |     |  |              |                             `- ALitOperand
+        |        |           |     |  |              |                                `- AIntLiteral
+        |        |           |     |  |              |                                   `- 0
+        |        |           |     |  |              `- )
+        |        |           |     |  |- |
+        |        |           |     |  `- ASingleBoolTerm
+        |        |           |     |     `- APosBoolNot
+        |        |           |     |        `- ASoloBoolComp
+        |        |           |     |           `- ASomeBoolParens
+        |        |           |     |              |- (
+        |        |           |     |              |- ASingleBoolExp
+        |        |           |     |              |  `- ASingleBoolTerm
+        |        |           |     |              |     `- APosBoolNot
+        |        |           |     |              |        `- ASoloBoolComp
+        |        |           |     |              |           `- ANoneBoolParens
+        |        |           |     |              |              `- AEqualNumComp
+        |        |           |     |              |                 |- ASoloExpression
+        |        |           |     |              |                 |  `- ASingleTerm
+        |        |           |     |              |                 |     `- APosNegation
+        |        |           |     |              |                 |        `- ANoneParentheticalExp
+        |        |           |     |              |                 |           `- AVarOperand
+        |        |           |     |              |                 |              `- y
+        |        |           |     |              |                 |- =
+        |        |           |     |              |                 `- ASoloExpression
+        |        |           |     |              |                    `- ASingleTerm
+        |        |           |     |              |                       `- APosNegation
+        |        |           |     |              |                          `- ANoneParentheticalExp
+        |        |           |     |              |                             `- ALitOperand
+        |        |           |     |              |                                `- AIntLiteral
+        |        |           |     |              |                                   `- 0
+        |        |           |     |              `- )
+        |        |           |     `- )
+        |        |           |- =
+        |        |           `- ASomeBoolParens
+        |        |              |- (
+        |        |              |- ASingleBoolExp
+        |        |              |  `- ASingleBoolTerm
+        |        |              |     `- APosBoolNot
+        |        |              |        `- ASoloBoolComp
+        |        |              |           `- ANoneBoolParens
+        |        |              |              `- AEqualNumComp
+        |        |              |                 |- ASoloExpression
+        |        |              |                 |  `- ASingleTerm
+        |        |              |                 |     `- APosNegation
+        |        |              |                 |        `- ANoneParentheticalExp
+        |        |              |                 |           `- AVarOperand
+        |        |              |                 |              `- x
+        |        |              |                 |- =
+        |        |              |                 `- ASoloExpression
+        |        |              |                    `- ASingleTerm
+        |        |              |                       `- APosNegation
+        |        |              |                          `- ANoneParentheticalExp
+        |        |              |                             `- ALitOperand
+        |        |              |                                `- AIntLiteral
+        |        |              |                                   `- 0
+        |        |              `- )
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+*boolEqualWrong.txt 
+Line 4, Col 9: Cannot compare different types
+Line 4, Col 30: Cannot compare different types
+Line 9, Col 17: r does not exist
+Line 9, Col 30: Cannot compare different types
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |- ANoneStatements
+        |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |     `- AVarDec
+        |  |  |  |  |        |- str
+        |  |  |  |  |        |- x
+        |  |  |  |  |        |- AOptForOptAssignment
+        |  |  |  |  |        |  |- :=
+        |  |  |  |  |        |  `- ASoloExpression
+        |  |  |  |  |        |     `- ASingleTerm
+        |  |  |  |  |        |        `- APosNegation
+        |  |  |  |  |        |           `- ANoneParentheticalExp
+        |  |  |  |  |        |              `- ALitOperand
+        |  |  |  |  |        |                 `- AStrLiteral
+        |  |  |  |  |        |                    `- "hi"
+        |  |  |  |  |        `- ;
+        |  |  |  |  `- ADeclarationStatement
+        |  |  |  |     `- AVarDec
+        |  |  |  |        |- int
+        |  |  |  |        |- y
+        |  |  |  |        |- AOptForOptAssignment
+        |  |  |  |        |  |- :=
+        |  |  |  |        |  `- ASoloExpression
+        |  |  |  |        |     `- ASingleTerm
+        |  |  |  |        |        `- APosNegation
+        |  |  |  |        |           `- ANoneParentheticalExp
+        |  |  |  |        |              `- ALitOperand
+        |  |  |  |        |                 `- AIntLiteral
+        |  |  |  |        |                    `- 1
+        |  |  |  |        `- ;
+        |  |  |  `- AIfStatement
+        |  |  |     `- AIfStmt
+        |  |  |        |- if
+        |  |  |        |- (
+        |  |  |        |- ASingleBoolExp
+        |  |  |        |  `- ASingleBoolTerm
+        |  |  |        |     `- APosBoolNot
+        |  |  |        |        `- AEqualBoolComp
+        |  |  |        |           |- ASoloBoolComp
+        |  |  |        |           |  `- ASomeBoolParens
+        |  |  |        |           |     |- (
+        |  |  |        |           |     |- ASingleBoolExp
+        |  |  |        |           |     |  `- AMultBoolTerm
+        |  |  |        |           |     |     |- ASingleBoolTerm
+        |  |  |        |           |     |     |  `- APosBoolNot
+        |  |  |        |           |     |     |     `- ASoloBoolComp
+        |  |  |        |           |     |     |        `- ASomeBoolParens
+        |  |  |        |           |     |     |           |- (
+        |  |  |        |           |     |     |           |- ASingleBoolExp
+        |  |  |        |           |     |     |           |  `- ASingleBoolTerm
+        |  |  |        |           |     |     |           |     `- APosBoolNot
+        |  |  |        |           |     |     |           |        `- ASoloBoolComp
+        |  |  |        |           |     |     |           |           `- ANoneBoolParens
+        |  |  |        |           |     |     |           |              `- AEqualNumComp
+        |  |  |        |           |     |     |           |                 |- ASoloExpression
+        |  |  |        |           |     |     |           |                 |  `- ASingleTerm
+        |  |  |        |           |     |     |           |                 |     `- APosNegation
+        |  |  |        |           |     |     |           |                 |        `- ANoneParentheticalExp
+        |  |  |        |           |     |     |           |                 |           `- AVarOperand
+        |  |  |        |           |     |     |           |                 |              `- x
+        |  |  |        |           |     |     |           |                 |- =
+        |  |  |        |           |     |     |           |                 `- ASoloExpression
+        |  |  |        |           |     |     |           |                    `- ASingleTerm
+        |  |  |        |           |     |     |           |                       `- APosNegation
+        |  |  |        |           |     |     |           |                          `- ANoneParentheticalExp
+        |  |  |        |           |     |     |           |                             `- ALitOperand
+        |  |  |        |           |     |     |           |                                `- AIntLiteral
+        |  |  |        |           |     |     |           |                                   `- 0
+        |  |  |        |           |     |     |           `- )
+        |  |  |        |           |     |     |- &
+        |  |  |        |           |     |     `- APosBoolNot
+        |  |  |        |           |     |        `- ASoloBoolComp
+        |  |  |        |           |     |           `- ASomeBoolParens
+        |  |  |        |           |     |              |- (
+        |  |  |        |           |     |              |- ASingleBoolExp
+        |  |  |        |           |     |              |  `- ASingleBoolTerm
+        |  |  |        |           |     |              |     `- APosBoolNot
+        |  |  |        |           |     |              |        `- ASoloBoolComp
+        |  |  |        |           |     |              |           `- ANoneBoolParens
+        |  |  |        |           |     |              |              `- AEqualNumComp
+        |  |  |        |           |     |              |                 |- ASoloExpression
+        |  |  |        |           |     |              |                 |  `- ASingleTerm
+        |  |  |        |           |     |              |                 |     `- APosNegation
+        |  |  |        |           |     |              |                 |        `- ANoneParentheticalExp
+        |  |  |        |           |     |              |                 |           `- AVarOperand
+        |  |  |        |           |     |              |                 |              `- y
+        |  |  |        |           |     |              |                 |- =
+        |  |  |        |           |     |              |                 `- ASoloExpression
+        |  |  |        |           |     |              |                    `- ASingleTerm
+        |  |  |        |           |     |              |                       `- APosNegation
+        |  |  |        |           |     |              |                          `- ANoneParentheticalExp
+        |  |  |        |           |     |              |                             `- ALitOperand
+        |  |  |        |           |     |              |                                `- AIntLiteral
+        |  |  |        |           |     |              |                                   `- 1
+        |  |  |        |           |     |              `- )
+        |  |  |        |           |     `- )
+        |  |  |        |           |- =
+        |  |  |        |           `- ASomeBoolParens
+        |  |  |        |              |- (
+        |  |  |        |              |- ASingleBoolExp
+        |  |  |        |              |  `- ASingleBoolTerm
+        |  |  |        |              |     `- APosBoolNot
+        |  |  |        |              |        `- ASoloBoolComp
+        |  |  |        |              |           `- ANoneBoolParens
+        |  |  |        |              |              `- ANotEqualNumComp
+        |  |  |        |              |                 |- ASoloExpression
+        |  |  |        |              |                 |  `- ASingleTerm
+        |  |  |        |              |                 |     `- APosNegation
+        |  |  |        |              |                 |        `- ANoneParentheticalExp
+        |  |  |        |              |                 |           `- AVarOperand
+        |  |  |        |              |                 |              `- x
+        |  |  |        |              |                 |- !=
+        |  |  |        |              |                 `- ASoloExpression
+        |  |  |        |              |                    `- ASingleTerm
+        |  |  |        |              |                       `- APosNegation
+        |  |  |        |              |                          `- ANoneParentheticalExp
+        |  |  |        |              |                             `- ALitOperand
+        |  |  |        |              |                                `- AIntLiteral
+        |  |  |        |              |                                   `- 0
+        |  |  |        |              `- )
+        |  |  |        |- )
+        |  |  |        `- {
+        |  |  |        |- ANoneStatements
+        |  |  |        `- }
+        |  |  |        `- ANoElseElseStmt
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- z
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- ASoloExpression
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 9
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- AEqualBoolComp
+        |        |           |- ASoloBoolComp
+        |        |           |  `- ASomeBoolParens
+        |        |           |     |- (
+        |        |           |     |- AMultBoolExp
+        |        |           |     |  |- ASingleBoolExp
+        |        |           |     |  |  `- ASingleBoolTerm
+        |        |           |     |  |     `- APosBoolNot
+        |        |           |     |  |        `- ASoloBoolComp
+        |        |           |     |  |           `- ASomeBoolParens
+        |        |           |     |  |              |- (
+        |        |           |     |  |              |- ASingleBoolExp
+        |        |           |     |  |              |  `- ASingleBoolTerm
+        |        |           |     |  |              |     `- APosBoolNot
+        |        |           |     |  |              |        `- ASoloBoolComp
+        |        |           |     |  |              |           `- ANoneBoolParens
+        |        |           |     |  |              |              `- AEqualNumComp
+        |        |           |     |  |              |                 |- ASoloExpression
+        |        |           |     |  |              |                 |  `- ASingleTerm
+        |        |           |     |  |              |                 |     `- APosNegation
+        |        |           |     |  |              |                 |        `- ANoneParentheticalExp
+        |        |           |     |  |              |                 |           `- AVarOperand
+        |        |           |     |  |              |                 |              `- z
+        |        |           |     |  |              |                 |- =
+        |        |           |     |  |              |                 `- ASoloExpression
+        |        |           |     |  |              |                    `- ASingleTerm
+        |        |           |     |  |              |                       `- APosNegation
+        |        |           |     |  |              |                          `- ANoneParentheticalExp
+        |        |           |     |  |              |                             `- ALitOperand
+        |        |           |     |  |              |                                `- AIntLiteral
+        |        |           |     |  |              |                                   `- 9
+        |        |           |     |  |              `- )
+        |        |           |     |  |- |
+        |        |           |     |  `- ASingleBoolTerm
+        |        |           |     |     `- APosBoolNot
+        |        |           |     |        `- ASoloBoolComp
+        |        |           |     |           `- ASomeBoolParens
+        |        |           |     |              |- (
+        |        |           |     |              |- ASingleBoolExp
+        |        |           |     |              |  `- ASingleBoolTerm
+        |        |           |     |              |     `- APosBoolNot
+        |        |           |     |              |        `- ASoloBoolComp
+        |        |           |     |              |           `- ANoneBoolParens
+        |        |           |     |              |              `- ALessNumComp
+        |        |           |     |              |                 |- ASoloExpression
+        |        |           |     |              |                 |  `- ASingleTerm
+        |        |           |     |              |                 |     `- APosNegation
+        |        |           |     |              |                 |        `- ANoneParentheticalExp
+        |        |           |     |              |                 |           `- AVarOperand
+        |        |           |     |              |                 |              `- r
+        |        |           |     |              |                 |- <
+        |        |           |     |              |                 `- ASoloExpression
+        |        |           |     |              |                    `- ASingleTerm
+        |        |           |     |              |                       `- APosNegation
+        |        |           |     |              |                          `- ANoneParentheticalExp
+        |        |           |     |              |                             `- ALitOperand
+        |        |           |     |              |                                `- AIntLiteral
+        |        |           |     |              |                                   `- 5
+        |        |           |     |              `- )
+        |        |           |     `- )
+        |        |           |- =
+        |        |           `- ASomeBoolParens
+        |        |              |- (
+        |        |              |- ASingleBoolExp
+        |        |              |  `- ASingleBoolTerm
+        |        |              |     `- APosBoolNot
+        |        |              |        `- ASoloBoolComp
+        |        |              |           `- ANoneBoolParens
+        |        |              |              `- ANotEqualNumComp
+        |        |              |                 |- ASoloExpression
+        |        |              |                 |  `- ASingleTerm
+        |        |              |                 |     `- APosNegation
+        |        |              |                 |        `- ANoneParentheticalExp
+        |        |              |                 |           `- AVarOperand
+        |        |              |                 |              `- x
+        |        |              |                 |- !=
+        |        |              |                 `- ASoloExpression
+        |        |              |                    `- ASingleTerm
+        |        |              |                       `- APosNegation
+        |        |              |                          `- ANoneParentheticalExp
+        |        |              |                             `- ALitOperand
+        |        |              |                                `- AIntLiteral
+        |        |              |                                   `- 0
+        |        |              `- )
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+ 
+**Boolean Not Equal Operations** 
+ 
+*boolNotEqualCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ANoneStatements
+        |  |  |  `- ADeclarationStatement
+        |  |  |     `- AVarDec
+        |  |  |        |- int
+        |  |  |        |- x
+        |  |  |        |- AOptForOptAssignment
+        |  |  |        |  |- :=
+        |  |  |        |  `- ASoloExpression
+        |  |  |        |     `- ASingleTerm
+        |  |  |        |        `- APosNegation
+        |  |  |        |           `- ANoneParentheticalExp
+        |  |  |        |              `- ALitOperand
+        |  |  |        |                 `- AIntLiteral
+        |  |  |        |                    `- 0
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- y
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- ASoloExpression
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 0
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ANotEqualBoolComp
+        |        |           |- ASoloBoolComp
+        |        |           |  `- ASomeBoolParens
+        |        |           |     |- (
+        |        |           |     |- AMultBoolExp
+        |        |           |     |  |- ASingleBoolExp
+        |        |           |     |  |  `- ASingleBoolTerm
+        |        |           |     |  |     `- APosBoolNot
+        |        |           |     |  |        `- ASoloBoolComp
+        |        |           |     |  |           `- ASomeBoolParens
+        |        |           |     |  |              |- (
+        |        |           |     |  |              |- ASingleBoolExp
+        |        |           |     |  |              |  `- ASingleBoolTerm
+        |        |           |     |  |              |     `- APosBoolNot
+        |        |           |     |  |              |        `- ASoloBoolComp
+        |        |           |     |  |              |           `- ANoneBoolParens
+        |        |           |     |  |              |              `- AEqualNumComp
+        |        |           |     |  |              |                 |- ASoloExpression
+        |        |           |     |  |              |                 |  `- ASingleTerm
+        |        |           |     |  |              |                 |     `- APosNegation
+        |        |           |     |  |              |                 |        `- ANoneParentheticalExp
+        |        |           |     |  |              |                 |           `- AVarOperand
+        |        |           |     |  |              |                 |              `- x
+        |        |           |     |  |              |                 |- =
+        |        |           |     |  |              |                 `- ASoloExpression
+        |        |           |     |  |              |                    `- ASingleTerm
+        |        |           |     |  |              |                       `- APosNegation
+        |        |           |     |  |              |                          `- ANoneParentheticalExp
+        |        |           |     |  |              |                             `- ALitOperand
+        |        |           |     |  |              |                                `- AIntLiteral
+        |        |           |     |  |              |                                   `- 0
+        |        |           |     |  |              `- )
+        |        |           |     |  |- |
+        |        |           |     |  `- ASingleBoolTerm
+        |        |           |     |     `- APosBoolNot
+        |        |           |     |        `- ASoloBoolComp
+        |        |           |     |           `- ASomeBoolParens
+        |        |           |     |              |- (
+        |        |           |     |              |- ASingleBoolExp
+        |        |           |     |              |  `- ASingleBoolTerm
+        |        |           |     |              |     `- APosBoolNot
+        |        |           |     |              |        `- ASoloBoolComp
+        |        |           |     |              |           `- ANoneBoolParens
+        |        |           |     |              |              `- AEqualNumComp
+        |        |           |     |              |                 |- ASoloExpression
+        |        |           |     |              |                 |  `- ASingleTerm
+        |        |           |     |              |                 |     `- APosNegation
+        |        |           |     |              |                 |        `- ANoneParentheticalExp
+        |        |           |     |              |                 |           `- AVarOperand
+        |        |           |     |              |                 |              `- y
+        |        |           |     |              |                 |- =
+        |        |           |     |              |                 `- ASoloExpression
+        |        |           |     |              |                    `- ASingleTerm
+        |        |           |     |              |                       `- APosNegation
+        |        |           |     |              |                          `- ANoneParentheticalExp
+        |        |           |     |              |                             `- ALitOperand
+        |        |           |     |              |                                `- AIntLiteral
+        |        |           |     |              |                                   `- 0
+        |        |           |     |              `- )
+        |        |           |     `- )
+        |        |           |- !=
+        |        |           `- ASomeBoolParens
+        |        |              |- (
+        |        |              |- ASingleBoolExp
+        |        |              |  `- ASingleBoolTerm
+        |        |              |     `- APosBoolNot
+        |        |              |        `- ASoloBoolComp
+        |        |              |           `- ANoneBoolParens
+        |        |              |              `- AEqualNumComp
+        |        |              |                 |- ASoloExpression
+        |        |              |                 |  `- ASingleTerm
+        |        |              |                 |     `- APosNegation
+        |        |              |                 |        `- ANoneParentheticalExp
+        |        |              |                 |           `- AVarOperand
+        |        |              |                 |              `- x
+        |        |              |                 |- =
+        |        |              |                 `- ASoloExpression
+        |        |              |                    `- ASingleTerm
+        |        |              |                       `- APosNegation
+        |        |              |                          `- ANoneParentheticalExp
+        |        |              |                             `- ALitOperand
+        |        |              |                                `- AIntLiteral
+        |        |              |                                   `- 0
+        |        |              `- )
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+*boolNotEqualWrong.txt 
+Line 4, Col 9: Cannot compare different types
+Line 4, Col 31: Cannot compare different types
+Line 9, Col 17: r does not exist
+Line 9, Col 31: Cannot compare different types
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ASomeStatements
+        |  |  |  |  |  |- ANoneStatements
+        |  |  |  |  |  `- ADeclarationStatement
+        |  |  |  |  |     `- AVarDec
+        |  |  |  |  |        |- str
+        |  |  |  |  |        |- x
+        |  |  |  |  |        |- AOptForOptAssignment
+        |  |  |  |  |        |  |- :=
+        |  |  |  |  |        |  `- ASoloExpression
+        |  |  |  |  |        |     `- ASingleTerm
+        |  |  |  |  |        |        `- APosNegation
+        |  |  |  |  |        |           `- ANoneParentheticalExp
+        |  |  |  |  |        |              `- ALitOperand
+        |  |  |  |  |        |                 `- AStrLiteral
+        |  |  |  |  |        |                    `- "hi"
+        |  |  |  |  |        `- ;
+        |  |  |  |  `- ADeclarationStatement
+        |  |  |  |     `- AVarDec
+        |  |  |  |        |- int
+        |  |  |  |        |- y
+        |  |  |  |        |- AOptForOptAssignment
+        |  |  |  |        |  |- :=
+        |  |  |  |        |  `- ASoloExpression
+        |  |  |  |        |     `- ASingleTerm
+        |  |  |  |        |        `- APosNegation
+        |  |  |  |        |           `- ANoneParentheticalExp
+        |  |  |  |        |              `- ALitOperand
+        |  |  |  |        |                 `- AIntLiteral
+        |  |  |  |        |                    `- 1
+        |  |  |  |        `- ;
+        |  |  |  `- AIfStatement
+        |  |  |     `- AIfStmt
+        |  |  |        |- if
+        |  |  |        |- (
+        |  |  |        |- ASingleBoolExp
+        |  |  |        |  `- ASingleBoolTerm
+        |  |  |        |     `- APosBoolNot
+        |  |  |        |        `- ANotEqualBoolComp
+        |  |  |        |           |- ASoloBoolComp
+        |  |  |        |           |  `- ASomeBoolParens
+        |  |  |        |           |     |- (
+        |  |  |        |           |     |- ASingleBoolExp
+        |  |  |        |           |     |  `- AMultBoolTerm
+        |  |  |        |           |     |     |- ASingleBoolTerm
+        |  |  |        |           |     |     |  `- APosBoolNot
+        |  |  |        |           |     |     |     `- ASoloBoolComp
+        |  |  |        |           |     |     |        `- ASomeBoolParens
+        |  |  |        |           |     |     |           |- (
+        |  |  |        |           |     |     |           |- ASingleBoolExp
+        |  |  |        |           |     |     |           |  `- ASingleBoolTerm
+        |  |  |        |           |     |     |           |     `- APosBoolNot
+        |  |  |        |           |     |     |           |        `- ASoloBoolComp
+        |  |  |        |           |     |     |           |           `- ANoneBoolParens
+        |  |  |        |           |     |     |           |              `- AEqualNumComp
+        |  |  |        |           |     |     |           |                 |- ASoloExpression
+        |  |  |        |           |     |     |           |                 |  `- ASingleTerm
+        |  |  |        |           |     |     |           |                 |     `- APosNegation
+        |  |  |        |           |     |     |           |                 |        `- ANoneParentheticalExp
+        |  |  |        |           |     |     |           |                 |           `- AVarOperand
+        |  |  |        |           |     |     |           |                 |              `- x
+        |  |  |        |           |     |     |           |                 |- =
+        |  |  |        |           |     |     |           |                 `- ASoloExpression
+        |  |  |        |           |     |     |           |                    `- ASingleTerm
+        |  |  |        |           |     |     |           |                       `- APosNegation
+        |  |  |        |           |     |     |           |                          `- ANoneParentheticalExp
+        |  |  |        |           |     |     |           |                             `- ALitOperand
+        |  |  |        |           |     |     |           |                                `- AIntLiteral
+        |  |  |        |           |     |     |           |                                   `- 0
+        |  |  |        |           |     |     |           `- )
+        |  |  |        |           |     |     |- &
+        |  |  |        |           |     |     `- APosBoolNot
+        |  |  |        |           |     |        `- ASoloBoolComp
+        |  |  |        |           |     |           `- ASomeBoolParens
+        |  |  |        |           |     |              |- (
+        |  |  |        |           |     |              |- ASingleBoolExp
+        |  |  |        |           |     |              |  `- ASingleBoolTerm
+        |  |  |        |           |     |              |     `- APosBoolNot
+        |  |  |        |           |     |              |        `- ASoloBoolComp
+        |  |  |        |           |     |              |           `- ANoneBoolParens
+        |  |  |        |           |     |              |              `- AEqualNumComp
+        |  |  |        |           |     |              |                 |- ASoloExpression
+        |  |  |        |           |     |              |                 |  `- ASingleTerm
+        |  |  |        |           |     |              |                 |     `- APosNegation
+        |  |  |        |           |     |              |                 |        `- ANoneParentheticalExp
+        |  |  |        |           |     |              |                 |           `- AVarOperand
+        |  |  |        |           |     |              |                 |              `- y
+        |  |  |        |           |     |              |                 |- =
+        |  |  |        |           |     |              |                 `- ASoloExpression
+        |  |  |        |           |     |              |                    `- ASingleTerm
+        |  |  |        |           |     |              |                       `- APosNegation
+        |  |  |        |           |     |              |                          `- ANoneParentheticalExp
+        |  |  |        |           |     |              |                             `- ALitOperand
+        |  |  |        |           |     |              |                                `- AIntLiteral
+        |  |  |        |           |     |              |                                   `- 1
+        |  |  |        |           |     |              `- )
+        |  |  |        |           |     `- )
+        |  |  |        |           |- !=
+        |  |  |        |           `- ASomeBoolParens
+        |  |  |        |              |- (
+        |  |  |        |              |- ASingleBoolExp
+        |  |  |        |              |  `- ASingleBoolTerm
+        |  |  |        |              |     `- APosBoolNot
+        |  |  |        |              |        `- ASoloBoolComp
+        |  |  |        |              |           `- ANoneBoolParens
+        |  |  |        |              |              `- ANotEqualNumComp
+        |  |  |        |              |                 |- ASoloExpression
+        |  |  |        |              |                 |  `- ASingleTerm
+        |  |  |        |              |                 |     `- APosNegation
+        |  |  |        |              |                 |        `- ANoneParentheticalExp
+        |  |  |        |              |                 |           `- AVarOperand
+        |  |  |        |              |                 |              `- x
+        |  |  |        |              |                 |- !=
+        |  |  |        |              |                 `- ASoloExpression
+        |  |  |        |              |                    `- ASingleTerm
+        |  |  |        |              |                       `- APosNegation
+        |  |  |        |              |                          `- ANoneParentheticalExp
+        |  |  |        |              |                             `- ALitOperand
+        |  |  |        |              |                                `- AIntLiteral
+        |  |  |        |              |                                   `- 0
+        |  |  |        |              `- )
+        |  |  |        |- )
+        |  |  |        `- {
+        |  |  |        |- ANoneStatements
+        |  |  |        `- }
+        |  |  |        `- ANoElseElseStmt
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        |- z
+        |  |        |- AOptForOptAssignment
+        |  |        |  |- :=
+        |  |        |  `- ASoloExpression
+        |  |        |     `- ASingleTerm
+        |  |        |        `- APosNegation
+        |  |        |           `- ANoneParentheticalExp
+        |  |        |              `- ALitOperand
+        |  |        |                 `- AIntLiteral
+        |  |        |                    `- 9
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ANotEqualBoolComp
+        |        |           |- ASoloBoolComp
+        |        |           |  `- ASomeBoolParens
+        |        |           |     |- (
+        |        |           |     |- AMultBoolExp
+        |        |           |     |  |- ASingleBoolExp
+        |        |           |     |  |  `- ASingleBoolTerm
+        |        |           |     |  |     `- APosBoolNot
+        |        |           |     |  |        `- ASoloBoolComp
+        |        |           |     |  |           `- ASomeBoolParens
+        |        |           |     |  |              |- (
+        |        |           |     |  |              |- ASingleBoolExp
+        |        |           |     |  |              |  `- ASingleBoolTerm
+        |        |           |     |  |              |     `- APosBoolNot
+        |        |           |     |  |              |        `- ASoloBoolComp
+        |        |           |     |  |              |           `- ANoneBoolParens
+        |        |           |     |  |              |              `- AEqualNumComp
+        |        |           |     |  |              |                 |- ASoloExpression
+        |        |           |     |  |              |                 |  `- ASingleTerm
+        |        |           |     |  |              |                 |     `- APosNegation
+        |        |           |     |  |              |                 |        `- ANoneParentheticalExp
+        |        |           |     |  |              |                 |           `- AVarOperand
+        |        |           |     |  |              |                 |              `- z
+        |        |           |     |  |              |                 |- =
+        |        |           |     |  |              |                 `- ASoloExpression
+        |        |           |     |  |              |                    `- ASingleTerm
+        |        |           |     |  |              |                       `- APosNegation
+        |        |           |     |  |              |                          `- ANoneParentheticalExp
+        |        |           |     |  |              |                             `- ALitOperand
+        |        |           |     |  |              |                                `- AIntLiteral
+        |        |           |     |  |              |                                   `- 9
+        |        |           |     |  |              `- )
+        |        |           |     |  |- |
+        |        |           |     |  `- ASingleBoolTerm
+        |        |           |     |     `- APosBoolNot
+        |        |           |     |        `- ASoloBoolComp
+        |        |           |     |           `- ASomeBoolParens
+        |        |           |     |              |- (
+        |        |           |     |              |- ASingleBoolExp
+        |        |           |     |              |  `- ASingleBoolTerm
+        |        |           |     |              |     `- APosBoolNot
+        |        |           |     |              |        `- ASoloBoolComp
+        |        |           |     |              |           `- ANoneBoolParens
+        |        |           |     |              |              `- ALessNumComp
+        |        |           |     |              |                 |- ASoloExpression
+        |        |           |     |              |                 |  `- ASingleTerm
+        |        |           |     |              |                 |     `- APosNegation
+        |        |           |     |              |                 |        `- ANoneParentheticalExp
+        |        |           |     |              |                 |           `- AVarOperand
+        |        |           |     |              |                 |              `- r
+        |        |           |     |              |                 |- <
+        |        |           |     |              |                 `- ASoloExpression
+        |        |           |     |              |                    `- ASingleTerm
+        |        |           |     |              |                       `- APosNegation
+        |        |           |     |              |                          `- ANoneParentheticalExp
+        |        |           |     |              |                             `- ALitOperand
+        |        |           |     |              |                                `- AIntLiteral
+        |        |           |     |              |                                   `- 5
+        |        |           |     |              `- )
+        |        |           |     `- )
+        |        |           |- !=
+        |        |           `- ASomeBoolParens
+        |        |              |- (
+        |        |              |- ASingleBoolExp
+        |        |              |  `- ASingleBoolTerm
+        |        |              |     `- APosBoolNot
+        |        |              |        `- ASoloBoolComp
+        |        |              |           `- ANoneBoolParens
+        |        |              |              `- ANotEqualNumComp
+        |        |              |                 |- ASoloExpression
+        |        |              |                 |  `- ASingleTerm
+        |        |              |                 |     `- APosNegation
+        |        |              |                 |        `- ANoneParentheticalExp
+        |        |              |                 |           `- AVarOperand
+        |        |              |                 |              `- x
+        |        |              |                 |- !=
+        |        |              |                 `- ASoloExpression
+        |        |              |                    `- ASingleTerm
+        |        |              |                       `- APosNegation
+        |        |              |                          `- ANoneParentheticalExp
+        |        |              |                             `- ALitOperand
+        |        |              |                                `- AIntLiteral
+        |        |              |                                   `- 0
+        |        |              `- )
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+ 
+**Less Than Comparisons** 
+ 
+*lessCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ANoneStatements
+        |  |  |  |  `- AIfStatement
+        |  |  |  |     `- AIfStmt
+        |  |  |  |        |- if
+        |  |  |  |        |- (
+        |  |  |  |        |- ASingleBoolExp
+        |  |  |  |        |  `- ASingleBoolTerm
+        |  |  |  |        |     `- APosBoolNot
+        |  |  |  |        |        `- ASoloBoolComp
+        |  |  |  |        |           `- ANoneBoolParens
+        |  |  |  |        |              `- ALessNumComp
+        |  |  |  |        |                 |- ASoloExpression
+        |  |  |  |        |                 |  `- ASingleTerm
+        |  |  |  |        |                 |     `- APosNegation
+        |  |  |  |        |                 |        `- ANoneParentheticalExp
+        |  |  |  |        |                 |           `- ALitOperand
+        |  |  |  |        |                 |              `- AIntLiteral
+        |  |  |  |        |                 |                 `- 3
+        |  |  |  |        |                 |- <
+        |  |  |  |        |                 `- ASoloExpression
+        |  |  |  |        |                    `- ASingleTerm
+        |  |  |  |        |                       `- APosNegation
+        |  |  |  |        |                          `- ANoneParentheticalExp
+        |  |  |  |        |                             `- ALitOperand
+        |  |  |  |        |                                `- AIntLiteral
+        |  |  |  |        |                                   `- 3
+        |  |  |  |        |- )
+        |  |  |  |        `- {
+        |  |  |  |        |- ANoneStatements
+        |  |  |  |        `- }
+        |  |  |  |        `- ANoElseElseStmt
+        |  |  |  `- ADeclarationStatement
+        |  |  |     `- AVarDec
+        |  |  |        |- int
+        |  |  |        `- x
+        |  |  |        |- AOptAgainstOptAssignment
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        `- y
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ANoneBoolParens
+        |        |              `- ALessNumComp
+        |        |                 |- ASoloExpression
+        |        |                 |  `- ASingleTerm
+        |        |                 |     `- APosNegation
+        |        |                 |        `- ANoneParentheticalExp
+        |        |                 |           `- AVarOperand
+        |        |                 |              `- x
+        |        |                 |- <
+        |        |                 `- ASoloExpression
+        |        |                    `- ASingleTerm
+        |        |                       `- APosNegation
+        |        |                          `- ANoneParentheticalExp
+        |        |                             `- AVarOperand
+        |        |                                `- y
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+*lessWrong.txt 
+Line 3, Col 7: Cannot compare different types
+Line 7, Col 5: x does not exist
+Line 7, Col 9: y does not exist
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ANoneStatements
+        |  |  `- AIfStatement
+        |  |     `- AIfStmt
+        |  |        |- if
+        |  |        |- (
+        |  |        |- ASingleBoolExp
+        |  |        |  `- ASingleBoolTerm
+        |  |        |     `- APosBoolNot
+        |  |        |        `- ASoloBoolComp
+        |  |        |           `- ANoneBoolParens
+        |  |        |              `- ALessNumComp
+        |  |        |                 |- ASoloExpression
+        |  |        |                 |  `- ASingleTerm
+        |  |        |                 |     `- APosNegation
+        |  |        |                 |        `- ANoneParentheticalExp
+        |  |        |                 |           `- ALitOperand
+        |  |        |                 |              `- AIntLiteral
+        |  |        |                 |                 `- 3
+        |  |        |                 |- <
+        |  |        |                 `- ASoloExpression
+        |  |        |                    `- ASingleTerm
+        |  |        |                       `- APosNegation
+        |  |        |                          `- ANoneParentheticalExp
+        |  |        |                             `- ALitOperand
+        |  |        |                                `- AStrLiteral
+        |  |        |                                   `- "hi"
+        |  |        |- )
+        |  |        `- {
+        |  |        |- ANoneStatements
+        |  |        `- }
+        |  |        `- ANoElseElseStmt
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ANoneBoolParens
+        |        |              `- ALessNumComp
+        |        |                 |- ASoloExpression
+        |        |                 |  `- ASingleTerm
+        |        |                 |     `- APosNegation
+        |        |                 |        `- ANoneParentheticalExp
+        |        |                 |           `- AVarOperand
+        |        |                 |              `- x
+        |        |                 |- <
+        |        |                 `- ASoloExpression
+        |        |                    `- ASingleTerm
+        |        |                       `- APosNegation
+        |        |                          `- ANoneParentheticalExp
+        |        |                             `- AVarOperand
+        |        |                                `- y
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+ 
+**Less Than or Equal Comparisons** 
+ 
+*lessEqualCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ANoneStatements
+        |  |  |  |  `- AIfStatement
+        |  |  |  |     `- AIfStmt
+        |  |  |  |        |- if
+        |  |  |  |        |- (
+        |  |  |  |        |- ASingleBoolExp
+        |  |  |  |        |  `- ASingleBoolTerm
+        |  |  |  |        |     `- APosBoolNot
+        |  |  |  |        |        `- ASoloBoolComp
+        |  |  |  |        |           `- ANoneBoolParens
+        |  |  |  |        |              `- ALessEqualNumComp
+        |  |  |  |        |                 |- ASoloExpression
+        |  |  |  |        |                 |  `- ASingleTerm
+        |  |  |  |        |                 |     `- APosNegation
+        |  |  |  |        |                 |        `- ANoneParentheticalExp
+        |  |  |  |        |                 |           `- ALitOperand
+        |  |  |  |        |                 |              `- AIntLiteral
+        |  |  |  |        |                 |                 `- 3
+        |  |  |  |        |                 |- <=
+        |  |  |  |        |                 `- ASoloExpression
+        |  |  |  |        |                    `- ASingleTerm
+        |  |  |  |        |                       `- APosNegation
+        |  |  |  |        |                          `- ANoneParentheticalExp
+        |  |  |  |        |                             `- ALitOperand
+        |  |  |  |        |                                `- AIntLiteral
+        |  |  |  |        |                                   `- 3
+        |  |  |  |        |- )
+        |  |  |  |        `- {
+        |  |  |  |        |- ANoneStatements
+        |  |  |  |        `- }
+        |  |  |  |        `- ANoElseElseStmt
+        |  |  |  `- ADeclarationStatement
+        |  |  |     `- AVarDec
+        |  |  |        |- int
+        |  |  |        `- x
+        |  |  |        |- AOptAgainstOptAssignment
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        `- y
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ANoneBoolParens
+        |        |              `- ALessEqualNumComp
+        |        |                 |- ASoloExpression
+        |        |                 |  `- ASingleTerm
+        |        |                 |     `- APosNegation
+        |        |                 |        `- ANoneParentheticalExp
+        |        |                 |           `- AVarOperand
+        |        |                 |              `- x
+        |        |                 |- <=
+        |        |                 `- ASoloExpression
+        |        |                    `- ASingleTerm
+        |        |                       `- APosNegation
+        |        |                          `- ANoneParentheticalExp
+        |        |                             `- AVarOperand
+        |        |                                `- y
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+*lessEqualWrong.txt 
+Line 3, Col 7: Cannot compare different types
+Line 7, Col 5: x does not exist
+Line 7, Col 10: y does not exist
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ANoneStatements
+        |  |  `- AIfStatement
+        |  |     `- AIfStmt
+        |  |        |- if
+        |  |        |- (
+        |  |        |- ASingleBoolExp
+        |  |        |  `- ASingleBoolTerm
+        |  |        |     `- APosBoolNot
+        |  |        |        `- ASoloBoolComp
+        |  |        |           `- ANoneBoolParens
+        |  |        |              `- ALessEqualNumComp
+        |  |        |                 |- ASoloExpression
+        |  |        |                 |  `- ASingleTerm
+        |  |        |                 |     `- APosNegation
+        |  |        |                 |        `- ANoneParentheticalExp
+        |  |        |                 |           `- ALitOperand
+        |  |        |                 |              `- AIntLiteral
+        |  |        |                 |                 `- 3
+        |  |        |                 |- <=
+        |  |        |                 `- ASoloExpression
+        |  |        |                    `- ASingleTerm
+        |  |        |                       `- APosNegation
+        |  |        |                          `- ANoneParentheticalExp
+        |  |        |                             `- ALitOperand
+        |  |        |                                `- AStrLiteral
+        |  |        |                                   `- "hi"
+        |  |        |- )
+        |  |        `- {
+        |  |        |- ANoneStatements
+        |  |        `- }
+        |  |        `- ANoElseElseStmt
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ANoneBoolParens
+        |        |              `- ALessEqualNumComp
+        |        |                 |- ASoloExpression
+        |        |                 |  `- ASingleTerm
+        |        |                 |     `- APosNegation
+        |        |                 |        `- ANoneParentheticalExp
+        |        |                 |           `- AVarOperand
+        |        |                 |              `- x
+        |        |                 |- <=
+        |        |                 `- ASoloExpression
+        |        |                    `- ASingleTerm
+        |        |                       `- APosNegation
+        |        |                          `- ANoneParentheticalExp
+        |        |                             `- AVarOperand
+        |        |                                `- y
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+ 
+**Greater Than Comparisons** 
+ 
+*greaterCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ANoneStatements
+        |  |  |  |  `- AIfStatement
+        |  |  |  |     `- AIfStmt
+        |  |  |  |        |- if
+        |  |  |  |        |- (
+        |  |  |  |        |- ASingleBoolExp
+        |  |  |  |        |  `- ASingleBoolTerm
+        |  |  |  |        |     `- APosBoolNot
+        |  |  |  |        |        `- ASoloBoolComp
+        |  |  |  |        |           `- ANoneBoolParens
+        |  |  |  |        |              `- AGreaterNumComp
+        |  |  |  |        |                 |- ASoloExpression
+        |  |  |  |        |                 |  `- ASingleTerm
+        |  |  |  |        |                 |     `- APosNegation
+        |  |  |  |        |                 |        `- ANoneParentheticalExp
+        |  |  |  |        |                 |           `- ALitOperand
+        |  |  |  |        |                 |              `- AIntLiteral
+        |  |  |  |        |                 |                 `- 3
+        |  |  |  |        |                 |- >
+        |  |  |  |        |                 `- ASoloExpression
+        |  |  |  |        |                    `- ASingleTerm
+        |  |  |  |        |                       `- APosNegation
+        |  |  |  |        |                          `- ANoneParentheticalExp
+        |  |  |  |        |                             `- ALitOperand
+        |  |  |  |        |                                `- AIntLiteral
+        |  |  |  |        |                                   `- 3
+        |  |  |  |        |- )
+        |  |  |  |        `- {
+        |  |  |  |        |- ANoneStatements
+        |  |  |  |        `- }
+        |  |  |  |        `- ANoElseElseStmt
+        |  |  |  `- ADeclarationStatement
+        |  |  |     `- AVarDec
+        |  |  |        |- int
+        |  |  |        `- x
+        |  |  |        |- AOptAgainstOptAssignment
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        `- y
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ANoneBoolParens
+        |        |              `- AGreaterNumComp
+        |        |                 |- ASoloExpression
+        |        |                 |  `- ASingleTerm
+        |        |                 |     `- APosNegation
+        |        |                 |        `- ANoneParentheticalExp
+        |        |                 |           `- AVarOperand
+        |        |                 |              `- x
+        |        |                 |- >
+        |        |                 `- ASoloExpression
+        |        |                    `- ASingleTerm
+        |        |                       `- APosNegation
+        |        |                          `- ANoneParentheticalExp
+        |        |                             `- AVarOperand
+        |        |                                `- y
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+*greaterWrong.txt 
+Line 3, Col 7: Cannot compare different types
+Line 7, Col 5: x does not exist
+Line 7, Col 9: y does not exist
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ANoneStatements
+        |  |  `- AIfStatement
+        |  |     `- AIfStmt
+        |  |        |- if
+        |  |        |- (
+        |  |        |- ASingleBoolExp
+        |  |        |  `- ASingleBoolTerm
+        |  |        |     `- APosBoolNot
+        |  |        |        `- ASoloBoolComp
+        |  |        |           `- ANoneBoolParens
+        |  |        |              `- AGreaterNumComp
+        |  |        |                 |- ASoloExpression
+        |  |        |                 |  `- ASingleTerm
+        |  |        |                 |     `- APosNegation
+        |  |        |                 |        `- ANoneParentheticalExp
+        |  |        |                 |           `- ALitOperand
+        |  |        |                 |              `- AIntLiteral
+        |  |        |                 |                 `- 3
+        |  |        |                 |- >
+        |  |        |                 `- ASoloExpression
+        |  |        |                    `- ASingleTerm
+        |  |        |                       `- APosNegation
+        |  |        |                          `- ANoneParentheticalExp
+        |  |        |                             `- ALitOperand
+        |  |        |                                `- AStrLiteral
+        |  |        |                                   `- "hi"
+        |  |        |- )
+        |  |        `- {
+        |  |        |- ANoneStatements
+        |  |        `- }
+        |  |        `- ANoElseElseStmt
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ANoneBoolParens
+        |        |              `- AGreaterNumComp
+        |        |                 |- ASoloExpression
+        |        |                 |  `- ASingleTerm
+        |        |                 |     `- APosNegation
+        |        |                 |        `- ANoneParentheticalExp
+        |        |                 |           `- AVarOperand
+        |        |                 |              `- x
+        |        |                 |- >
+        |        |                 `- ASoloExpression
+        |        |                    `- ASingleTerm
+        |        |                       `- APosNegation
+        |        |                          `- ANoneParentheticalExp
+        |        |                             `- AVarOperand
+        |        |                                `- y
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+ 
+**Greater Than or Equal Comparisons** 
+ 
+*greaterEqualCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ANoneStatements
+        |  |  |  |  `- AIfStatement
+        |  |  |  |     `- AIfStmt
+        |  |  |  |        |- if
+        |  |  |  |        |- (
+        |  |  |  |        |- ASingleBoolExp
+        |  |  |  |        |  `- ASingleBoolTerm
+        |  |  |  |        |     `- APosBoolNot
+        |  |  |  |        |        `- ASoloBoolComp
+        |  |  |  |        |           `- ANoneBoolParens
+        |  |  |  |        |              `- AGreaterEqualNumComp
+        |  |  |  |        |                 |- ASoloExpression
+        |  |  |  |        |                 |  `- ASingleTerm
+        |  |  |  |        |                 |     `- APosNegation
+        |  |  |  |        |                 |        `- ANoneParentheticalExp
+        |  |  |  |        |                 |           `- ALitOperand
+        |  |  |  |        |                 |              `- AIntLiteral
+        |  |  |  |        |                 |                 `- 3
+        |  |  |  |        |                 |- >=
+        |  |  |  |        |                 `- ASoloExpression
+        |  |  |  |        |                    `- ASingleTerm
+        |  |  |  |        |                       `- APosNegation
+        |  |  |  |        |                          `- ANoneParentheticalExp
+        |  |  |  |        |                             `- ALitOperand
+        |  |  |  |        |                                `- AIntLiteral
+        |  |  |  |        |                                   `- 3
+        |  |  |  |        |- )
+        |  |  |  |        `- {
+        |  |  |  |        |- ANoneStatements
+        |  |  |  |        `- }
+        |  |  |  |        `- ANoElseElseStmt
+        |  |  |  `- ADeclarationStatement
+        |  |  |     `- AVarDec
+        |  |  |        |- int
+        |  |  |        `- x
+        |  |  |        |- AOptAgainstOptAssignment
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        `- y
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ANoneBoolParens
+        |        |              `- AGreaterEqualNumComp
+        |        |                 |- ASoloExpression
+        |        |                 |  `- ASingleTerm
+        |        |                 |     `- APosNegation
+        |        |                 |        `- ANoneParentheticalExp
+        |        |                 |           `- AVarOperand
+        |        |                 |              `- x
+        |        |                 |- >=
+        |        |                 `- ASoloExpression
+        |        |                    `- ASingleTerm
+        |        |                       `- APosNegation
+        |        |                          `- ANoneParentheticalExp
+        |        |                             `- AVarOperand
+        |        |                                `- y
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+*greaterEqualWrong.txt 
+Line 3, Col 7: Cannot compare different types
+Line 7, Col 5: x does not exist
+Line 7, Col 10: y does not exist
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ANoneStatements
+        |  |  `- AIfStatement
+        |  |     `- AIfStmt
+        |  |        |- if
+        |  |        |- (
+        |  |        |- ASingleBoolExp
+        |  |        |  `- ASingleBoolTerm
+        |  |        |     `- APosBoolNot
+        |  |        |        `- ASoloBoolComp
+        |  |        |           `- ANoneBoolParens
+        |  |        |              `- AGreaterEqualNumComp
+        |  |        |                 |- ASoloExpression
+        |  |        |                 |  `- ASingleTerm
+        |  |        |                 |     `- APosNegation
+        |  |        |                 |        `- ANoneParentheticalExp
+        |  |        |                 |           `- ALitOperand
+        |  |        |                 |              `- AIntLiteral
+        |  |        |                 |                 `- 3
+        |  |        |                 |- >=
+        |  |        |                 `- ASoloExpression
+        |  |        |                    `- ASingleTerm
+        |  |        |                       `- APosNegation
+        |  |        |                          `- ANoneParentheticalExp
+        |  |        |                             `- ALitOperand
+        |  |        |                                `- AStrLiteral
+        |  |        |                                   `- "hi"
+        |  |        |- )
+        |  |        `- {
+        |  |        |- ANoneStatements
+        |  |        `- }
+        |  |        `- ANoElseElseStmt
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ANoneBoolParens
+        |        |              `- AGreaterEqualNumComp
+        |        |                 |- ASoloExpression
+        |        |                 |  `- ASingleTerm
+        |        |                 |     `- APosNegation
+        |        |                 |        `- ANoneParentheticalExp
+        |        |                 |           `- AVarOperand
+        |        |                 |              `- x
+        |        |                 |- >=
+        |        |                 `- ASoloExpression
+        |        |                    `- ASingleTerm
+        |        |                       `- APosNegation
+        |        |                          `- ANoneParentheticalExp
+        |        |                             `- AVarOperand
+        |        |                                `- y
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+ 
+**Equal Comparisons** 
+ 
+*equalCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ANoneStatements
+        |  |  |  |  `- AIfStatement
+        |  |  |  |     `- AIfStmt
+        |  |  |  |        |- if
+        |  |  |  |        |- (
+        |  |  |  |        |- ASingleBoolExp
+        |  |  |  |        |  `- ASingleBoolTerm
+        |  |  |  |        |     `- APosBoolNot
+        |  |  |  |        |        `- ASoloBoolComp
+        |  |  |  |        |           `- ANoneBoolParens
+        |  |  |  |        |              `- AEqualNumComp
+        |  |  |  |        |                 |- ASoloExpression
+        |  |  |  |        |                 |  `- ASingleTerm
+        |  |  |  |        |                 |     `- APosNegation
+        |  |  |  |        |                 |        `- ANoneParentheticalExp
+        |  |  |  |        |                 |           `- ALitOperand
+        |  |  |  |        |                 |              `- AIntLiteral
+        |  |  |  |        |                 |                 `- 3
+        |  |  |  |        |                 |- =
+        |  |  |  |        |                 `- ASoloExpression
+        |  |  |  |        |                    `- ASingleTerm
+        |  |  |  |        |                       `- APosNegation
+        |  |  |  |        |                          `- ANoneParentheticalExp
+        |  |  |  |        |                             `- ALitOperand
+        |  |  |  |        |                                `- AIntLiteral
+        |  |  |  |        |                                   `- 3
+        |  |  |  |        |- )
+        |  |  |  |        `- {
+        |  |  |  |        |- ANoneStatements
+        |  |  |  |        `- }
+        |  |  |  |        `- ANoElseElseStmt
+        |  |  |  `- ADeclarationStatement
+        |  |  |     `- AVarDec
+        |  |  |        |- int
+        |  |  |        `- x
+        |  |  |        |- AOptAgainstOptAssignment
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        `- y
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ANoneBoolParens
+        |        |              `- AEqualNumComp
+        |        |                 |- ASoloExpression
+        |        |                 |  `- ASingleTerm
+        |        |                 |     `- APosNegation
+        |        |                 |        `- ANoneParentheticalExp
+        |        |                 |           `- AVarOperand
+        |        |                 |              `- x
+        |        |                 |- =
+        |        |                 `- ASoloExpression
+        |        |                    `- ASingleTerm
+        |        |                       `- APosNegation
+        |        |                          `- ANoneParentheticalExp
+        |        |                             `- AVarOperand
+        |        |                                `- y
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+*equalWrong.txt 
+Line 3, Col 7: Cannot compare different types
+Line 7, Col 5: x does not exist
+Line 7, Col 9: y does not exist
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ANoneStatements
+        |  |  `- AIfStatement
+        |  |     `- AIfStmt
+        |  |        |- if
+        |  |        |- (
+        |  |        |- ASingleBoolExp
+        |  |        |  `- ASingleBoolTerm
+        |  |        |     `- APosBoolNot
+        |  |        |        `- ASoloBoolComp
+        |  |        |           `- ANoneBoolParens
+        |  |        |              `- AEqualNumComp
+        |  |        |                 |- ASoloExpression
+        |  |        |                 |  `- ASingleTerm
+        |  |        |                 |     `- APosNegation
+        |  |        |                 |        `- ANoneParentheticalExp
+        |  |        |                 |           `- ALitOperand
+        |  |        |                 |              `- AIntLiteral
+        |  |        |                 |                 `- 3
+        |  |        |                 |- =
+        |  |        |                 `- ASoloExpression
+        |  |        |                    `- ASingleTerm
+        |  |        |                       `- APosNegation
+        |  |        |                          `- ANoneParentheticalExp
+        |  |        |                             `- ALitOperand
+        |  |        |                                `- AStrLiteral
+        |  |        |                                   `- "hi"
+        |  |        |- )
+        |  |        `- {
+        |  |        |- ANoneStatements
+        |  |        `- }
+        |  |        `- ANoElseElseStmt
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ANoneBoolParens
+        |        |              `- AEqualNumComp
+        |        |                 |- ASoloExpression
+        |        |                 |  `- ASingleTerm
+        |        |                 |     `- APosNegation
+        |        |                 |        `- ANoneParentheticalExp
+        |        |                 |           `- AVarOperand
+        |        |                 |              `- x
+        |        |                 |- =
+        |        |                 `- ASoloExpression
+        |        |                    `- ASingleTerm
+        |        |                       `- APosNegation
+        |        |                          `- ANoneParentheticalExp
+        |        |                             `- AVarOperand
+        |        |                                `- y
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+ 
+**Not Equal Comparisons** 
+ 
+*NotEqualCorrect.txt 
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ASomeStatements
+        |  |  |  |- ASomeStatements
+        |  |  |  |  |- ANoneStatements
+        |  |  |  |  `- AIfStatement
+        |  |  |  |     `- AIfStmt
+        |  |  |  |        |- if
+        |  |  |  |        |- (
+        |  |  |  |        |- ASingleBoolExp
+        |  |  |  |        |  `- ASingleBoolTerm
+        |  |  |  |        |     `- APosBoolNot
+        |  |  |  |        |        `- ASoloBoolComp
+        |  |  |  |        |           `- ANoneBoolParens
+        |  |  |  |        |              `- ANotEqualNumComp
+        |  |  |  |        |                 |- ASoloExpression
+        |  |  |  |        |                 |  `- ASingleTerm
+        |  |  |  |        |                 |     `- APosNegation
+        |  |  |  |        |                 |        `- ANoneParentheticalExp
+        |  |  |  |        |                 |           `- ALitOperand
+        |  |  |  |        |                 |              `- AIntLiteral
+        |  |  |  |        |                 |                 `- 3
+        |  |  |  |        |                 |- !=
+        |  |  |  |        |                 `- ASoloExpression
+        |  |  |  |        |                    `- ASingleTerm
+        |  |  |  |        |                       `- APosNegation
+        |  |  |  |        |                          `- ANoneParentheticalExp
+        |  |  |  |        |                             `- ALitOperand
+        |  |  |  |        |                                `- AIntLiteral
+        |  |  |  |        |                                   `- 3
+        |  |  |  |        |- )
+        |  |  |  |        `- {
+        |  |  |  |        |- ANoneStatements
+        |  |  |  |        `- }
+        |  |  |  |        `- ANoElseElseStmt
+        |  |  |  `- ADeclarationStatement
+        |  |  |     `- AVarDec
+        |  |  |        |- int
+        |  |  |        `- x
+        |  |  |        |- AOptAgainstOptAssignment
+        |  |  |        `- ;
+        |  |  `- ADeclarationStatement
+        |  |     `- AVarDec
+        |  |        |- int
+        |  |        `- y
+        |  |        |- AOptAgainstOptAssignment
+        |  |        `- ;
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ANoneBoolParens
+        |        |              `- ANotEqualNumComp
+        |        |                 |- ASoloExpression
+        |        |                 |  `- ASingleTerm
+        |        |                 |     `- APosNegation
+        |        |                 |        `- ANoneParentheticalExp
+        |        |                 |           `- AVarOperand
+        |        |                 |              `- x
+        |        |                 |- !=
+        |        |                 `- ASoloExpression
+        |        |                    `- ASingleTerm
+        |        |                       `- APosNegation
+        |        |                          `- ANoneParentheticalExp
+        |        |                             `- AVarOperand
+        |        |                                `- y
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 
+*NotEqualWrong.txt 
+Line 3, Col 7: Cannot compare different types
+Line 7, Col 5: x does not exist
+Line 7, Col 10: y does not exist
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ANoneFunctDeclarations
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ASomeStatements
+        |  |  |- ANoneStatements
+        |  |  `- AIfStatement
+        |  |     `- AIfStmt
+        |  |        |- if
+        |  |        |- (
+        |  |        |- ASingleBoolExp
+        |  |        |  `- ASingleBoolTerm
+        |  |        |     `- APosBoolNot
+        |  |        |        `- ASoloBoolComp
+        |  |        |           `- ANoneBoolParens
+        |  |        |              `- ANotEqualNumComp
+        |  |        |                 |- ASoloExpression
+        |  |        |                 |  `- ASingleTerm
+        |  |        |                 |     `- APosNegation
+        |  |        |                 |        `- ANoneParentheticalExp
+        |  |        |                 |           `- ALitOperand
+        |  |        |                 |              `- AIntLiteral
+        |  |        |                 |                 `- 3
+        |  |        |                 |- !=
+        |  |        |                 `- ASoloExpression
+        |  |        |                    `- ASingleTerm
+        |  |        |                       `- APosNegation
+        |  |        |                          `- ANoneParentheticalExp
+        |  |        |                             `- ALitOperand
+        |  |        |                                `- AStrLiteral
+        |  |        |                                   `- "hi"
+        |  |        |- )
+        |  |        `- {
+        |  |        |- ANoneStatements
+        |  |        `- }
+        |  |        `- ANoElseElseStmt
+        |  `- AIfStatement
+        |     `- AIfStmt
+        |        |- if
+        |        |- (
+        |        |- ASingleBoolExp
+        |        |  `- ASingleBoolTerm
+        |        |     `- APosBoolNot
+        |        |        `- ASoloBoolComp
+        |        |           `- ANoneBoolParens
+        |        |              `- ANotEqualNumComp
+        |        |                 |- ASoloExpression
+        |        |                 |  `- ASingleTerm
+        |        |                 |     `- APosNegation
+        |        |                 |        `- ANoneParentheticalExp
+        |        |                 |           `- AVarOperand
+        |        |                 |              `- x
+        |        |                 |- !=
+        |        |                 `- ASoloExpression
+        |        |                    `- ASingleTerm
+        |        |                       `- APosNegation
+        |        |                          `- ANoneParentheticalExp
+        |        |                             `- AVarOperand
+        |        |                                `- y
+        |        |- )
+        |        `- {
+        |        |- ANoneStatements
+        |        `- }
+        |        `- ANoElseElseStmt
+        `- }
+
+ 

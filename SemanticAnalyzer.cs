@@ -363,24 +363,9 @@ namespace CS426.analysis
         {
             List<Definition> paramDefs = new List<Definition>();
 
-            if (callParamsNode is AOneCallParams oneCallParams)
+            if (callParamsNode is ASomeCallParams someCallParams)
             {
-                // Single parameter
-                Definition exprDef;
-                if (!decoratedParseTree.TryGetValue(oneCallParams.GetExpression(), out exprDef))
-                {
-                    // Error already reported
-                    return null;
-                }
-                else
-                {
-                    paramDefs.Add(exprDef);
-                    return paramDefs;
-                }
-            }
-            else if (callParamsNode is ASomeCallParams someCallParams)
-            {
-                // Multiple parameters
+                // Process the current expression
                 Definition exprDef;
                 if (!decoratedParseTree.TryGetValue(someCallParams.GetExpression(), out exprDef))
                 {
@@ -392,6 +377,7 @@ namespace CS426.analysis
                     paramDefs.Add(exprDef);
                 }
 
+                // Process the rest of the parameters
                 List<Definition> restParams = GetActualParameters(someCallParams.GetCallParams());
                 if (restParams == null)
                 {
@@ -404,9 +390,22 @@ namespace CS426.analysis
                     return paramDefs;
                 }
             }
+            else if (callParamsNode is AOneCallParams oneCallParams)
+            {
+                Definition exprDef;
+                if (!decoratedParseTree.TryGetValue(oneCallParams.GetExpression(), out exprDef))
+                {
+                    // Error already reported
+                    return null;
+                }
+                else
+                {
+                    paramDefs.Add(exprDef);
+                    return paramDefs;
+                }
+            }
             else if (callParamsNode is ANoneCallParams)
             {
-                // No parameters
                 return paramDefs;
             }
             else
@@ -415,7 +414,6 @@ namespace CS426.analysis
                 return null;
             }
         }
-
 
 
 
