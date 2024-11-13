@@ -40,4 +40,11 @@ namespace CS426.analysis
     {
         public List<VariableDefinition> parameters;
     }
+
+    //const definition
+
+    public class ConstDefinition : Definition
+    {
+        public TypeDefinition constType;
+    }
 }

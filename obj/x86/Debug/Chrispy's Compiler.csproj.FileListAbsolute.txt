@@ -12,3 +12,10 @@ C:\Users\C25Jacob.Hrasky\ComputerScience\Chrispy's Compiler\obj\x86\Debug\Chrisp
 C:\Users\C25Jacob.Hrasky\ComputerScience\Chrispy's Compiler\obj\x86\Debug\Chrispy's Compiler.csproj.CoreCompileInputs.cache
 C:\Users\C25Jacob.Hrasky\ComputerScience\Chrispy's Compiler\obj\x86\Debug\ConsoleApplication.exe
 C:\Users\C25Jacob.Hrasky\ComputerScience\Chrispy's Compiler\obj\x86\Debug\ConsoleApplication.pdb
+C:\Users\enriqueoti\Source\Repos\CS426-PEX-3\bin\Debug\ConsoleApplication.exe.config
+C:\Users\enriqueoti\Source\Repos\CS426-PEX-3\bin\Debug\ConsoleApplication.exe
+C:\Users\enriqueoti\Source\Repos\CS426-PEX-3\bin\Debug\ConsoleApplication.pdb
+C:\Users\enriqueoti\Source\Repos\CS426-PEX-3\obj\x86\Debug\Chrispy's Compiler.csproj.AssemblyReference.cache
+C:\Users\enriqueoti\Source\Repos\CS426-PEX-3\obj\x86\Debug\Chrispy's Compiler.csproj.CoreCompileInputs.cache
+C:\Users\enriqueoti\Source\Repos\CS426-PEX-3\obj\x86\Debug\ConsoleApplication.exe
+C:\Users\enriqueoti\Source\Repos\CS426-PEX-3\obj\x86\Debug\ConsoleApplication.pdb

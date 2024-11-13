@@ -6,6 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
+
 /* TODO:
  * file                 |
  * const_declarations   |
@@ -76,6 +77,76 @@ namespace CS426.analysis
             globalSymbolTable.Add("str", strDef);
             globalSymbolTable.Add("float", floatDef);
         }
+
+        // --------------------------------------------------------
+        // File
+        // --------------------------------------------------------
+        public override void OutAFile(AFile node){}
+
+
+        // --------------------------------------------------------
+        //Const Delcarations
+        // --------------------------------------------------------
+
+        public override void OutASomeConstDeclarations(ASomeConstDeclarations node)
+        {
+            // Get the type name
+            string typeName = node.GetRwType().Text;
+            Definition typeDef;
+
+            if (!globalSymbolTable.TryGetValue(typeName, out typeDef))
+            {
+                PrintWarning(node.GetRwType(), "Type '" + typeName + "' is not declared.");
+            }
+            else if (!(typeDef is TypeDefinition))
+            {
+                PrintWarning(node.GetRwType(), "'" + typeName + "' is not a valid type.");
+            }
+            else
+            {
+                // Get the constant name
+                string constName = node.GetId().Text;
+                if (globalSymbolTable.ContainsKey(constName))
+                {
+                    PrintWarning(node.GetId(), "Constant '" + constName + "' is already declared.");
+                }
+                else
+                {
+                    // Get the expression's type
+                    Definition exprDef;
+                    if (!decoratedParseTree.TryGetValue(node.GetExpression(), out exprDef))
+                    {
+                        // Expression error already reported
+                    }
+                    else if (exprDef.name != typeDef.name)
+                    {
+                        PrintWarning(node.GetId(), "Type mismatch: Cannot assign '" + exprDef.name + "' to '" + typeDef.name + "'.");
+                    }
+                    else
+                    {
+                        // Create and add the constant definition
+                        ConstDefinition constDef = new ConstDefinition();
+                        constDef.name = constName;
+                        constDef.constType = (TypeDefinition)typeDef;
+
+                        globalSymbolTable.Add(constName, constDef);
+                        decoratedParseTree.Add(node, constDef);
+                    }
+                }
+            }
+
+            // No need to process const_declarations recursively as the visitor pattern handles it
+        }
+
+        public override void OutANoneConstDeclarations(ANoneConstDeclarations node)
+        {
+            // No action needed for empty const declarations
+        }
+
+
+
+
+
 
 
         // --------------------------------------------------------
