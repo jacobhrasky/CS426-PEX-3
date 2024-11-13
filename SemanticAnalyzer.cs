@@ -87,7 +87,7 @@ namespace CS426.analysis
 
 
         // --------------------------------------------------------
-        //Const Delcarations
+        // Const Delcarations
         // --------------------------------------------------------
 
         public override void OutASomeConstDeclarations(ASomeConstDeclarations node)
@@ -139,27 +139,6 @@ namespace CS426.analysis
         }
 
         public override void OutANoneConstDeclarations(ANoneConstDeclarations node) {}
-
-        // --------------------------------------------------------
-        // Param Declarations
-        // --------------------------------------------------------
-        public override void InASomeParamDeclarations(ASomeParamDeclarations node)
-        {
-            // Process the first parameter declaration
-            node.GetParamDeclaration().Apply(this);
-
-            // Process the rest of the parameter declarations
-            node.GetParamDeclarations().Apply(this);
-        }
-
-        public override void InAOneParamDeclarations(AOneParamDeclarations node)
-        {
-            // Process the single parameter declaration
-            node.GetParamDeclaration().Apply(this);
-        }
-
-        public override void InANoneParamDeclarations(ANoneParamDeclarations node) {}
-
 
         // --------------------------------------------------------
         // Funct Declarations
@@ -295,112 +274,6 @@ namespace CS426.analysis
 
                 // Decorate the node
                 decoratedParseTree.Add(node, paramDef);
-            }
-        }
-
-
-        // --------------------------------------------------------
-        // Function Call
-        // --------------------------------------------------------
-        public override void OutAFunctCall(AFunctCall node)
-        {
-            string funcName = node.GetId().Text;
-
-            Definition funcDef;
-            if (!globalSymbolTable.TryGetValue(funcName, out funcDef))
-            {
-                PrintWarning(node.GetId(), $"Function '{funcName}' is not declared.");
-            }
-            else if (!(funcDef is FunctionDefinition))
-            {
-                PrintWarning(node.GetId(), $"'{funcName}' is not a function.");
-            }
-            else
-            {
-                FunctionDefinition functionDef = (FunctionDefinition)funcDef;
-
-                // Get the actual parameters
-                List<Definition> actualParams = GetActualParameters(node.GetCallParams());
-
-                if (actualParams == null)
-                {
-                        // Error already printed above
-                }
-                else if (actualParams.Count != functionDef.parameters.Count)
-                {
-                    PrintWarning(node.GetId(), $"Incorrect number of parameters in function call to '{funcName}'. Expected {functionDef.parameters.Count}, got {actualParams.Count}.");
-                }
-                else
-                {
-                    // Check parameter types
-                    for (int i = 0; i < actualParams.Count; i++)
-                    {
-                        if (actualParams[i].name != functionDef.parameters[i].variableType.name)
-                        {
-                            PrintWarning(node.GetId(), $"Type mismatch in parameter {i + 1} in function call to '{funcName}'. Expected '{functionDef.parameters[i].variableType.name}', got '{actualParams[i].name}'.");
-                        }
-                    }
-                }
-
-                // Decorate the node
-                decoratedParseTree.Add(node, functionDef);
-            }
-        }
-
-        // Helper method to get actual parameters from call_params
-        private List<Definition> GetActualParameters(PCallParams callParamsNode)
-        {
-            List<Definition> paramDefs = new List<Definition>();
-
-            if (callParamsNode is ASomeCallParams someCallParams)
-            {
-                // Process the current expression
-                Definition exprDef;
-                if (!decoratedParseTree.TryGetValue(someCallParams.GetExpression(), out exprDef))
-                {
-                    // Error already printed above
-                    return null;
-                }
-                else
-                {
-                    paramDefs.Add(exprDef);
-                }
-
-                // Process the rest of the parameters
-                List<Definition> restParams = GetActualParameters(someCallParams.GetCallParams());
-                if (restParams == null)
-                {
-                    // Error already printed above
-                    return null;
-                }
-                else
-                {
-                    paramDefs.AddRange(restParams);
-                    return paramDefs;
-                }
-            }
-            else if (callParamsNode is AOneCallParams oneCallParams)
-            {
-                Definition exprDef;
-                if (!decoratedParseTree.TryGetValue(oneCallParams.GetExpression(), out exprDef))
-                {
-                    // Error already printed above
-                    return null;
-                }
-                else
-                {
-                    paramDefs.Add(exprDef);
-                    return paramDefs;
-                }
-            }
-            else if (callParamsNode is ANoneCallParams)
-            {
-                return paramDefs;
-            }
-            else
-            {
-                // Should not reach here
-                return null;
             }
         }
 
@@ -1317,8 +1190,107 @@ namespace CS426.analysis
         // --------------------------------------------------------
         // Function Call
         // --------------------------------------------------------
+        public override void OutAFunctCall(AFunctCall node)
+        {
+            string funcName = node.GetId().Text;
 
+            Definition funcDef;
+            if (!globalSymbolTable.TryGetValue(funcName, out funcDef))
+            {
+                PrintWarning(node.GetId(), $"Function '{funcName}' is not declared.");
+            }
+            else if (!(funcDef is FunctionDefinition))
+            {
+                PrintWarning(node.GetId(), $"'{funcName}' is not a function.");
+            }
+            else
+            {
+                FunctionDefinition functionDef = (FunctionDefinition)funcDef;
 
+                // Get the actual parameters
+                List<Definition> actualParams = GetActualParameters(node.GetCallParams());
+
+                if (actualParams == null)
+                {
+                    // Error already printed above
+                }
+                else if (actualParams.Count != functionDef.parameters.Count)
+                {
+                    PrintWarning(node.GetId(), $"Incorrect number of parameters in function call to '{funcName}'. Expected {functionDef.parameters.Count}, got {actualParams.Count}.");
+                }
+                else
+                {
+                    // Check parameter types
+                    for (int i = 0; i < actualParams.Count; i++)
+                    {
+                        if (actualParams[i].name != functionDef.parameters[i].variableType.name)
+                        {
+                            PrintWarning(node.GetId(), $"Type mismatch in parameter {i + 1} in function call to '{funcName}'. Expected '{functionDef.parameters[i].variableType.name}', got '{actualParams[i].name}'.");
+                        }
+                    }
+                }
+
+                // Decorate the node
+                decoratedParseTree.Add(node, functionDef);
+            }
+        }
+
+        // Helper method to get actual parameters from call_params
+        private List<Definition> GetActualParameters(PCallParams callParamsNode)
+        {
+            List<Definition> paramDefs = new List<Definition>();
+
+            if (callParamsNode is ASomeCallParams someCallParams)
+            {
+                // Process the current expression
+                Definition exprDef;
+                if (!decoratedParseTree.TryGetValue(someCallParams.GetExpression(), out exprDef))
+                {
+                    // Error already printed above
+                    return null;
+                }
+                else
+                {
+                    paramDefs.Add(exprDef);
+                }
+
+                // Process the rest of the parameters
+                List<Definition> restParams = GetActualParameters(someCallParams.GetCallParams());
+                if (restParams == null)
+                {
+                    // Error already printed above
+                    return null;
+                }
+                else
+                {
+                    paramDefs.AddRange(restParams);
+                    return paramDefs;
+                }
+            }
+            else if (callParamsNode is AOneCallParams oneCallParams)
+            {
+                Definition exprDef;
+                if (!decoratedParseTree.TryGetValue(oneCallParams.GetExpression(), out exprDef))
+                {
+                    // Error already printed above
+                    return null;
+                }
+                else
+                {
+                    paramDefs.Add(exprDef);
+                    return paramDefs;
+                }
+            }
+            else if (callParamsNode is ANoneCallParams)
+            {
+                return paramDefs;
+            }
+            else
+            {
+                // Should not reach here
+                return null;
+            }
+        }
 
         // --------------------------------------------------------
         // Call Params

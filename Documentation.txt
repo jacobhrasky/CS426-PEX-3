@@ -6,10 +6,10 @@ PEX 2 DOCUMENTATION:
 
 
 
-PEX 3 DOCUMENTATION:
+PEX 3 DOCUMENTATION: C1C Oti and C1C Hrasky used authorized class rsources to complete the PEX. GitHub copilot helped comment the code.
 
 
 
-PEX 4 DOCUMENTATION: C1C Oti and C1C Hrasky used authorized adn class rsources to complete the PEX. GitHub copilot helped comment the code
+PEX 4 DOCUMENTATION: 
 
 

@@ -12,7 +12,7 @@ echo PEX3 TEST CASES >> %file%
 :: ----------------------------------------
 :: Declarations
 :: ----------------------------------------
-echo *eclarationCorrect.txt >> %file%
+echo *declarationCorrect.txt >> %file%
 bin\Debug\ConsoleApplication.exe "testcases\pex3\declarationCorrect.txt" >> %file%
 echo. >> %file%
 

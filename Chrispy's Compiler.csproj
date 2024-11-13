@@ -64,11 +64,17 @@
     <Content Include="testcases\pex3\boolOrWrong.txt" />
     <Content Include="testcases\pex3\boolParensCorrect.txt" />
     <Content Include="testcases\pex3\boolParensWrong.txt" />
+    <Content Include="testcases\pex3\constDeclarationCorrect.txt" />
+    <Content Include="testcases\pex3\constDeclarationWrong.txt" />
     <Content Include="testcases\pex3\equalWrong.txt" />
     <Content Include="testcases\pex3\funcCallCorrect.txt" />
     <Content Include="testcases\pex3\funcCallWrong.txt" />
+    <Content Include="testcases\pex3\funcDeclarationCorrect.txt" />
+    <Content Include="testcases\pex3\funcDeclarationWrong.txt" />
     <Content Include="testcases\pex3\greaterEqualWrong.txt" />
     <Content Include="testcases\pex3\greaterWrong.txt" />
+    <Content Include="testcases\pex3\ifCorrect.txt" />
+    <Content Include="testcases\pex3\ifWrong.txt" />
     <Content Include="testcases\pex3\lessEqualWrong.txt" />
     <Content Include="testcases\pex3\lessWrong.txt" />
     <Content Include="testcases\pex3\equalCorrect.txt" />
@@ -77,6 +83,8 @@
     <Compile Include="tokens.cs" />
     <Content Include="testcases\pex3\varDeclarationCorrect.txt" />
     <Content Include="testcases\pex3\varDeclarationWrong.txt" />
+    <Content Include="testcases\pex3\whileCorrect.txt" />
+    <Content Include="testcases\pex3\whileWrong.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Documentation.txt" />

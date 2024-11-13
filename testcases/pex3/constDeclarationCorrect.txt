@@ -1,6 +1,6 @@
-const int x = 3;
-const float y = 3.3;
-const str z = "hi";
+const int x := 3;
+const float y := 3.3;
+const str z := "hi";
 
 function main() {
 

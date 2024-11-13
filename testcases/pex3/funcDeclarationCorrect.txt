@@ -3,6 +3,5 @@ function foo(int x, float y, str z) {
 }
 
 function main() {
-	foo2(1.1, "hi", 1);
-	foo(1, 1.1, "hi", 1);
+
 }

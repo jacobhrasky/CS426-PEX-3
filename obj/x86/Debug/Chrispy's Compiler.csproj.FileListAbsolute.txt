@@ -19,3 +19,7 @@ C:\Users\enriqueoti\Source\Repos\CS426-PEX-3\obj\x86\Debug\Chrispy's Compiler.cs
 C:\Users\enriqueoti\Source\Repos\CS426-PEX-3\obj\x86\Debug\Chrispy's Compiler.csproj.CoreCompileInputs.cache
 C:\Users\enriqueoti\Source\Repos\CS426-PEX-3\obj\x86\Debug\ConsoleApplication.exe
 C:\Users\enriqueoti\Source\Repos\CS426-PEX-3\obj\x86\Debug\ConsoleApplication.pdb
+C:\Users\C25Jacob.Hrasky\ComputerScience\CS426-PEX-3\obj\x86\Debug\Chrispy's Compiler.csproj.AssemblyReference.cache
+C:\Users\C25Jacob.Hrasky\ComputerScience\CS426-PEX-3\obj\x86\Debug\Chrispy's Compiler.csproj.CoreCompileInputs.cache
+C:\Users\C25Jacob.Hrasky\ComputerScience\CS426-PEX-3\obj\x86\Debug\ConsoleApplication.exe
+C:\Users\C25Jacob.Hrasky\ComputerScience\CS426-PEX-3\obj\x86\Debug\ConsoleApplication.pdb

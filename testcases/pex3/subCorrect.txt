@@ -5,9 +5,9 @@ function main() {
 	float y;
 	y := 3.3 - 3.3;
 
-	int z;
+	float z;
 	z := 3.3 - 3;
 
-	float a;
+	int a;
 	a := 3 - 3.3;
 }
