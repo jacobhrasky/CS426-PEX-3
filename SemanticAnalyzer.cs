@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 
 /* TODO:
- * file                 |
- * const_declarations   |
- * funct_declarations   |
- * main_declaration     |
+ * file                 |   Done
+ * const_declarations   |   Done?
+ * funct_declarations   |   Done?
+ * main_declaration     |   Done?
  * bool_exp             |   Done
  * bool_term            |   Done
  * bool_not             |   Done
@@ -52,6 +52,8 @@ namespace CS426.analysis
 
         // This is out decorated parse tree
         Dictionary<Node, Definition> decoratedParseTree = new Dictionary<Node, Definition>();
+
+        FunctionDefinition currentFunctionDefinition = null;
 
         public void PrintWarning(Token t, String message)
         {
@@ -142,6 +144,280 @@ namespace CS426.analysis
         {
             // No action needed for empty const declarations
         }
+
+        // --------------------------------------------------------
+        // Param Declarations
+        // --------------------------------------------------------
+        public override void InASomeParamDeclarations(ASomeParamDeclarations node)
+        {
+            // Process the first parameter declaration
+            node.GetParamDeclaration().Apply(this);
+
+            // Process the rest of the parameter declarations
+            node.GetParamDeclarations().Apply(this);
+        }
+
+        public override void InAOneParamDeclarations(AOneParamDeclarations node)
+        {
+            // Process the single parameter declaration
+            node.GetParamDeclaration().Apply(this);
+        }
+
+        public override void InANoneParamDeclarations(ANoneParamDeclarations node)
+        {
+            // No parameters to process
+        }
+
+
+        // --------------------------------------------------------
+        // funct declarations
+        // --------------------------------------------------------
+        public override void InASomeFunctDeclarations(ASomeFunctDeclarations node)
+        {
+            // Process previous function declarations
+            if (node.GetFunctDeclarations() != null)
+            {
+                node.GetFunctDeclarations().Apply(this);
+            }
+
+            // Now process the current function
+            string funcName = node.GetId().Text;
+
+            if (globalSymbolTable.ContainsKey(funcName))
+            {
+                PrintWarning(node.GetId(), $"Function '{funcName}' is already declared.");
+            }
+            else
+            {
+                // Create FunctionDefinition
+                FunctionDefinition funcDef = new FunctionDefinition();
+                funcDef.name = funcName;
+                funcDef.parameters = new List<VariableDefinition>();
+
+                // Add to global symbol table
+                globalSymbolTable.Add(funcName, funcDef);
+
+                // Save previous local symbol table and function definition
+                var previousLocalSymbolTable = localSymbolTable;
+                var previousFunctionDefinition = currentFunctionDefinition;
+
+                // Set current function and create new local symbol table
+                currentFunctionDefinition = funcDef;
+                localSymbolTable = new Dictionary<string, Definition>();
+
+                // Process parameters
+                node.GetParamDeclarations().Apply(this);
+
+                // Process statements
+                node.GetStatements().Apply(this);
+
+                // Restore previous local symbol table and function definition
+                localSymbolTable = previousLocalSymbolTable;
+                currentFunctionDefinition = previousFunctionDefinition;
+            }
+        }
+
+        public override void OutANoneFunctDeclarations(ANoneFunctDeclarations node)
+        {
+            // No action needed
+        }
+
+        // --------------------------------------------------------
+        // main_declaration
+        // --------------------------------------------------------
+
+        public override void InAMainDeclaration(AMainDeclaration node)
+        {
+            string funcName = "main";
+
+            if (globalSymbolTable.ContainsKey(funcName))
+            {
+                PrintWarning(node.GetRwMain(), "Function 'main' is already declared.");
+            }
+            else
+            {
+                // Create FunctionDefinition
+                FunctionDefinition funcDef = new FunctionDefinition();
+                funcDef.name = funcName;
+                funcDef.parameters = new List<VariableDefinition>();
+
+                // Add to global symbol table
+                globalSymbolTable.Add(funcName, funcDef);
+
+                // Save previous local symbol table and function definition
+                var previousLocalSymbolTable = localSymbolTable;
+                var previousFunctionDefinition = currentFunctionDefinition;
+
+                // Set current function and create new local symbol table
+                currentFunctionDefinition = funcDef;
+                localSymbolTable = new Dictionary<string, Definition>();
+
+                // Process statements
+                node.GetStatements().Apply(this);
+
+                // Restore previous local symbol table and function definition
+                localSymbolTable = previousLocalSymbolTable;
+                currentFunctionDefinition = previousFunctionDefinition;
+            }
+        }
+
+        // --------------------------------------------------------
+        // Param Declaration
+        // --------------------------------------------------------
+        public override void OutAParamDeclaration(AParamDeclaration node)
+        {
+            string typeName = node.GetRwType().Text;
+            string paramName = node.GetId().Text;
+
+            Definition typeDef;
+
+            // Check if the type exists in the global symbol table
+            if (!globalSymbolTable.TryGetValue(typeName, out typeDef))
+            {
+                PrintWarning(node.GetRwType(), $"Type '{typeName}' is not declared.");
+            }
+            else if (!(typeDef is TypeDefinition))
+            {
+                PrintWarning(node.GetRwType(), $"'{typeName}' is not a valid type.");
+            }
+            else if (localSymbolTable.ContainsKey(paramName))
+            {
+                PrintWarning(node.GetId(), $"Parameter '{paramName}' is already declared.");
+            }
+            else
+            {
+                // Create VariableDefinition for the parameter
+                VariableDefinition paramDef = new VariableDefinition();
+                paramDef.name = paramName;
+                paramDef.variableType = (TypeDefinition)typeDef;
+
+                // Add the parameter to the local symbol table
+                localSymbolTable.Add(paramName, paramDef);
+
+                // Add the parameter to the current function's parameter list
+                if (currentFunctionDefinition != null)
+                {
+                    currentFunctionDefinition.parameters.Add(paramDef);
+                }
+                else
+                {
+                    PrintWarning(node.GetId(), "Parameter declaration outside of a function.");
+                }
+
+                // Decorate the node
+                decoratedParseTree.Add(node, paramDef);
+            }
+        }
+
+
+        // --------------------------------------------------------
+        // Function Call
+        // --------------------------------------------------------
+        public override void OutAFunctCall(AFunctCall node)
+        {
+            string funcName = node.GetId().Text;
+
+            Definition funcDef;
+            if (!globalSymbolTable.TryGetValue(funcName, out funcDef))
+            {
+                PrintWarning(node.GetId(), $"Function '{funcName}' is not declared.");
+            }
+            else if (!(funcDef is FunctionDefinition))
+            {
+                PrintWarning(node.GetId(), $"'{funcName}' is not a function.");
+            }
+            else
+            {
+                FunctionDefinition functionDef = (FunctionDefinition)funcDef;
+
+                // Get the actual parameters
+                List<Definition> actualParams = GetActualParameters(node.GetCallParams());
+
+                if (actualParams == null)
+                {
+                    // Error already reported during call_params traversal
+                }
+                else if (actualParams.Count != functionDef.parameters.Count)
+                {
+                    PrintWarning(node.GetId(), $"Incorrect number of parameters in function call to '{funcName}'. Expected {functionDef.parameters.Count}, got {actualParams.Count}.");
+                }
+                else
+                {
+                    // Check parameter types
+                    for (int i = 0; i < actualParams.Count; i++)
+                    {
+                        if (actualParams[i].name != functionDef.parameters[i].variableType.name)
+                        {
+                            PrintWarning(node.GetId(), $"Type mismatch in parameter {i + 1} in function call to '{funcName}'. Expected '{functionDef.parameters[i].variableType.name}', got '{actualParams[i].name}'.");
+                        }
+                    }
+                }
+
+                // Decorate the node
+                decoratedParseTree.Add(node, functionDef);
+            }
+        }
+
+        // Helper method to get actual parameters from call_params
+        private List<Definition> GetActualParameters(PCallParams callParamsNode)
+        {
+            List<Definition> paramDefs = new List<Definition>();
+
+            if (callParamsNode is AOneCallParams oneCallParams)
+            {
+                // Single parameter
+                Definition exprDef;
+                if (!decoratedParseTree.TryGetValue(oneCallParams.GetExpression(), out exprDef))
+                {
+                    // Error already reported
+                    return null;
+                }
+                else
+                {
+                    paramDefs.Add(exprDef);
+                    return paramDefs;
+                }
+            }
+            else if (callParamsNode is ASomeCallParams someCallParams)
+            {
+                // Multiple parameters
+                Definition exprDef;
+                if (!decoratedParseTree.TryGetValue(someCallParams.GetExpression(), out exprDef))
+                {
+                    // Error already reported
+                    return null;
+                }
+                else
+                {
+                    paramDefs.Add(exprDef);
+                }
+
+                List<Definition> restParams = GetActualParameters(someCallParams.GetCallParams());
+                if (restParams == null)
+                {
+                    // Error already reported
+                    return null;
+                }
+                else
+                {
+                    paramDefs.AddRange(restParams);
+                    return paramDefs;
+                }
+            }
+            else if (callParamsNode is ANoneCallParams)
+            {
+                // No parameters
+                return paramDefs;
+            }
+            else
+            {
+                // Should not reach here
+                return null;
+            }
+        }
+
+
+
 
 
 
@@ -337,41 +613,100 @@ namespace CS426.analysis
             }
         }
 
+        // --------------------------------------------------------
+        // Term
+        // --------------------------------------------------------
         public override void OutADivTerm(ADivTerm node)
         {
             Definition termDef;
             Definition negationDef;
 
-            // Check if term expression is already in the decorated tree
             if (!decoratedParseTree.TryGetValue(node.GetTerm(), out termDef))
             {
                 // Error already printed
             }
-            // Check if negation expression is already in the decorated tree
             else if (!decoratedParseTree.TryGetValue(node.GetNegation(), out negationDef))
             {
                 // Error already printed
             }
-            // Check if the types of the expressions match
             else if ((termDef.name == "str") || (negationDef.name == "str"))
             {
                 PrintWarning(node.GetSlash(), "Cannot divide " + termDef.name + " by " + negationDef.name);
             }
-            // TODO: Check if the negation term is not zero
-            else if (negationDef.Equals(0))
+            else if (!((termDef is NumberDefinition) || (termDef is FloatDefinition)) ||
+                     !((negationDef is NumberDefinition) || (negationDef is FloatDefinition)))
             {
-                PrintWarning(node.GetSlash(), "You can't divide by zero");
-            }
-            // Check if the expressions are numbers
-            else if (!((termDef is NumberDefinition) || (termDef is FloatDefinition) || (negationDef is NumberDefinition) || (negationDef is FloatDefinition)))
-            {
-                PrintWarning(node.GetSlash(), "You can only divide numbers");
+                PrintWarning(node.GetSlash(), "You can only divide numbers or floats");
             }
             else
             {
+                // Check for division by zero if possible
+                bool isZero = false;
+
+                // Check if the divisor is a literal zero
+                if (node.GetNegation() is APosNegation posNegation)
+                {
+                    if (posNegation.GetParentheticalExp() is ANoneParentheticalExp parenExp)
+                    {
+                        if (parenExp.GetOperand() is ALitOperand litOperand)
+                        {
+                            if (litOperand.GetLiteral() is AIntLiteral intLiteral)
+                            {
+                                int value = int.Parse(intLiteral.GetLitInteger().Text);
+                                if (value == 0)
+                                {
+                                    isZero = true;
+                                }
+                            }
+                            else if (litOperand.GetLiteral() is AFloatLiteral floatLiteral)
+                            {
+                                float value = float.Parse(floatLiteral.GetLitFloat().Text);
+                                if (value == 0.0f)
+                                {
+                                    isZero = true;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (node.GetNegation() is ANegNegation negNegation)
+                {
+                    if (negNegation.GetParentheticalExp() is ANoneParentheticalExp parenExp)
+                    {
+                        if (parenExp.GetOperand() is ALitOperand litOperand)
+                        {
+                            if (litOperand.GetLiteral() is AIntLiteral intLiteral)
+                            {
+                                int value = int.Parse(intLiteral.GetLitInteger().Text);
+                                if (-value == 0)
+                                {
+                                    isZero = true;
+                                }
+                            }
+                            else if (litOperand.GetLiteral() is AFloatLiteral floatLiteral)
+                            {
+                                float value = float.Parse(floatLiteral.GetLitFloat().Text);
+                                if (-value == 0.0f)
+                                {
+                                    isZero = true;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (isZero)
+                {
+                    PrintWarning(node.GetSlash(), "Division by zero");
+                }
+
+                // The result type is determined based on operands; we'll use termDef
                 decoratedParseTree.Add(node, termDef);
             }
         }
+
+
+
 
         // --------------------------------------------------------
         // Expression
@@ -857,36 +1192,7 @@ namespace CS426.analysis
         // Param Declaration
         // --------------------------------------------------------
 
-        public override void OutAParamDeclaration(AParamDeclaration node)
-        {
-            Definition typeDef;
-            Definition idDef;
-
-            if (!globalSymbolTable.TryGetValue(node.GetRwType().Text, out typeDef))
-            {
-                PrintWarning(node.GetRwType(), "Type " + node.GetType().Name + " does not exist");
-            }
-            else if (!(typeDef is TypeDefinition))
-            {
-                PrintWarning(node.GetRwType(), "Identifier " + node.GetRwType().Text + " is not a recognized data type");
-            }
-            else if (localSymbolTable.TryGetValue(node.GetId().Text, out idDef))
-            {
-                PrintWarning(node.GetId(), "Identifier " + node.GetId().Text + " is already being used");
-            }
-            else if (globalSymbolTable.TryGetValue(node.GetId().Text, out idDef))
-            {
-                PrintWarning(node.GetId(), "Identifier " + node.GetId().Text + " is already being used");
-            }
-            else
-            {
-                VariableDefinition newVarDef = new VariableDefinition();
-                newVarDef.name = node.GetId().Text;
-                newVarDef.variableType = (TypeDefinition)typeDef;
-
-                localSymbolTable.Add(node.GetId().Text, newVarDef);
-            }
-        }
+       
 
         // --------------------------------------------------------
         // Statements
@@ -988,34 +1294,56 @@ namespace CS426.analysis
         // --------------------------------------------------------
         // Variable Declaration
         // --------------------------------------------------------
+        // --------------------------------------------------------
+        // Variable Declaration with Optional Assignment
+        // --------------------------------------------------------
         public override void OutAVarDec(AVarDec node)
         {
-            Definition typeDef;
-            Definition idDef;
+            string typeName = node.GetRwType().Text;
+            string varName = node.GetId().Text;
 
-            if(!globalSymbolTable.TryGetValue(node.GetRwType().Text, out typeDef))
+            Definition typeDef;
+
+            if (!globalSymbolTable.TryGetValue(typeName, out typeDef))
             {
-                PrintWarning(node.GetRwType() , "Type " + node.GetType().Name + " does not exist");
+                PrintWarning(node.GetRwType(), $"Type '{typeName}' is not declared.");
             }
-            else if(!(typeDef is TypeDefinition))
+            else if (!(typeDef is TypeDefinition))
             {
-                PrintWarning(node.GetRwType(), "Identifier " + node.GetRwType().Text + " is not a recognized data type");
+                PrintWarning(node.GetRwType(), $"'{typeName}' is not a valid type.");
             }
-            else if(localSymbolTable.TryGetValue(node.GetId().Text, out idDef))
+            else if (localSymbolTable.ContainsKey(varName))
             {
-                PrintWarning(node.GetId(), "Identifier " + node.GetId().Text + " is already being used");
-            }
-            else if (globalSymbolTable.TryGetValue(node.GetId().Text, out idDef))
-            {
-                PrintWarning(node.GetId(), "Identifier " + node.GetId().Text + " is already being used");
+                PrintWarning(node.GetId(), $"Variable '{varName}' is already declared in this scope.");
             }
             else
             {
-                VariableDefinition newVarDef = new VariableDefinition();
-                newVarDef.name = node.GetId().Text;
-                newVarDef.variableType = (TypeDefinition)typeDef;
+                VariableDefinition varDef = new VariableDefinition();
+                varDef.name = varName;
+                varDef.variableType = (TypeDefinition)typeDef;
 
-                localSymbolTable.Add(node.GetId().Text, newVarDef);
+                // Add to local symbol table
+                localSymbolTable.Add(varName, varDef);
+
+                // Handle optional assignment
+                POptAssignment optAssignment = node.GetOptAssignment();
+                if (optAssignment is AOptForOptAssignment)
+                {
+                    AOptForOptAssignment optForAssignment = (AOptForOptAssignment)optAssignment;
+
+                    Definition exprDef;
+                    if (!decoratedParseTree.TryGetValue(optForAssignment.GetExpression(), out exprDef))
+                    {
+                        // Error would have been printed during expression processing
+                    }
+                    else if (exprDef.name != typeDef.name)
+                    {
+                        PrintWarning(node.GetId(), $"Type mismatch in variable initialization. Cannot assign '{exprDef.name}' to '{typeDef.name}'.");
+                    }
+                }
+
+                // Decorate the node
+                decoratedParseTree.Add(node, varDef);
             }
         }
 
@@ -1023,24 +1351,7 @@ namespace CS426.analysis
         // Function Call
         // --------------------------------------------------------
 
-        public override void OutAFunctCall(AFunctCall node)
-        {
-            Definition idDef;
-            Definition callParamsDef;
 
-            if(!decoratedParseTree.TryGetValue(node.GetId(), out idDef))
-            {
-                // Error already printed above
-            }
-            else if(!decoratedParseTree.TryGetValue(node.GetCallParams(), out  callParamsDef))
-            {
-                //Error already printed above
-            }
-            else
-            {
-                decoratedParseTree.Add(node, idDef);
-            }
-        }
 
         // --------------------------------------------------------
         // Call Params
@@ -1109,6 +1420,65 @@ namespace CS426.analysis
             }
 
         }
+
+        // --------------------------------------------------------
+        // If Statement
+        // --------------------------------------------------------
+        public override void OutAIfStmt(AIfStmt node)
+        {
+            Definition boolExpDef;
+
+            if (!decoratedParseTree.TryGetValue(node.GetBoolExp(), out boolExpDef))
+            {
+                // Error already printed during bool_exp processing
+            }
+            else if (!(boolExpDef is BooleanDefinition))
+            {
+                PrintWarning(node.GetRwIf(), "Condition in 'if' statement must be a boolean expression.");
+            }
+
+            // Statements inside the 'if' are processed during traversal
+        }
+
+
+        // --------------------------------------------------------
+        // Else Statement
+        // --------------------------------------------------------
+        public override void OutAYesElseElseStmt(AYesElseElseStmt node)
+        {
+            // The 'else' block exists and statements are processed during traversal
+            // No additional action needed here
+        }
+
+        public override void OutANoElseElseStmt(ANoElseElseStmt node)
+        {
+            // No 'else' block; nothing to do
+        }
+
+        // --------------------------------------------------------
+        // Loop Statement
+        // --------------------------------------------------------
+        public override void OutALoopStmt(ALoopStmt node)
+        {
+            Definition boolExpDef;
+
+            if (!decoratedParseTree.TryGetValue(node.GetBoolExp(), out boolExpDef))
+            {
+                // Error already printed during bool_exp processing
+            }
+            else if (!(boolExpDef is BooleanDefinition))
+            {
+                PrintWarning(node.GetRwWhile(), "Condition in 'while' loop must be a boolean expression.");
+            }
+
+            // Statements inside the loop are processed during traversal
+        }
+
+
+
+
+
+
 
     }
 }
