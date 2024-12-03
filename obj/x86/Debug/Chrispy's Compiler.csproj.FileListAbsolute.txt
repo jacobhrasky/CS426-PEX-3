@@ -23,3 +23,6 @@ C:\Users\C25Jacob.Hrasky\ComputerScience\CS426-PEX-3\obj\x86\Debug\Chrispy's Com
 C:\Users\C25Jacob.Hrasky\ComputerScience\CS426-PEX-3\obj\x86\Debug\Chrispy's Compiler.csproj.CoreCompileInputs.cache
 C:\Users\C25Jacob.Hrasky\ComputerScience\CS426-PEX-3\obj\x86\Debug\ConsoleApplication.exe
 C:\Users\C25Jacob.Hrasky\ComputerScience\CS426-PEX-3\obj\x86\Debug\ConsoleApplication.pdb
+C:\Users\C25Jacob.Hrasky\ComputerScience\CS426-PEX-3\bin\Debug\ConsoleApplication.exe.config
+C:\Users\C25Jacob.Hrasky\ComputerScience\CS426-PEX-3\bin\Debug\ConsoleApplication.exe
+C:\Users\C25Jacob.Hrasky\ComputerScience\CS426-PEX-3\bin\Debug\ConsoleApplication.pdb

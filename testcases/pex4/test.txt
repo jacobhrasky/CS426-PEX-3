@@ -1,0 +1,40 @@
+function foo() {
+	
+	str x;
+	x := "hello world";
+	printString(x);
+	printLine();
+	printString(x);
+
+	str a;
+	a := x;
+
+}
+
+function main() {
+
+	int y;
+	y := 5;
+	float z;
+	z := 3.3;
+
+	int e;
+	e := 5;
+	e := e + 1;
+	printInt(e);
+	printLine();
+
+	float d;
+	d := 4 - 1.1;
+	printFloat(d);
+
+	int s;
+	s := 4 * 8;
+
+	int g;
+	g := 20 / 5;
+
+	int r;
+	r := -8;
+
+}

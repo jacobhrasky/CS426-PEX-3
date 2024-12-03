@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="analysis.cs" />
+    <Compile Include="CodeGenerator.cs" />
     <Compile Include="Definition.cs" />
     <Compile Include="lexer.cs" />
     <Compile Include="nodes.cs" />
@@ -85,6 +86,8 @@
     <Content Include="testcases\pex3\varDeclarationWrong.txt" />
     <Content Include="testcases\pex3\whileCorrect.txt" />
     <Content Include="testcases\pex3\whileWrong.txt" />
+    <Content Include="testcases\pex4\test.txt" />
+    <Content Include="testcases\pex4\testPrint.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Documentation.txt" />
@@ -156,9 +159,7 @@
     <None Include="README.parser" />
     <Content Include="testcases\pex3\divideWrong.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="testcases\pex4\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
