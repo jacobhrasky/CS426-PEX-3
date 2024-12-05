@@ -21,9 +21,9 @@ using System.Threading.Tasks;
  * Done - Multiplication
  * Done - Division
  * Done - Negation
- * Logical Not
- * Logical And
- * Logical Or
+ * Done - Logical Not
+ * Done - Logical And
+ * Done - Logical Or
  * Logical Comparison
  * If / Else Stmt
  * Loop
@@ -75,6 +75,16 @@ namespace CS426.analysis
         {
             WriteLine("\tret\n}");
         }
+
+        /*public override void CaseAFunctDeclarations(AFunctDeclarations node)
+        {
+            InAFunctDeclarations(node);
+            WriteLine(".method static void " + node.GetId() + "() cil managed");
+            WriteLine("{\n\t.maxstack 128");
+
+            OutAFunctDeclarations(node);
+            WriteLine("\tret\n}\n");
+        }*/
 
         public override void InASomeFunctDeclarations(ASomeFunctDeclarations node)
         {
@@ -186,53 +196,296 @@ namespace CS426.analysis
             }
         }
 
-        public override void OutANegBoolNot(ANegBoolNot node)
+        private int _labelCounter = 0;
+
+        private string GetNextLabel()
         {
-            WriteLine("\tldc.i4 0");
-            WriteLine("\tceq\n");
+            return $"Label_{_labelCounter++}";
         }
 
-        public override void OutAMultBoolTerm(AMultBoolTerm node)
+        public override void CaseAIfStmt(AIfStmt node)
         {
-            WriteLine("\tadd\n");
+            string labelTrue = GetNextLabel();
+            string labelFalse = GetNextLabel();
+            string labelContinue = GetNextLabel();
+
+            InAIfStmt(node);
+
+            WriteLine("\t// Bool Expression");
+            node.GetBoolExp().Apply(this);
+
+            string boolExp = node.GetBoolExp().ToString();
+            if (boolExp.Contains("=") && !(boolExp.Contains(">") || boolExp.Contains("<") || boolExp.Contains("!")))
+            { 
+                string labelEqual = GetNextLabel();
+                string labelNotEqual = GetNextLabel();
+
+                WriteLine("\tbeq " + labelEqual);
+                WriteLine("\t\tldc.i4 0");
+                WriteLine("\t\tbr " + labelNotEqual);
+                WriteLine("\t" + labelEqual + ":");
+                WriteLine("\t\tldc.i4 1");
+                WriteLine("\t" + labelNotEqual + ":\n");
+                
+            }
+            else if (boolExp.Contains("!="))
+            {
+                string labelNotEqual = GetNextLabel();
+                string labelEqual = GetNextLabel();
+
+                WriteLine("\tbne.un " + labelNotEqual);
+                WriteLine("\t\tldc.i4 0");
+                WriteLine("\t\tbr " + labelEqual);
+                WriteLine("\t" + labelNotEqual + ":");
+                WriteLine("\t\tldc.i4 1");
+                WriteLine("\t" + labelEqual + ":\n");
+            }
+            else if (boolExp.Contains("<") && !(boolExp.Contains(">") || boolExp.Contains("=") || boolExp.Contains("!")))
+            {
+                if (boolExp.Contains("&"))
+                {
+                    string labelAndLess = GetNextLabel();
+                    string labelAndNotLess = GetNextLabel();
+
+                    WriteLine("\tblt " + labelAndLess);
+                    WriteLine("\t\tldc.i4 0");
+                    WriteLine("\t\tbr " + labelAndNotLess);
+                    WriteLine("\t" + labelAndLess + ":");
+                    WriteLine("\t\tldc.i4 1");
+                    WriteLine("\t" + labelAndNotLess + ":\n");
+
+                    string labelLess2 = GetNextLabel();
+                    string labelNotLess2 = GetNextLabel();
+
+                    WriteLine("\tblt " + labelLess2);
+                    WriteLine("\t\tldc.i4 0");
+                    WriteLine("\t\tbr " + labelNotLess2);
+                    WriteLine("\t" + labelLess2 + ":");
+                    WriteLine("\t\tldc.i4 1");
+                    WriteLine("\t" + labelNotLess2 + ":\n");
+
+                    WriteLine("\tand\n");
+                }
+                else
+                {
+                    string labelLess = GetNextLabel();
+                    string labelNotLess = GetNextLabel();
+
+                    WriteLine("\tblt " + labelLess);
+                    WriteLine("\t\tldc.i4 0");
+                    WriteLine("\t\tbr " + labelNotLess);
+                    WriteLine("\t" + labelLess + ":");
+                    WriteLine("\t\tldc.i4 1");
+                    WriteLine("\t" + labelNotLess + ":\n");
+                }
+            }
+            else if (boolExp.Contains("<="))
+            {
+                if (boolExp.Contains("!"))
+                {
+                    string labelLessEqual2 = GetNextLabel();
+                    string labelLessNotEqual2 = GetNextLabel();
+
+                    WriteLine("\tble " + labelLessEqual2);
+                    WriteLine("\t\tldc.i4 0");
+                    WriteLine("\t\tbr " + labelLessNotEqual2);
+                    WriteLine("\t" + labelLessEqual2 + ":");
+                    WriteLine("\t\tldc.i4 1");
+                    WriteLine("\t" + labelLessNotEqual2 + ":\n");
+
+                    WriteLine("\tldc.i4 0");
+                    WriteLine("\tceq\n");
+                }
+                else
+                { 
+                    string labelLessEqual = GetNextLabel();
+                    string labelLessNotEqual = GetNextLabel();
+
+                    WriteLine("\tble " + labelLessEqual);
+                    WriteLine("\t\tldc.i4 0");
+                    WriteLine("\t\tbr " + labelLessNotEqual);
+                    WriteLine("\t" + labelLessEqual + ":");
+                    WriteLine("\t\tldc.i4 1");
+                    WriteLine("\t" + labelLessNotEqual + ":\n");
+                }
+            }
+            else if (boolExp.Contains(">") && !(boolExp.Contains("=") || boolExp.Contains("<") || boolExp.Contains("!")))
+            {
+                if (boolExp.Contains("|"))
+                {
+                    string labelGreater2 = GetNextLabel();
+                    string labelNotGreater2 = GetNextLabel();
+
+                    WriteLine("\tbgt " + labelGreater2);
+                    WriteLine("\t\tldc.i4 0");
+                    WriteLine("\t\tbr " + labelNotGreater2);
+                    WriteLine("\t" + labelGreater2 + ":");
+                    WriteLine("\t\tldc.i4 1");
+                    WriteLine("\t" + labelNotGreater2 + ":\n");
+
+                    string labelGreater3 = GetNextLabel();
+                    string labelNotGreater3 = GetNextLabel();
+
+                    WriteLine("\tbgt " + labelGreater3);
+                    WriteLine("\t\tldc.i4 0");
+                    WriteLine("\t\tbr " + labelNotGreater3);
+                    WriteLine("\t" + labelGreater3 + ":");
+                    WriteLine("\t\tldc.i4 1");
+                    WriteLine("\t" + labelNotGreater3 + ":\n");
+
+                    WriteLine("\tor\n");
+                }
+                else
+                {
+                    string labelGreater = GetNextLabel();
+                    string labelNotGreater = GetNextLabel();
+
+                    WriteLine("\tbgt " + labelGreater);
+                    WriteLine("\t\tldc.i4 0");
+                    WriteLine("\t\tbr " + labelNotGreater);
+                    WriteLine("\t" + labelGreater + ":");
+                    WriteLine("\t\tldc.i4 1");
+                    WriteLine("\t" + labelNotGreater + ":\n");
+                }
+            }
+            else if (boolExp.Contains(">="))
+            {
+                string labelGreaterEqual = GetNextLabel();
+                string labelGreaterNotEqual = GetNextLabel();
+
+                WriteLine("\tbge " + labelGreaterEqual);
+                WriteLine("\t\tldc.i4 0");
+                WriteLine("\t\tbr " + labelGreaterNotEqual);
+                WriteLine("\t" + labelGreaterEqual + ":");
+                WriteLine("\t\tldc.i4 1");
+                WriteLine("\t" + labelGreaterNotEqual + ":\n");
+            }
+
+            WriteLine("\t// If statement");
+
+            WriteLine("\tbrtrue " + labelTrue);
+            WriteLine("\tbr " + labelFalse);
+
+            WriteLine("\t" + labelTrue + ":");
+            if (node.GetStatements() != null)
+            {
+                node.GetStatements().Apply(this);
+            }
+
+            WriteLine("\t\tbr " + labelContinue);
+            
+            WriteLine("\t" + labelFalse + ":");
+            if (node.GetElseStmt() is AYesElseElseStmt yesElse)
+            {
+                yesElse.GetStatements().Apply(this);
+            }
+
+            WriteLine("\t" + labelContinue + ":");
+
+            OutAIfStmt(node);
         }
 
-        public override void OutAMultBoolExp(AMultBoolExp node)
+        public override void CaseALoopStmt(ALoopStmt node)
         {
-            WriteLine("\tor\n");
-        }
+            string labelStart = GetNextLabel();
+            string labelEnd = GetNextLabel();
 
-        public override void InAEqualNumComp(AEqualNumComp node)
-        {
-            WriteLine("\tbeq Equal");
-            WriteLine("\t\tldc.i4 0");
-            WriteLine("\t\tbr NotEqual");
-            WriteLine("\tEqual:");
-            WriteLine("\t\tldc.i4 1");
-            WriteLine("\tNotEqual:\n");
-        }
+            InALoopStmt(node);
 
-        public override void InAIfStmt(AIfStmt node)
-        {
-            WriteLine("\tbrtrue True");
-            WriteLine("\tbr False");
-            WriteLine("\tTrue:");
-        }
+            WriteLine("\t" + labelStart + ":");
 
-        public override void OutAIfStmt(AIfStmt node)
-        {
-            WriteLine("\t\tbr Continue");
-        }
+            // Evaluate the loop condition
+            node.GetBoolExp().Apply(this);
 
-        public override void InAYesElseElseStmt(AYesElseElseStmt node)
-        {
-            WriteLine("\tFalse:");
-        }
+            string boolExp = node.GetBoolExp().ToString();
+            if (boolExp.Contains("=") && !(boolExp.Contains(">") || boolExp.Contains("<") || boolExp.Contains("!")))
+            {
+                string labelEqual = GetNextLabel();
+                string labelNotEqual = GetNextLabel();
 
-        public override void OutAYesElseElseStmt(AYesElseElseStmt node)
-        {
-            WriteLine("\tContinue:");
-        }
+                WriteLine("\tbeq " + labelEqual);
+                WriteLine("\t\tldc.i4 0");
+                WriteLine("\t\tbr " + labelNotEqual);
+                WriteLine("\t" + labelEqual + ":");
+                WriteLine("\t\tldc.i4 1");
+                WriteLine("\t" + labelNotEqual + ":\n");
+            }
+            else if (boolExp.Contains("!="))
+            {
+                string labelNotEqual = GetNextLabel();
+                string labelEqual = GetNextLabel();
 
+                WriteLine("\tbne.un " + labelNotEqual);
+                WriteLine("\t\tldc.i4 0");
+                WriteLine("\t\tbr " + labelEqual);
+                WriteLine("\t" + labelNotEqual + ":");
+                WriteLine("\t\tldc.i4 1");
+                WriteLine("\t" + labelEqual + ":\n");
+            }
+            else if (boolExp.Contains("<") && !(boolExp.Contains(">") || boolExp.Contains("=") || boolExp.Contains("!")))
+            {
+                string labelLess = GetNextLabel();
+                string labelNotLess = GetNextLabel();
+
+                WriteLine("\tblt " + labelLess);
+                WriteLine("\t\tldc.i4 0");
+                WriteLine("\t\tbr " + labelNotLess);
+                WriteLine("\t" + labelLess + ":");
+                WriteLine("\t\tldc.i4 1");
+                WriteLine("\t" + labelNotLess + ":\n");
+            }
+            else if (boolExp.Contains("<="))
+            {
+                string labelLessEqual = GetNextLabel();
+                string labelLessNotEqual = GetNextLabel();
+
+                WriteLine("\tble " + labelLessEqual);
+                WriteLine("\t\tldc.i4 0");
+                WriteLine("\t\tbr " + labelLessNotEqual);
+                WriteLine("\t" + labelLessEqual + ":");
+                WriteLine("\t\tldc.i4 1");
+                WriteLine("\t" + labelLessNotEqual + ":\n");
+            }
+            else if (boolExp.Contains(">") && !(boolExp.Contains("=") || boolExp.Contains("<") || boolExp.Contains("!")))
+            {
+                string labelGreater = GetNextLabel();
+                string labelNotGreater = GetNextLabel();
+
+                WriteLine("\tbgt " + labelGreater);
+                WriteLine("\t\tldc.i4 0");
+                WriteLine("\t\tbr " + labelNotGreater);
+                WriteLine("\t" + labelGreater + ":");
+                WriteLine("\t\tldc.i4 1");
+                WriteLine("\t" + labelNotGreater + ":\n");
+            }
+            else if (boolExp.Contains(">="))
+            {
+                string labelGreaterEqual = GetNextLabel();
+                string labelGreaterNotEqual = GetNextLabel();
+
+                WriteLine("\tbge " + labelGreaterEqual);
+                WriteLine("\t\tldc.i4 0");
+                WriteLine("\t\tbr " + labelGreaterNotEqual);
+                WriteLine("\t" + labelGreaterEqual + ":");
+                WriteLine("\t\tldc.i4 1");
+                WriteLine("\t" + labelGreaterNotEqual + ":\n");
+            }
+            else
+            {
+                Console.WriteLine("Bool Operator not found.");
+            }
+
+            WriteLine("\tbrzero " + labelEnd);
+
+            if (node.GetStatements() != null)
+            {
+                node.GetStatements().Apply(this);
+            }
+
+            WriteLine("\tbr " + labelStart);
+            WriteLine("\t" + labelEnd + ":");
+
+            OutALoopStmt(node);
+        }
     }
 }

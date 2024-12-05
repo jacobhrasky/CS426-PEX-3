@@ -1,0 +1,334 @@
+
+
+  // ------------------------------------------------------------
+  // Variable Declaration Test
+  // ------------------------------------------------------------
+  function Test1() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("Variable Declaration Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+
+    // Declares a bunch of variables
+    int i;
+    i := 1;
+    float f1;
+    f1 := -2.3;
+    float f2;
+    f2 := 3.4e5;
+    str s;
+    s := "hello world";
+
+    // Print out the variables
+    printString("i = ");
+    printInt(i);
+    printLine();
+
+    printString("f1 = ");
+    printFloat(f1);
+    printLine();
+
+    printString("f2 = ");
+    printFloat(f2);
+    printLine();
+
+    printString("s = ");
+    printString(s);
+    printLine();
+    printLine();
+  }
+
+  // ------------------------------------------------------------
+  // Variable Assignment Test
+  // ------------------------------------------------------------
+  function Test2() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("Variable Assignment Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+
+    int x;
+    x := 0;
+    float y;
+    y := 1.2;
+    str s;
+    s := "original string";
+    
+    printString("  x (before): ");
+    printInt(x);
+    printLine();
+
+    printString("  y (before): ");
+    printFloat(y);
+    printLine();
+
+    printString("  s (before): ");
+    printString(s);
+    printLine();
+
+    x := 12345;
+    y := -6.789;
+    s := "dog goes \"woof\", cat goes \"meow\", but what does the fox say \\sarcasm";
+
+    printString("  x (after): ");
+    printInt(x);
+    printLine();
+
+    printString("  y (after): ");
+    printFloat(y);
+    printLine();
+
+    printString("  s (after): ");
+    printString(s);
+    printLine();
+
+    printLine();
+  }
+
+  // ------------------------------------------------------------
+  // Math Operation Test
+  // ------------------------------------------------------------ 
+  function Test3() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("Math Operation Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+
+    // Testing Integers
+    int x;
+    x := 5 - 4 + 4;
+    x := x * 2 / 2;
+    x := (x * x) * (5 - 5);
+    printString("  x = ");
+    printInt(x);
+    printLine();
+
+    // Testing Floats (don't worry if the rounding is a little off)
+    float y;
+    y := 10.44 + 9.79 - 10.115;
+    y := -(y * (2.0 / 1.0));
+    printString("  y = ");
+    printFloat(y);
+    printLine();
+
+    printLine();
+  }
+
+  // ------------------------------------------------------------
+  // Relational Operators
+  // ------------------------------------------------------------ 
+  function Test4() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("Relational Operator Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+
+    if (5 > 2) {
+      printString("  Greater than works");
+      printLine();
+    }
+
+    if (2 < 5) {
+      printString("  Less than works");
+      printLine();
+    }
+
+    if (4 >= 4) {
+      printString("  Greater than or equal works");
+      printLine();
+    }
+
+    if (4 <= 4) {
+      printString("  Less than or equal works");
+      printLine();
+    }
+
+    if (5.0 = 5.0) {
+      printString("  Equals works");
+      printLine();
+    }
+
+    if (2.5 != 3.0) {
+      printString("  Not Equals works");
+      printLine();
+    }
+
+    printLine();
+  }
+  
+  // ------------------------------------------------------------
+  // Boolean Operators
+  // ------------------------------------------------------------ 
+  function Test5() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("Boolean Operator Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+
+    if (1 < 4 & 2 < 4) {
+      printString("  And works");
+      printLine();
+    }
+
+    if (2 > 1 | 2 > 2) {
+      printString("  Or works");
+      printLine();
+    }
+
+    if (!(2 <= 1)) {
+      printString("  Not works");
+      printLine();
+    }
+
+    printLine();
+  }
+
+  // ------------------------------------------------------------
+  // Control Structures:  If Statements
+  // ------------------------------------------------------------ 
+  function Test6() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("If Statement Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+
+    if (1.0 + 1.0 < 3.0) {
+      printString("  If (true) Statement Passes");
+      printLine();
+    }
+    else {
+      printString("  If (true) Statement Fails");
+      printLine();
+    }
+
+    if (5.0 * 3.0 < 1) {
+      printString("  If (false) Statement Fails");
+      printLine();
+    }
+    else {
+      printString("  If (false) Statement Passes");
+      printLine();
+    }
+
+    printLine();
+
+    // Testing to See if Function Calls within a Function Work
+    Test7();
+  }
+
+  // ------------------------------------------------------------
+  // Control Structures:  Nested If Statements
+  // ------------------------------------------------------------
+  function Test7() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("Nested If Statement Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+    
+    if (3 > 2) {
+      if (5 < 4) {
+        printString("  Nested If Statement Fails");
+        printLine();
+      }
+      else {
+        printString("  Nested If Statement Passes");
+        printLine();
+      }
+    }
+
+    printLine();
+  }
+
+  // ------------------------------------------------------------
+  // Control Structures:  While Statements
+  // ------------------------------------------------------------ 
+  function Test8() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("While Loop Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+    
+    int i;
+    i := 0;
+
+    while (i < 10) {
+      printString("  " + i);
+      printLine();
+      i := i + 1;
+    }
+
+    printString("  Loop Complete");
+    printLine();
+
+    printLine();
+
+    // Testing to See if Function Calls within a Function Work
+    Test9();
+  }
+
+  // ------------------------------------------------------------
+  // Control Structures:  Nested While Statements
+  // ------------------------------------------------------------ 
+  function Test9() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("Nested While Loop Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+    
+    int x;
+    x := 0;
+    int y;
+    y := 0;
+
+    while (y < 3) {
+      while (x < 3) {
+        printString("  ");
+        printInt(x);
+        printString(", ");
+        printInt(y);
+        printLine();
+
+        x := x + 1;
+      }
+      x := 0;
+      y := y + 1;
+    }
+
+    printString("  Loop Complete");
+    printLine();
+    
+    printLine();
+  }
+
+  // ------------------------------------------------------------
+  // Main Program
+  // ------------------------------------------------------------
+  function main() {
+    Test1();
+    Test2();
+    Test3();
+    Test4();
+    Test5();
+    Test6();
+    // Test 7 Is Called in Test6()
+    Test8();
+    // Test 9 is Called in Test8()
+  }

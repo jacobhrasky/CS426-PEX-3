@@ -53,7 +53,6 @@
     <Compile Include="parser.cs" />
     <Compile Include="prods.cs" />
     <Compile Include="PEX_Main.cs" />
-    <Compile Include="SemanticAnalyzer.cs" />
     <Content Include="testcases\pex3\boolAndCorrect.txt" />
     <Content Include="testcases\pex3\boolAndWrong.txt" />
     <Content Include="testcases\pex3\boolEqualCorrect.txt" />
@@ -81,6 +80,7 @@
     <Content Include="testcases\pex3\equalCorrect.txt" />
     <Content Include="testcases\pex3\greaterEqualCorrect.txt" />
     <Content Include="testcases\pex3\boolOrCorrect.txt" />
+    <Content Include="testcases\pex4\pex4testcases.txt" />
     <Compile Include="tokens.cs" />
     <Content Include="testcases\pex3\varDeclarationCorrect.txt" />
     <Content Include="testcases\pex3\varDeclarationWrong.txt" />
