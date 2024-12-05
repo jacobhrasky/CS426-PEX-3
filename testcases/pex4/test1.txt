@@ -1,0 +1,43 @@
+  // ------------------------------------------------------------
+  // Variable Declaration Test
+  // ------------------------------------------------------------
+  function Test1() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("Variable Declaration Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+
+    // Declares a bunch of variables
+    int i;
+    i := 1;
+    float f1;
+    f1 := -2.3;
+    float f2;
+    f2 := 3.4e5;
+    str s;
+    s := "hello world";
+
+    // Print out the variables
+    printString("i = ");
+    printInt(i);
+    printLine();
+
+    printString("f1 = ");
+    printFloat(f1);
+    printLine();
+
+    printString("f2 = ");
+    printFloat(f2);
+    printLine();
+
+    printString("s = ");
+    printString(s);
+    printLine();
+    printLine();
+  }
+
+  function main() {
+    Test1();
+  }

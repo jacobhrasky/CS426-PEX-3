@@ -1,0 +1,52 @@
+  // ------------------------------------------------------------
+  // Variable Assignment Test
+  // ------------------------------------------------------------
+  function Test2() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("Variable Assignment Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+
+    int x;
+    x := 0;
+    float y;
+    y := 1.2;
+    str s;
+    s := "original string";
+    
+    printString("  x (before): ");
+    printInt(x);
+    printLine();
+
+    printString("  y (before): ");
+    printFloat(y);
+    printLine();
+
+    printString("  s (before): ");
+    printString(s);
+    printLine();
+
+    x := 12345;
+    y := -6.789;
+    s := "dog goes \"woof\", cat goes \"meow\", but what does the fox say \\sarcasm";
+
+    printString("  x (after): ");
+    printInt(x);
+    printLine();
+
+    printString("  y (after): ");
+    printFloat(y);
+    printLine();
+
+    printString("  s (after): ");
+    printString(s);
+    printLine();
+
+    printLine();
+  }
+
+  function main() {
+    Test2();
+  }

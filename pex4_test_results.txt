@@ -1,0 +1,4007 @@
+PEX4 TEST CASES 
+*test1.txt 
+.assembly extern mscorlib {}
+.assembly PEX4CodeGen
+{
+	.ver 1:0:1:0
+}
+
+.method static void Test1 () cil managed
+{
+	.maxstack 128
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "Variable Declaration Test"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	.locals init (int32 i )
+	ldc.i4 1
+	stloc i
+
+	.locals init (float32 f1 )
+	ldc.r8 2.3
+	neg
+
+	stloc f1
+
+	.locals init (float32 f2 )
+	ldc.r8 3.4e5
+	stloc f2
+
+	.locals init (string s )
+	ldstr "hello world"
+	stloc s
+
+	ldstr "i = "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc i
+	call void [mscorlib]System.Console::Write(int32)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "f1 = "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc f1
+	call void [mscorlib]System.Console::Write(float32)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "f2 = "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc f2
+	call void [mscorlib]System.Console::Write(float32)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "s = "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc s
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ret
+}
+
+.method static void main() cil managed
+{
+	.maxstack 128
+	.entrypoint
+	call void Test1()
+
+	ret
+}
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ASomeFunctDeclarations
+     |  |- ANoneFunctDeclarations
+     |  |- function
+     |  |- Test1
+     |  `- (
+     |  |- ANoneParamDeclarations
+     |  |- )
+     |  `- {
+     |  |- ASomeStatements
+     |  |  |- ASomeStatements
+     |  |  |  |- ASomeStatements
+     |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ANoneStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "Variable Declaration Test"
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ADeclarationStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AVarDec
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- int
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- i
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- i
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AIntLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- 1
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ADeclarationStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AVarDec
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- float
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- f1
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- f1
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ANegNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        |- -
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AFloatLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- 2.3
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ADeclarationStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AVarDec
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- float
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- f2
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- f2
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AFloatLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- 3.4e5
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ADeclarationStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AVarDec
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- str
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- s
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- s
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- "hello world"
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "i = "
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- printInt
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AVarOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- i
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |        |                    `- "f1 = "
+     |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |        |- printFloat
+     |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |        |              `- AVarOperand
+     |  |  |  |  |  |  |  |  |  |        |                 `- f1
+     |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |        |                    `- "f2 = "
+     |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |        |- printFloat
+     |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |        |              `- AVarOperand
+     |  |  |  |  |  |  |        |                 `- f2
+     |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |        `- (
+     |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |        |- )
+     |  |  |  |  |  |        `- ;
+     |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |        |- printString
+     |  |  |  |  |        |- (
+     |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |        |                    `- "s = "
+     |  |  |  |  |        |- )
+     |  |  |  |  |        `- ;
+     |  |  |  |  `- ACallStatement
+     |  |  |  |     `- AFunctCall
+     |  |  |  |        |- printString
+     |  |  |  |        |- (
+     |  |  |  |        |- AOneCallParams
+     |  |  |  |        |  `- ASoloExpression
+     |  |  |  |        |     `- ASingleTerm
+     |  |  |  |        |        `- APosNegation
+     |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |        |              `- AVarOperand
+     |  |  |  |        |                 `- s
+     |  |  |  |        |- )
+     |  |  |  |        `- ;
+     |  |  |  `- ACallStatement
+     |  |  |     `- AFunctCall
+     |  |  |        |- printLine
+     |  |  |        `- (
+     |  |  |        |- ANoneCallParams
+     |  |  |        |- )
+     |  |  |        `- ;
+     |  |  `- ACallStatement
+     |  |     `- AFunctCall
+     |  |        |- printLine
+     |  |        `- (
+     |  |        |- ANoneCallParams
+     |  |        |- )
+     |  |        `- ;
+     |  `- }
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ANoneStatements
+        |  `- ACallStatement
+        |     `- AFunctCall
+        |        |- Test1
+        |        `- (
+        |        |- ANoneCallParams
+        |        |- )
+        |        `- ;
+        `- }
+
+ 
+*test2.txt 
+.assembly extern mscorlib {}
+.assembly PEX4CodeGen
+{
+	.ver 1:0:1:0
+}
+
+.method static void Test2 () cil managed
+{
+	.maxstack 128
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "Variable Assignment Test"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	.locals init (int32 x )
+	ldc.i4 0
+	stloc x
+
+	.locals init (float32 y )
+	ldc.r8 1.2
+	stloc y
+
+	.locals init (string s )
+	ldstr "original string"
+	stloc s
+
+	ldstr "  x (before): "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc x
+	call void [mscorlib]System.Console::Write(int32)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "  y (before): "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc y
+	call void [mscorlib]System.Console::Write(float32)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "  s (before): "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc s
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldc.i4 12345
+	stloc x
+
+	ldc.r8 6.789
+	neg
+
+	stloc y
+
+	ldstr "dog goes \"woof\", cat goes \"meow\", but what does the fox say \\sarcasm"
+	stloc s
+
+	ldstr "  x (after): "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc x
+	call void [mscorlib]System.Console::Write(int32)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "  y (after): "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc y
+	call void [mscorlib]System.Console::Write(float32)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "  s (after): "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc s
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ret
+}
+
+.method static void main() cil managed
+{
+	.maxstack 128
+	.entrypoint
+	call void Test2()
+
+	ret
+}
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ASomeFunctDeclarations
+     |  |- ANoneFunctDeclarations
+     |  |- function
+     |  |- Test2
+     |  `- (
+     |  |- ANoneParamDeclarations
+     |  |- )
+     |  `- {
+     |  |- ASomeStatements
+     |  |  |- ASomeStatements
+     |  |  |  |- ASomeStatements
+     |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ANoneStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "Variable Assignment Test"
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ADeclarationStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AVarDec
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- int
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- x
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- x
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AIntLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- 0
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ADeclarationStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AVarDec
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- float
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- y
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- y
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AFloatLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- 1.2
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ADeclarationStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AVarDec
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- str
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- s
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- s
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- "original string"
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "  x (before): "
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printInt
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AVarOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- x
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "  y (before): "
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printFloat
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AVarOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- y
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "  s (before): "
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AVarOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- s
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- x
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AIntLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- 12345
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- y
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ANegNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |        |- -
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AFloatLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- 6.789
+     |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |        |- s
+     |  |  |  |  |  |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |        |              `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |        |                 `- "dog goes \"woof\", cat goes \"meow\", but what does the fox say \\sarcasm"
+     |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |        |                    `- "  x (after): "
+     |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |        |- printInt
+     |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |        |              `- AVarOperand
+     |  |  |  |  |  |  |  |  |  |        |                 `- x
+     |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |        |                    `- "  y (after): "
+     |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |        |- printFloat
+     |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |        |              `- AVarOperand
+     |  |  |  |  |  |  |        |                 `- y
+     |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |        `- (
+     |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |        |- )
+     |  |  |  |  |  |        `- ;
+     |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |        |- printString
+     |  |  |  |  |        |- (
+     |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |        |                    `- "  s (after): "
+     |  |  |  |  |        |- )
+     |  |  |  |  |        `- ;
+     |  |  |  |  `- ACallStatement
+     |  |  |  |     `- AFunctCall
+     |  |  |  |        |- printString
+     |  |  |  |        |- (
+     |  |  |  |        |- AOneCallParams
+     |  |  |  |        |  `- ASoloExpression
+     |  |  |  |        |     `- ASingleTerm
+     |  |  |  |        |        `- APosNegation
+     |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |        |              `- AVarOperand
+     |  |  |  |        |                 `- s
+     |  |  |  |        |- )
+     |  |  |  |        `- ;
+     |  |  |  `- ACallStatement
+     |  |  |     `- AFunctCall
+     |  |  |        |- printLine
+     |  |  |        `- (
+     |  |  |        |- ANoneCallParams
+     |  |  |        |- )
+     |  |  |        `- ;
+     |  |  `- ACallStatement
+     |  |     `- AFunctCall
+     |  |        |- printLine
+     |  |        `- (
+     |  |        |- ANoneCallParams
+     |  |        |- )
+     |  |        `- ;
+     |  `- }
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ANoneStatements
+        |  `- ACallStatement
+        |     `- AFunctCall
+        |        |- Test2
+        |        `- (
+        |        |- ANoneCallParams
+        |        |- )
+        |        `- ;
+        `- }
+
+ 
+*test3.txt 
+.assembly extern mscorlib {}
+.assembly PEX4CodeGen
+{
+	.ver 1:0:1:0
+}
+
+.method static void Test3 () cil managed
+{
+	.maxstack 128
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "Math Operation Test"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	.locals init (int32 x )
+	ldc.i4 5
+	ldc.i4 4
+	sub
+
+	ldc.i4 4
+	add
+
+	stloc x
+
+	ldloc x
+	ldc.i4 2
+	mul
+
+	ldc.i4 2
+	div
+
+	stloc x
+
+	ldloc x
+	ldloc x
+	mul
+
+	ldc.i4 5
+	ldc.i4 5
+	sub
+
+	mul
+
+	stloc x
+
+	ldstr "  x = "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc x
+	call void [mscorlib]System.Console::Write(int32)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	.locals init (float32 y )
+	ldc.r8 10.44
+	ldc.r8 9.79
+	add
+
+	ldc.r8 10.115
+	sub
+
+	stloc y
+
+	ldloc y
+	ldc.r8 2.0
+	ldc.r8 1.0
+	div
+
+	mul
+
+	neg
+
+	stloc y
+
+	ldstr "  y = "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc y
+	call void [mscorlib]System.Console::Write(float32)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ret
+}
+
+.method static void main() cil managed
+{
+	.maxstack 128
+	.entrypoint
+	call void Test3()
+
+	ret
+}
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ASomeFunctDeclarations
+     |  |- ANoneFunctDeclarations
+     |  |- function
+     |  |- Test3
+     |  `- (
+     |  |- ANoneParamDeclarations
+     |  |- )
+     |  `- {
+     |  |- ASomeStatements
+     |  |  |- ASomeStatements
+     |  |  |  |- ASomeStatements
+     |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ANoneStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "Math Operation Test"
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ADeclarationStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AVarDec
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- int
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- x
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- x
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- APlusExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |- AMinusExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |  |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |  |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |  |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |  |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |  |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |  |              `- AIntLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |  |                 `- 5
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |  |- -
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |              `- AIntLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |                 `- 4
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  |- +
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AIntLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- 4
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- x
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ADivTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     |- AMultTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     |  |- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     |  |  `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     |  |     `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     |  |        `- AVarOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     |  |           `- x
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     |  |- *
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     |  `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     |     `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     |        `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     |           `- AIntLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     |              `- 2
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     |- /
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- AIntLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- 2
+     |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |  |  |  |  |  |        |- x
+     |  |  |  |  |  |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |        |  `- AMultTerm
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |  `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |     `- ASomeParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |        |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |        |  `- AMultTerm
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |        |     |- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |        |     |  `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |        |     |     `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |        |     |        `- AVarOperand
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |        |     |           `- x
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |        |     |- *
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |        |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |        |           `- AVarOperand
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |        |              `- x
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |        `- )
+     |  |  |  |  |  |  |  |  |  |  |  |        |     |- *
+     |  |  |  |  |  |  |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |        |        `- ASomeParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |- (
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |- AMinusExpression
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |  |- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |  |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |  |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |  |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |  |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |  |              `- AIntLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |  |                 `- 5
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |  |- -
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |  `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |     `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |           `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |              `- AIntLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |        |           |                 `- 5
+     |  |  |  |  |  |  |  |  |  |  |  |        |           `- )
+     |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |        |                    `- "  x = "
+     |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |        |- printInt
+     |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |        |              `- AVarOperand
+     |  |  |  |  |  |  |  |  |  |        |                 `- x
+     |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  `- ADeclarationStatement
+     |  |  |  |  |  |  |  |     `- AVarDec
+     |  |  |  |  |  |  |  |        |- float
+     |  |  |  |  |  |  |  |        `- y
+     |  |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+     |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |        |- y
+     |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |        |- AMinusExpression
+     |  |  |  |  |  |  |        |  |- APlusExpression
+     |  |  |  |  |  |  |        |  |  |- ASoloExpression
+     |  |  |  |  |  |  |        |  |  |  `- ASingleTerm
+     |  |  |  |  |  |  |        |  |  |     `- APosNegation
+     |  |  |  |  |  |  |        |  |  |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |        |  |  |           `- ALitOperand
+     |  |  |  |  |  |  |        |  |  |              `- AFloatLiteral
+     |  |  |  |  |  |  |        |  |  |                 `- 10.44
+     |  |  |  |  |  |  |        |  |  |- +
+     |  |  |  |  |  |  |        |  |  `- ASingleTerm
+     |  |  |  |  |  |  |        |  |     `- APosNegation
+     |  |  |  |  |  |  |        |  |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |        |  |           `- ALitOperand
+     |  |  |  |  |  |  |        |  |              `- AFloatLiteral
+     |  |  |  |  |  |  |        |  |                 `- 9.79
+     |  |  |  |  |  |  |        |  |- -
+     |  |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |  |        |              `- AFloatLiteral
+     |  |  |  |  |  |  |        |                 `- 10.115
+     |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |        |- y
+     |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |        |     `- ANegNegation
+     |  |  |  |  |  |        |        |- -
+     |  |  |  |  |  |        |        `- ASomeParentheticalExp
+     |  |  |  |  |  |        |           |- (
+     |  |  |  |  |  |        |           |- ASoloExpression
+     |  |  |  |  |  |        |           |  `- AMultTerm
+     |  |  |  |  |  |        |           |     |- ASingleTerm
+     |  |  |  |  |  |        |           |     |  `- APosNegation
+     |  |  |  |  |  |        |           |     |     `- ANoneParentheticalExp
+     |  |  |  |  |  |        |           |     |        `- AVarOperand
+     |  |  |  |  |  |        |           |     |           `- y
+     |  |  |  |  |  |        |           |     |- *
+     |  |  |  |  |  |        |           |     `- APosNegation
+     |  |  |  |  |  |        |           |        `- ASomeParentheticalExp
+     |  |  |  |  |  |        |           |           |- (
+     |  |  |  |  |  |        |           |           |- ASoloExpression
+     |  |  |  |  |  |        |           |           |  `- ADivTerm
+     |  |  |  |  |  |        |           |           |     |- ASingleTerm
+     |  |  |  |  |  |        |           |           |     |  `- APosNegation
+     |  |  |  |  |  |        |           |           |     |     `- ANoneParentheticalExp
+     |  |  |  |  |  |        |           |           |     |        `- ALitOperand
+     |  |  |  |  |  |        |           |           |     |           `- AFloatLiteral
+     |  |  |  |  |  |        |           |           |     |              `- 2.0
+     |  |  |  |  |  |        |           |           |     |- /
+     |  |  |  |  |  |        |           |           |     `- APosNegation
+     |  |  |  |  |  |        |           |           |        `- ANoneParentheticalExp
+     |  |  |  |  |  |        |           |           |           `- ALitOperand
+     |  |  |  |  |  |        |           |           |              `- AFloatLiteral
+     |  |  |  |  |  |        |           |           |                 `- 1.0
+     |  |  |  |  |  |        |           |           `- )
+     |  |  |  |  |  |        |           `- )
+     |  |  |  |  |  |        `- ;
+     |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |        |- printString
+     |  |  |  |  |        |- (
+     |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |        |                    `- "  y = "
+     |  |  |  |  |        |- )
+     |  |  |  |  |        `- ;
+     |  |  |  |  `- ACallStatement
+     |  |  |  |     `- AFunctCall
+     |  |  |  |        |- printFloat
+     |  |  |  |        |- (
+     |  |  |  |        |- AOneCallParams
+     |  |  |  |        |  `- ASoloExpression
+     |  |  |  |        |     `- ASingleTerm
+     |  |  |  |        |        `- APosNegation
+     |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |        |              `- AVarOperand
+     |  |  |  |        |                 `- y
+     |  |  |  |        |- )
+     |  |  |  |        `- ;
+     |  |  |  `- ACallStatement
+     |  |  |     `- AFunctCall
+     |  |  |        |- printLine
+     |  |  |        `- (
+     |  |  |        |- ANoneCallParams
+     |  |  |        |- )
+     |  |  |        `- ;
+     |  |  `- ACallStatement
+     |  |     `- AFunctCall
+     |  |        |- printLine
+     |  |        `- (
+     |  |        |- ANoneCallParams
+     |  |        |- )
+     |  |        `- ;
+     |  `- }
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ANoneStatements
+        |  `- ACallStatement
+        |     `- AFunctCall
+        |        |- Test3
+        |        `- (
+        |        |- ANoneCallParams
+        |        |- )
+        |        `- ;
+        `- }
+
+ 
+*test4.txt 
+.assembly extern mscorlib {}
+.assembly PEX4CodeGen
+{
+	.ver 1:0:1:0
+}
+
+.method static void Test4 () cil managed
+{
+	.maxstack 128
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "Relational Operator Test"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	// Bool Expression
+	ldc.i4 5
+	ldc.i4 2
+	bgt Label_3
+		ldc.i4 0
+		br Label_4
+	Label_3:
+		ldc.i4 1
+	Label_4:
+
+	// If statement
+	brtrue Label_0
+	br Label_1
+	Label_0:
+	ldstr "  Greater than works"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+		br Label_2
+	Label_1:
+	Label_2:
+	// Bool Expression
+	ldc.i4 2
+	ldc.i4 5
+	blt Label_8
+		ldc.i4 0
+		br Label_9
+	Label_8:
+		ldc.i4 1
+	Label_9:
+
+	// If statement
+	brtrue Label_5
+	br Label_6
+	Label_5:
+	ldstr "  Less than works"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+		br Label_7
+	Label_6:
+	Label_7:
+	// Bool Expression
+	ldc.i4 4
+	ldc.i4 4
+	bge Label_13
+		ldc.i4 0
+		br Label_14
+	Label_13:
+		ldc.i4 1
+	Label_14:
+
+	// If statement
+	brtrue Label_10
+	br Label_11
+	Label_10:
+	ldstr "  Greater than or equal works"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+		br Label_12
+	Label_11:
+	Label_12:
+	// Bool Expression
+	ldc.i4 4
+	ldc.i4 4
+	ble Label_18
+		ldc.i4 0
+		br Label_19
+	Label_18:
+		ldc.i4 1
+	Label_19:
+
+	// If statement
+	brtrue Label_15
+	br Label_16
+	Label_15:
+	ldstr "  Less than or equal works"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+		br Label_17
+	Label_16:
+	Label_17:
+	// Bool Expression
+	ldc.r8 5.0
+	ldc.r8 5.0
+	beq Label_23
+		ldc.i4 0
+		br Label_24
+	Label_23:
+		ldc.i4 1
+	Label_24:
+
+	// If statement
+	brtrue Label_20
+	br Label_21
+	Label_20:
+	ldstr "  Equals works"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+		br Label_22
+	Label_21:
+	Label_22:
+	// Bool Expression
+	ldc.r8 2.5
+	ldc.r8 3.0
+	bne.un Label_28
+		ldc.i4 0
+		br Label_29
+	Label_28:
+		ldc.i4 1
+	Label_29:
+
+	// If statement
+	brtrue Label_25
+	br Label_26
+	Label_25:
+	ldstr "  Not Equals works"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+		br Label_27
+	Label_26:
+	Label_27:
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ret
+}
+
+.method static void main() cil managed
+{
+	.maxstack 128
+	.entrypoint
+	call void Test4()
+
+	ret
+}
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ASomeFunctDeclarations
+     |  |- ANoneFunctDeclarations
+     |  |- function
+     |  |- Test4
+     |  `- (
+     |  |- ANoneParamDeclarations
+     |  |- )
+     |  `- {
+     |  |- ASomeStatements
+     |  |  |- ASomeStatements
+     |  |  |  |- ASomeStatements
+     |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ANoneStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "Relational Operator Test"
+     |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  `- AIfStatement
+     |  |  |  |  |  |  |  |     `- AIfStmt
+     |  |  |  |  |  |  |  |        |- if
+     |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |        |- ASingleBoolExp
+     |  |  |  |  |  |  |  |        |  `- ASingleBoolTerm
+     |  |  |  |  |  |  |  |        |     `- APosBoolNot
+     |  |  |  |  |  |  |  |        |        `- ASoloBoolComp
+     |  |  |  |  |  |  |  |        |           `- ANoneBoolParens
+     |  |  |  |  |  |  |  |        |              `- AGreaterNumComp
+     |  |  |  |  |  |  |  |        |                 |- ASoloExpression
+     |  |  |  |  |  |  |  |        |                 |  `- ASingleTerm
+     |  |  |  |  |  |  |  |        |                 |     `- APosNegation
+     |  |  |  |  |  |  |  |        |                 |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |        |                 |           `- ALitOperand
+     |  |  |  |  |  |  |  |        |                 |              `- AIntLiteral
+     |  |  |  |  |  |  |  |        |                 |                 `- 5
+     |  |  |  |  |  |  |  |        |                 |- >
+     |  |  |  |  |  |  |  |        |                 `- ASoloExpression
+     |  |  |  |  |  |  |  |        |                    `- ASingleTerm
+     |  |  |  |  |  |  |  |        |                       `- APosNegation
+     |  |  |  |  |  |  |  |        |                          `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |        |                             `- ALitOperand
+     |  |  |  |  |  |  |  |        |                                `- AIntLiteral
+     |  |  |  |  |  |  |  |        |                                   `- 2
+     |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |        `- {
+     |  |  |  |  |  |  |  |        |- ASomeStatements
+     |  |  |  |  |  |  |  |        |  |- ASomeStatements
+     |  |  |  |  |  |  |  |        |  |  |- ANoneStatements
+     |  |  |  |  |  |  |  |        |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |        |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |        |  |        |- printString
+     |  |  |  |  |  |  |  |        |  |        |- (
+     |  |  |  |  |  |  |  |        |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |        |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |        |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |        |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |        |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |        |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |        |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |        |  |        |                    `- "  Greater than works"
+     |  |  |  |  |  |  |  |        |  |        |- )
+     |  |  |  |  |  |  |  |        |  |        `- ;
+     |  |  |  |  |  |  |  |        |  `- ACallStatement
+     |  |  |  |  |  |  |  |        |     `- AFunctCall
+     |  |  |  |  |  |  |  |        |        |- printLine
+     |  |  |  |  |  |  |  |        |        `- (
+     |  |  |  |  |  |  |  |        |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |        |        |- )
+     |  |  |  |  |  |  |  |        |        `- ;
+     |  |  |  |  |  |  |  |        `- }
+     |  |  |  |  |  |  |  |        `- ANoElseElseStmt
+     |  |  |  |  |  |  |  `- AIfStatement
+     |  |  |  |  |  |  |     `- AIfStmt
+     |  |  |  |  |  |  |        |- if
+     |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |        |- ASingleBoolExp
+     |  |  |  |  |  |  |        |  `- ASingleBoolTerm
+     |  |  |  |  |  |  |        |     `- APosBoolNot
+     |  |  |  |  |  |  |        |        `- ASoloBoolComp
+     |  |  |  |  |  |  |        |           `- ANoneBoolParens
+     |  |  |  |  |  |  |        |              `- ALessNumComp
+     |  |  |  |  |  |  |        |                 |- ASoloExpression
+     |  |  |  |  |  |  |        |                 |  `- ASingleTerm
+     |  |  |  |  |  |  |        |                 |     `- APosNegation
+     |  |  |  |  |  |  |        |                 |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |        |                 |           `- ALitOperand
+     |  |  |  |  |  |  |        |                 |              `- AIntLiteral
+     |  |  |  |  |  |  |        |                 |                 `- 2
+     |  |  |  |  |  |  |        |                 |- <
+     |  |  |  |  |  |  |        |                 `- ASoloExpression
+     |  |  |  |  |  |  |        |                    `- ASingleTerm
+     |  |  |  |  |  |  |        |                       `- APosNegation
+     |  |  |  |  |  |  |        |                          `- ANoneParentheticalExp
+     |  |  |  |  |  |  |        |                             `- ALitOperand
+     |  |  |  |  |  |  |        |                                `- AIntLiteral
+     |  |  |  |  |  |  |        |                                   `- 5
+     |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |        `- {
+     |  |  |  |  |  |  |        |- ASomeStatements
+     |  |  |  |  |  |  |        |  |- ASomeStatements
+     |  |  |  |  |  |  |        |  |  |- ANoneStatements
+     |  |  |  |  |  |  |        |  |  `- ACallStatement
+     |  |  |  |  |  |  |        |  |     `- AFunctCall
+     |  |  |  |  |  |  |        |  |        |- printString
+     |  |  |  |  |  |  |        |  |        |- (
+     |  |  |  |  |  |  |        |  |        |- AOneCallParams
+     |  |  |  |  |  |  |        |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |        |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |        |  |        |        `- APosNegation
+     |  |  |  |  |  |  |        |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |        |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |        |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |        |  |        |                    `- "  Less than works"
+     |  |  |  |  |  |  |        |  |        |- )
+     |  |  |  |  |  |  |        |  |        `- ;
+     |  |  |  |  |  |  |        |  `- ACallStatement
+     |  |  |  |  |  |  |        |     `- AFunctCall
+     |  |  |  |  |  |  |        |        |- printLine
+     |  |  |  |  |  |  |        |        `- (
+     |  |  |  |  |  |  |        |        |- ANoneCallParams
+     |  |  |  |  |  |  |        |        |- )
+     |  |  |  |  |  |  |        |        `- ;
+     |  |  |  |  |  |  |        `- }
+     |  |  |  |  |  |  |        `- ANoElseElseStmt
+     |  |  |  |  |  |  `- AIfStatement
+     |  |  |  |  |  |     `- AIfStmt
+     |  |  |  |  |  |        |- if
+     |  |  |  |  |  |        |- (
+     |  |  |  |  |  |        |- ASingleBoolExp
+     |  |  |  |  |  |        |  `- ASingleBoolTerm
+     |  |  |  |  |  |        |     `- APosBoolNot
+     |  |  |  |  |  |        |        `- ASoloBoolComp
+     |  |  |  |  |  |        |           `- ANoneBoolParens
+     |  |  |  |  |  |        |              `- AGreaterEqualNumComp
+     |  |  |  |  |  |        |                 |- ASoloExpression
+     |  |  |  |  |  |        |                 |  `- ASingleTerm
+     |  |  |  |  |  |        |                 |     `- APosNegation
+     |  |  |  |  |  |        |                 |        `- ANoneParentheticalExp
+     |  |  |  |  |  |        |                 |           `- ALitOperand
+     |  |  |  |  |  |        |                 |              `- AIntLiteral
+     |  |  |  |  |  |        |                 |                 `- 4
+     |  |  |  |  |  |        |                 |- >=
+     |  |  |  |  |  |        |                 `- ASoloExpression
+     |  |  |  |  |  |        |                    `- ASingleTerm
+     |  |  |  |  |  |        |                       `- APosNegation
+     |  |  |  |  |  |        |                          `- ANoneParentheticalExp
+     |  |  |  |  |  |        |                             `- ALitOperand
+     |  |  |  |  |  |        |                                `- AIntLiteral
+     |  |  |  |  |  |        |                                   `- 4
+     |  |  |  |  |  |        |- )
+     |  |  |  |  |  |        `- {
+     |  |  |  |  |  |        |- ASomeStatements
+     |  |  |  |  |  |        |  |- ASomeStatements
+     |  |  |  |  |  |        |  |  |- ANoneStatements
+     |  |  |  |  |  |        |  |  `- ACallStatement
+     |  |  |  |  |  |        |  |     `- AFunctCall
+     |  |  |  |  |  |        |  |        |- printString
+     |  |  |  |  |  |        |  |        |- (
+     |  |  |  |  |  |        |  |        |- AOneCallParams
+     |  |  |  |  |  |        |  |        |  `- ASoloExpression
+     |  |  |  |  |  |        |  |        |     `- ASingleTerm
+     |  |  |  |  |  |        |  |        |        `- APosNegation
+     |  |  |  |  |  |        |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |        |  |        |              `- ALitOperand
+     |  |  |  |  |  |        |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |        |  |        |                    `- "  Greater than or equal works"
+     |  |  |  |  |  |        |  |        |- )
+     |  |  |  |  |  |        |  |        `- ;
+     |  |  |  |  |  |        |  `- ACallStatement
+     |  |  |  |  |  |        |     `- AFunctCall
+     |  |  |  |  |  |        |        |- printLine
+     |  |  |  |  |  |        |        `- (
+     |  |  |  |  |  |        |        |- ANoneCallParams
+     |  |  |  |  |  |        |        |- )
+     |  |  |  |  |  |        |        `- ;
+     |  |  |  |  |  |        `- }
+     |  |  |  |  |  |        `- ANoElseElseStmt
+     |  |  |  |  |  `- AIfStatement
+     |  |  |  |  |     `- AIfStmt
+     |  |  |  |  |        |- if
+     |  |  |  |  |        |- (
+     |  |  |  |  |        |- ASingleBoolExp
+     |  |  |  |  |        |  `- ASingleBoolTerm
+     |  |  |  |  |        |     `- APosBoolNot
+     |  |  |  |  |        |        `- ASoloBoolComp
+     |  |  |  |  |        |           `- ANoneBoolParens
+     |  |  |  |  |        |              `- ALessEqualNumComp
+     |  |  |  |  |        |                 |- ASoloExpression
+     |  |  |  |  |        |                 |  `- ASingleTerm
+     |  |  |  |  |        |                 |     `- APosNegation
+     |  |  |  |  |        |                 |        `- ANoneParentheticalExp
+     |  |  |  |  |        |                 |           `- ALitOperand
+     |  |  |  |  |        |                 |              `- AIntLiteral
+     |  |  |  |  |        |                 |                 `- 4
+     |  |  |  |  |        |                 |- <=
+     |  |  |  |  |        |                 `- ASoloExpression
+     |  |  |  |  |        |                    `- ASingleTerm
+     |  |  |  |  |        |                       `- APosNegation
+     |  |  |  |  |        |                          `- ANoneParentheticalExp
+     |  |  |  |  |        |                             `- ALitOperand
+     |  |  |  |  |        |                                `- AIntLiteral
+     |  |  |  |  |        |                                   `- 4
+     |  |  |  |  |        |- )
+     |  |  |  |  |        `- {
+     |  |  |  |  |        |- ASomeStatements
+     |  |  |  |  |        |  |- ASomeStatements
+     |  |  |  |  |        |  |  |- ANoneStatements
+     |  |  |  |  |        |  |  `- ACallStatement
+     |  |  |  |  |        |  |     `- AFunctCall
+     |  |  |  |  |        |  |        |- printString
+     |  |  |  |  |        |  |        |- (
+     |  |  |  |  |        |  |        |- AOneCallParams
+     |  |  |  |  |        |  |        |  `- ASoloExpression
+     |  |  |  |  |        |  |        |     `- ASingleTerm
+     |  |  |  |  |        |  |        |        `- APosNegation
+     |  |  |  |  |        |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |        |  |        |              `- ALitOperand
+     |  |  |  |  |        |  |        |                 `- AStrLiteral
+     |  |  |  |  |        |  |        |                    `- "  Less than or equal works"
+     |  |  |  |  |        |  |        |- )
+     |  |  |  |  |        |  |        `- ;
+     |  |  |  |  |        |  `- ACallStatement
+     |  |  |  |  |        |     `- AFunctCall
+     |  |  |  |  |        |        |- printLine
+     |  |  |  |  |        |        `- (
+     |  |  |  |  |        |        |- ANoneCallParams
+     |  |  |  |  |        |        |- )
+     |  |  |  |  |        |        `- ;
+     |  |  |  |  |        `- }
+     |  |  |  |  |        `- ANoElseElseStmt
+     |  |  |  |  `- AIfStatement
+     |  |  |  |     `- AIfStmt
+     |  |  |  |        |- if
+     |  |  |  |        |- (
+     |  |  |  |        |- ASingleBoolExp
+     |  |  |  |        |  `- ASingleBoolTerm
+     |  |  |  |        |     `- APosBoolNot
+     |  |  |  |        |        `- ASoloBoolComp
+     |  |  |  |        |           `- ANoneBoolParens
+     |  |  |  |        |              `- AEqualNumComp
+     |  |  |  |        |                 |- ASoloExpression
+     |  |  |  |        |                 |  `- ASingleTerm
+     |  |  |  |        |                 |     `- APosNegation
+     |  |  |  |        |                 |        `- ANoneParentheticalExp
+     |  |  |  |        |                 |           `- ALitOperand
+     |  |  |  |        |                 |              `- AFloatLiteral
+     |  |  |  |        |                 |                 `- 5.0
+     |  |  |  |        |                 |- =
+     |  |  |  |        |                 `- ASoloExpression
+     |  |  |  |        |                    `- ASingleTerm
+     |  |  |  |        |                       `- APosNegation
+     |  |  |  |        |                          `- ANoneParentheticalExp
+     |  |  |  |        |                             `- ALitOperand
+     |  |  |  |        |                                `- AFloatLiteral
+     |  |  |  |        |                                   `- 5.0
+     |  |  |  |        |- )
+     |  |  |  |        `- {
+     |  |  |  |        |- ASomeStatements
+     |  |  |  |        |  |- ASomeStatements
+     |  |  |  |        |  |  |- ANoneStatements
+     |  |  |  |        |  |  `- ACallStatement
+     |  |  |  |        |  |     `- AFunctCall
+     |  |  |  |        |  |        |- printString
+     |  |  |  |        |  |        |- (
+     |  |  |  |        |  |        |- AOneCallParams
+     |  |  |  |        |  |        |  `- ASoloExpression
+     |  |  |  |        |  |        |     `- ASingleTerm
+     |  |  |  |        |  |        |        `- APosNegation
+     |  |  |  |        |  |        |           `- ANoneParentheticalExp
+     |  |  |  |        |  |        |              `- ALitOperand
+     |  |  |  |        |  |        |                 `- AStrLiteral
+     |  |  |  |        |  |        |                    `- "  Equals works"
+     |  |  |  |        |  |        |- )
+     |  |  |  |        |  |        `- ;
+     |  |  |  |        |  `- ACallStatement
+     |  |  |  |        |     `- AFunctCall
+     |  |  |  |        |        |- printLine
+     |  |  |  |        |        `- (
+     |  |  |  |        |        |- ANoneCallParams
+     |  |  |  |        |        |- )
+     |  |  |  |        |        `- ;
+     |  |  |  |        `- }
+     |  |  |  |        `- ANoElseElseStmt
+     |  |  |  `- AIfStatement
+     |  |  |     `- AIfStmt
+     |  |  |        |- if
+     |  |  |        |- (
+     |  |  |        |- ASingleBoolExp
+     |  |  |        |  `- ASingleBoolTerm
+     |  |  |        |     `- APosBoolNot
+     |  |  |        |        `- ASoloBoolComp
+     |  |  |        |           `- ANoneBoolParens
+     |  |  |        |              `- ANotEqualNumComp
+     |  |  |        |                 |- ASoloExpression
+     |  |  |        |                 |  `- ASingleTerm
+     |  |  |        |                 |     `- APosNegation
+     |  |  |        |                 |        `- ANoneParentheticalExp
+     |  |  |        |                 |           `- ALitOperand
+     |  |  |        |                 |              `- AFloatLiteral
+     |  |  |        |                 |                 `- 2.5
+     |  |  |        |                 |- !=
+     |  |  |        |                 `- ASoloExpression
+     |  |  |        |                    `- ASingleTerm
+     |  |  |        |                       `- APosNegation
+     |  |  |        |                          `- ANoneParentheticalExp
+     |  |  |        |                             `- ALitOperand
+     |  |  |        |                                `- AFloatLiteral
+     |  |  |        |                                   `- 3.0
+     |  |  |        |- )
+     |  |  |        `- {
+     |  |  |        |- ASomeStatements
+     |  |  |        |  |- ASomeStatements
+     |  |  |        |  |  |- ANoneStatements
+     |  |  |        |  |  `- ACallStatement
+     |  |  |        |  |     `- AFunctCall
+     |  |  |        |  |        |- printString
+     |  |  |        |  |        |- (
+     |  |  |        |  |        |- AOneCallParams
+     |  |  |        |  |        |  `- ASoloExpression
+     |  |  |        |  |        |     `- ASingleTerm
+     |  |  |        |  |        |        `- APosNegation
+     |  |  |        |  |        |           `- ANoneParentheticalExp
+     |  |  |        |  |        |              `- ALitOperand
+     |  |  |        |  |        |                 `- AStrLiteral
+     |  |  |        |  |        |                    `- "  Not Equals works"
+     |  |  |        |  |        |- )
+     |  |  |        |  |        `- ;
+     |  |  |        |  `- ACallStatement
+     |  |  |        |     `- AFunctCall
+     |  |  |        |        |- printLine
+     |  |  |        |        `- (
+     |  |  |        |        |- ANoneCallParams
+     |  |  |        |        |- )
+     |  |  |        |        `- ;
+     |  |  |        `- }
+     |  |  |        `- ANoElseElseStmt
+     |  |  `- ACallStatement
+     |  |     `- AFunctCall
+     |  |        |- printLine
+     |  |        `- (
+     |  |        |- ANoneCallParams
+     |  |        |- )
+     |  |        `- ;
+     |  `- }
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ANoneStatements
+        |  `- ACallStatement
+        |     `- AFunctCall
+        |        |- Test4
+        |        `- (
+        |        |- ANoneCallParams
+        |        |- )
+        |        `- ;
+        `- }
+
+ 
+*test5.txt 
+.assembly extern mscorlib {}
+.assembly PEX4CodeGen
+{
+	.ver 1:0:1:0
+}
+
+.method static void Test5 () cil managed
+{
+	.maxstack 128
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "Boolean Operator Test"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	// Bool Expression
+	ldc.i4 1
+	ldc.i4 4
+	ldc.i4 2
+	neg
+
+	ldc.i4 4
+	blt Label_3
+		ldc.i4 0
+		br Label_4
+	Label_3:
+		ldc.i4 1
+	Label_4:
+
+	blt Label_5
+		ldc.i4 0
+		br Label_6
+	Label_5:
+		ldc.i4 1
+	Label_6:
+
+	and
+
+	// If statement
+	brtrue Label_0
+	br Label_1
+	Label_0:
+	ldstr "  And works"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+		br Label_2
+	Label_1:
+	Label_2:
+	// Bool Expression
+	ldc.i4 2
+	ldc.i4 1
+	ldc.i4 2
+	ldc.i4 2
+	bgt Label_10
+		ldc.i4 0
+		br Label_11
+	Label_10:
+		ldc.i4 1
+	Label_11:
+
+	bgt Label_12
+		ldc.i4 0
+		br Label_13
+	Label_12:
+		ldc.i4 1
+	Label_13:
+
+	or
+
+	// If statement
+	brtrue Label_7
+	br Label_8
+	Label_7:
+	ldstr "  Or works"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+		br Label_9
+	Label_8:
+	Label_9:
+	// Bool Expression
+	ldc.i4 2
+	ldc.i4 1
+	ble Label_17
+		ldc.i4 0
+		br Label_18
+	Label_17:
+		ldc.i4 1
+	Label_18:
+
+	ldc.i4 0
+	ceq
+
+	// If statement
+	brtrue Label_14
+	br Label_15
+	Label_14:
+	ldstr "  Not works"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+		br Label_16
+	Label_15:
+	Label_16:
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ret
+}
+
+.method static void main() cil managed
+{
+	.maxstack 128
+	.entrypoint
+	call void Test5()
+
+	ret
+}
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ASomeFunctDeclarations
+     |  |- ANoneFunctDeclarations
+     |  |- function
+     |  |- Test5
+     |  `- (
+     |  |- ANoneParamDeclarations
+     |  |- )
+     |  `- {
+     |  |- ASomeStatements
+     |  |  |- ASomeStatements
+     |  |  |  |- ASomeStatements
+     |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |- ANoneStatements
+     |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |        |                    `- "Boolean Operator Test"
+     |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |        `- (
+     |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |        |- )
+     |  |  |  |  |  |        `- ;
+     |  |  |  |  |  `- AIfStatement
+     |  |  |  |  |     `- AIfStmt
+     |  |  |  |  |        |- if
+     |  |  |  |  |        |- (
+     |  |  |  |  |        |- ASingleBoolExp
+     |  |  |  |  |        |  `- AMultBoolTerm
+     |  |  |  |  |        |     |- ASingleBoolTerm
+     |  |  |  |  |        |     |  `- APosBoolNot
+     |  |  |  |  |        |     |     `- ASoloBoolComp
+     |  |  |  |  |        |     |        `- ANoneBoolParens
+     |  |  |  |  |        |     |           `- ALessNumComp
+     |  |  |  |  |        |     |              |- ASoloExpression
+     |  |  |  |  |        |     |              |  `- ASingleTerm
+     |  |  |  |  |        |     |              |     `- APosNegation
+     |  |  |  |  |        |     |              |        `- ANoneParentheticalExp
+     |  |  |  |  |        |     |              |           `- ALitOperand
+     |  |  |  |  |        |     |              |              `- AIntLiteral
+     |  |  |  |  |        |     |              |                 `- 1
+     |  |  |  |  |        |     |              |- <
+     |  |  |  |  |        |     |              `- ASoloExpression
+     |  |  |  |  |        |     |                 `- ASingleTerm
+     |  |  |  |  |        |     |                    `- APosNegation
+     |  |  |  |  |        |     |                       `- ANoneParentheticalExp
+     |  |  |  |  |        |     |                          `- ALitOperand
+     |  |  |  |  |        |     |                             `- AIntLiteral
+     |  |  |  |  |        |     |                                `- 4
+     |  |  |  |  |        |     |- &
+     |  |  |  |  |        |     `- APosBoolNot
+     |  |  |  |  |        |        `- ASoloBoolComp
+     |  |  |  |  |        |           `- ANoneBoolParens
+     |  |  |  |  |        |              `- ALessNumComp
+     |  |  |  |  |        |                 |- ASoloExpression
+     |  |  |  |  |        |                 |  `- ASingleTerm
+     |  |  |  |  |        |                 |     `- ANegNegation
+     |  |  |  |  |        |                 |        |- -
+     |  |  |  |  |        |                 |        `- ANoneParentheticalExp
+     |  |  |  |  |        |                 |           `- ALitOperand
+     |  |  |  |  |        |                 |              `- AIntLiteral
+     |  |  |  |  |        |                 |                 `- 2
+     |  |  |  |  |        |                 |- <
+     |  |  |  |  |        |                 `- ASoloExpression
+     |  |  |  |  |        |                    `- ASingleTerm
+     |  |  |  |  |        |                       `- APosNegation
+     |  |  |  |  |        |                          `- ANoneParentheticalExp
+     |  |  |  |  |        |                             `- ALitOperand
+     |  |  |  |  |        |                                `- AIntLiteral
+     |  |  |  |  |        |                                   `- 4
+     |  |  |  |  |        |- )
+     |  |  |  |  |        `- {
+     |  |  |  |  |        |- ASomeStatements
+     |  |  |  |  |        |  |- ASomeStatements
+     |  |  |  |  |        |  |  |- ANoneStatements
+     |  |  |  |  |        |  |  `- ACallStatement
+     |  |  |  |  |        |  |     `- AFunctCall
+     |  |  |  |  |        |  |        |- printString
+     |  |  |  |  |        |  |        |- (
+     |  |  |  |  |        |  |        |- AOneCallParams
+     |  |  |  |  |        |  |        |  `- ASoloExpression
+     |  |  |  |  |        |  |        |     `- ASingleTerm
+     |  |  |  |  |        |  |        |        `- APosNegation
+     |  |  |  |  |        |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |        |  |        |              `- ALitOperand
+     |  |  |  |  |        |  |        |                 `- AStrLiteral
+     |  |  |  |  |        |  |        |                    `- "  And works"
+     |  |  |  |  |        |  |        |- )
+     |  |  |  |  |        |  |        `- ;
+     |  |  |  |  |        |  `- ACallStatement
+     |  |  |  |  |        |     `- AFunctCall
+     |  |  |  |  |        |        |- printLine
+     |  |  |  |  |        |        `- (
+     |  |  |  |  |        |        |- ANoneCallParams
+     |  |  |  |  |        |        |- )
+     |  |  |  |  |        |        `- ;
+     |  |  |  |  |        `- }
+     |  |  |  |  |        `- ANoElseElseStmt
+     |  |  |  |  `- AIfStatement
+     |  |  |  |     `- AIfStmt
+     |  |  |  |        |- if
+     |  |  |  |        |- (
+     |  |  |  |        |- AMultBoolExp
+     |  |  |  |        |  |- ASingleBoolExp
+     |  |  |  |        |  |  `- ASingleBoolTerm
+     |  |  |  |        |  |     `- APosBoolNot
+     |  |  |  |        |  |        `- ASoloBoolComp
+     |  |  |  |        |  |           `- ANoneBoolParens
+     |  |  |  |        |  |              `- AGreaterNumComp
+     |  |  |  |        |  |                 |- ASoloExpression
+     |  |  |  |        |  |                 |  `- ASingleTerm
+     |  |  |  |        |  |                 |     `- APosNegation
+     |  |  |  |        |  |                 |        `- ANoneParentheticalExp
+     |  |  |  |        |  |                 |           `- ALitOperand
+     |  |  |  |        |  |                 |              `- AIntLiteral
+     |  |  |  |        |  |                 |                 `- 2
+     |  |  |  |        |  |                 |- >
+     |  |  |  |        |  |                 `- ASoloExpression
+     |  |  |  |        |  |                    `- ASingleTerm
+     |  |  |  |        |  |                       `- APosNegation
+     |  |  |  |        |  |                          `- ANoneParentheticalExp
+     |  |  |  |        |  |                             `- ALitOperand
+     |  |  |  |        |  |                                `- AIntLiteral
+     |  |  |  |        |  |                                   `- 1
+     |  |  |  |        |  |- |
+     |  |  |  |        |  `- ASingleBoolTerm
+     |  |  |  |        |     `- APosBoolNot
+     |  |  |  |        |        `- ASoloBoolComp
+     |  |  |  |        |           `- ANoneBoolParens
+     |  |  |  |        |              `- AGreaterNumComp
+     |  |  |  |        |                 |- ASoloExpression
+     |  |  |  |        |                 |  `- ASingleTerm
+     |  |  |  |        |                 |     `- APosNegation
+     |  |  |  |        |                 |        `- ANoneParentheticalExp
+     |  |  |  |        |                 |           `- ALitOperand
+     |  |  |  |        |                 |              `- AIntLiteral
+     |  |  |  |        |                 |                 `- 2
+     |  |  |  |        |                 |- >
+     |  |  |  |        |                 `- ASoloExpression
+     |  |  |  |        |                    `- ASingleTerm
+     |  |  |  |        |                       `- APosNegation
+     |  |  |  |        |                          `- ANoneParentheticalExp
+     |  |  |  |        |                             `- ALitOperand
+     |  |  |  |        |                                `- AIntLiteral
+     |  |  |  |        |                                   `- 2
+     |  |  |  |        |- )
+     |  |  |  |        `- {
+     |  |  |  |        |- ASomeStatements
+     |  |  |  |        |  |- ASomeStatements
+     |  |  |  |        |  |  |- ANoneStatements
+     |  |  |  |        |  |  `- ACallStatement
+     |  |  |  |        |  |     `- AFunctCall
+     |  |  |  |        |  |        |- printString
+     |  |  |  |        |  |        |- (
+     |  |  |  |        |  |        |- AOneCallParams
+     |  |  |  |        |  |        |  `- ASoloExpression
+     |  |  |  |        |  |        |     `- ASingleTerm
+     |  |  |  |        |  |        |        `- APosNegation
+     |  |  |  |        |  |        |           `- ANoneParentheticalExp
+     |  |  |  |        |  |        |              `- ALitOperand
+     |  |  |  |        |  |        |                 `- AStrLiteral
+     |  |  |  |        |  |        |                    `- "  Or works"
+     |  |  |  |        |  |        |- )
+     |  |  |  |        |  |        `- ;
+     |  |  |  |        |  `- ACallStatement
+     |  |  |  |        |     `- AFunctCall
+     |  |  |  |        |        |- printLine
+     |  |  |  |        |        `- (
+     |  |  |  |        |        |- ANoneCallParams
+     |  |  |  |        |        |- )
+     |  |  |  |        |        `- ;
+     |  |  |  |        `- }
+     |  |  |  |        `- ANoElseElseStmt
+     |  |  |  `- AIfStatement
+     |  |  |     `- AIfStmt
+     |  |  |        |- if
+     |  |  |        |- (
+     |  |  |        |- ASingleBoolExp
+     |  |  |        |  `- ASingleBoolTerm
+     |  |  |        |     `- ANegBoolNot
+     |  |  |        |        |- !
+     |  |  |        |        `- ASoloBoolComp
+     |  |  |        |           `- ASomeBoolParens
+     |  |  |        |              |- (
+     |  |  |        |              |- ASingleBoolExp
+     |  |  |        |              |  `- ASingleBoolTerm
+     |  |  |        |              |     `- APosBoolNot
+     |  |  |        |              |        `- ASoloBoolComp
+     |  |  |        |              |           `- ANoneBoolParens
+     |  |  |        |              |              `- ALessEqualNumComp
+     |  |  |        |              |                 |- ASoloExpression
+     |  |  |        |              |                 |  `- ASingleTerm
+     |  |  |        |              |                 |     `- APosNegation
+     |  |  |        |              |                 |        `- ANoneParentheticalExp
+     |  |  |        |              |                 |           `- ALitOperand
+     |  |  |        |              |                 |              `- AIntLiteral
+     |  |  |        |              |                 |                 `- 2
+     |  |  |        |              |                 |- <=
+     |  |  |        |              |                 `- ASoloExpression
+     |  |  |        |              |                    `- ASingleTerm
+     |  |  |        |              |                       `- APosNegation
+     |  |  |        |              |                          `- ANoneParentheticalExp
+     |  |  |        |              |                             `- ALitOperand
+     |  |  |        |              |                                `- AIntLiteral
+     |  |  |        |              |                                   `- 1
+     |  |  |        |              `- )
+     |  |  |        |- )
+     |  |  |        `- {
+     |  |  |        |- ASomeStatements
+     |  |  |        |  |- ASomeStatements
+     |  |  |        |  |  |- ANoneStatements
+     |  |  |        |  |  `- ACallStatement
+     |  |  |        |  |     `- AFunctCall
+     |  |  |        |  |        |- printString
+     |  |  |        |  |        |- (
+     |  |  |        |  |        |- AOneCallParams
+     |  |  |        |  |        |  `- ASoloExpression
+     |  |  |        |  |        |     `- ASingleTerm
+     |  |  |        |  |        |        `- APosNegation
+     |  |  |        |  |        |           `- ANoneParentheticalExp
+     |  |  |        |  |        |              `- ALitOperand
+     |  |  |        |  |        |                 `- AStrLiteral
+     |  |  |        |  |        |                    `- "  Not works"
+     |  |  |        |  |        |- )
+     |  |  |        |  |        `- ;
+     |  |  |        |  `- ACallStatement
+     |  |  |        |     `- AFunctCall
+     |  |  |        |        |- printLine
+     |  |  |        |        `- (
+     |  |  |        |        |- ANoneCallParams
+     |  |  |        |        |- )
+     |  |  |        |        `- ;
+     |  |  |        `- }
+     |  |  |        `- ANoElseElseStmt
+     |  |  `- ACallStatement
+     |  |     `- AFunctCall
+     |  |        |- printLine
+     |  |        `- (
+     |  |        |- ANoneCallParams
+     |  |        |- )
+     |  |        `- ;
+     |  `- }
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ANoneStatements
+        |  `- ACallStatement
+        |     `- AFunctCall
+        |        |- Test5
+        |        `- (
+        |        |- ANoneCallParams
+        |        |- )
+        |        `- ;
+        `- }
+
+ 
+*test6.txt 
+.assembly extern mscorlib {}
+.assembly PEX4CodeGen
+{
+	.ver 1:0:1:0
+}
+
+.method static void Test6 () cil managed
+{
+	.maxstack 128
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "If Statement Test"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	// Bool Expression
+	ldc.r8 1.0
+	ldc.r8 1.0
+	add
+
+	ldc.r8 3.0
+	blt Label_3
+		ldc.i4 0
+		br Label_4
+	Label_3:
+		ldc.i4 1
+	Label_4:
+
+	// If statement
+	brtrue Label_0
+	br Label_1
+	Label_0:
+	ldstr "  If (true) Statement Passes"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+		br Label_2
+	Label_1:
+	ldstr "  If (true) Statement Fails"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	Label_2:
+	// Bool Expression
+	ldc.r8 5.0
+	ldc.r8 3.0
+	mul
+
+	ldc.i4 1
+	blt Label_8
+		ldc.i4 0
+		br Label_9
+	Label_8:
+		ldc.i4 1
+	Label_9:
+
+	// If statement
+	brtrue Label_5
+	br Label_6
+	Label_5:
+	ldstr "  If (false) Statement Fails"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+		br Label_7
+	Label_6:
+	ldstr "  If (false) Statement Passes"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	Label_7:
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ret
+}
+
+.method static void main() cil managed
+{
+	.maxstack 128
+	.entrypoint
+	call void Test6()
+
+	ret
+}
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ASomeFunctDeclarations
+     |  |- ANoneFunctDeclarations
+     |  |- function
+     |  |- Test6
+     |  `- (
+     |  |- ANoneParamDeclarations
+     |  |- )
+     |  `- {
+     |  |- ASomeStatements
+     |  |  |- ASomeStatements
+     |  |  |  |- ASomeStatements
+     |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |- ANoneStatements
+     |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |        |                    `- "If Statement Test"
+     |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |        |- (
+     |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |        |- )
+     |  |  |  |  |  |        `- ;
+     |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |        |- printLine
+     |  |  |  |  |        `- (
+     |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |        |- )
+     |  |  |  |  |        `- ;
+     |  |  |  |  `- AIfStatement
+     |  |  |  |     `- AIfStmt
+     |  |  |  |        |- if
+     |  |  |  |        |- (
+     |  |  |  |        |- ASingleBoolExp
+     |  |  |  |        |  `- ASingleBoolTerm
+     |  |  |  |        |     `- APosBoolNot
+     |  |  |  |        |        `- ASoloBoolComp
+     |  |  |  |        |           `- ANoneBoolParens
+     |  |  |  |        |              `- ALessNumComp
+     |  |  |  |        |                 |- APlusExpression
+     |  |  |  |        |                 |  |- ASoloExpression
+     |  |  |  |        |                 |  |  `- ASingleTerm
+     |  |  |  |        |                 |  |     `- APosNegation
+     |  |  |  |        |                 |  |        `- ANoneParentheticalExp
+     |  |  |  |        |                 |  |           `- ALitOperand
+     |  |  |  |        |                 |  |              `- AFloatLiteral
+     |  |  |  |        |                 |  |                 `- 1.0
+     |  |  |  |        |                 |  |- +
+     |  |  |  |        |                 |  `- ASingleTerm
+     |  |  |  |        |                 |     `- APosNegation
+     |  |  |  |        |                 |        `- ANoneParentheticalExp
+     |  |  |  |        |                 |           `- ALitOperand
+     |  |  |  |        |                 |              `- AFloatLiteral
+     |  |  |  |        |                 |                 `- 1.0
+     |  |  |  |        |                 |- <
+     |  |  |  |        |                 `- ASoloExpression
+     |  |  |  |        |                    `- ASingleTerm
+     |  |  |  |        |                       `- APosNegation
+     |  |  |  |        |                          `- ANoneParentheticalExp
+     |  |  |  |        |                             `- ALitOperand
+     |  |  |  |        |                                `- AFloatLiteral
+     |  |  |  |        |                                   `- 3.0
+     |  |  |  |        |- )
+     |  |  |  |        `- {
+     |  |  |  |        |- ASomeStatements
+     |  |  |  |        |  |- ASomeStatements
+     |  |  |  |        |  |  |- ANoneStatements
+     |  |  |  |        |  |  `- ACallStatement
+     |  |  |  |        |  |     `- AFunctCall
+     |  |  |  |        |  |        |- printString
+     |  |  |  |        |  |        |- (
+     |  |  |  |        |  |        |- AOneCallParams
+     |  |  |  |        |  |        |  `- ASoloExpression
+     |  |  |  |        |  |        |     `- ASingleTerm
+     |  |  |  |        |  |        |        `- APosNegation
+     |  |  |  |        |  |        |           `- ANoneParentheticalExp
+     |  |  |  |        |  |        |              `- ALitOperand
+     |  |  |  |        |  |        |                 `- AStrLiteral
+     |  |  |  |        |  |        |                    `- "  If (true) Statement Passes"
+     |  |  |  |        |  |        |- )
+     |  |  |  |        |  |        `- ;
+     |  |  |  |        |  `- ACallStatement
+     |  |  |  |        |     `- AFunctCall
+     |  |  |  |        |        |- printLine
+     |  |  |  |        |        `- (
+     |  |  |  |        |        |- ANoneCallParams
+     |  |  |  |        |        |- )
+     |  |  |  |        |        `- ;
+     |  |  |  |        |- }
+     |  |  |  |        `- AYesElseElseStmt
+     |  |  |  |           |- else
+     |  |  |  |           `- {
+     |  |  |  |           |- ASomeStatements
+     |  |  |  |           |  |- ASomeStatements
+     |  |  |  |           |  |  |- ANoneStatements
+     |  |  |  |           |  |  `- ACallStatement
+     |  |  |  |           |  |     `- AFunctCall
+     |  |  |  |           |  |        |- printString
+     |  |  |  |           |  |        |- (
+     |  |  |  |           |  |        |- AOneCallParams
+     |  |  |  |           |  |        |  `- ASoloExpression
+     |  |  |  |           |  |        |     `- ASingleTerm
+     |  |  |  |           |  |        |        `- APosNegation
+     |  |  |  |           |  |        |           `- ANoneParentheticalExp
+     |  |  |  |           |  |        |              `- ALitOperand
+     |  |  |  |           |  |        |                 `- AStrLiteral
+     |  |  |  |           |  |        |                    `- "  If (true) Statement Fails"
+     |  |  |  |           |  |        |- )
+     |  |  |  |           |  |        `- ;
+     |  |  |  |           |  `- ACallStatement
+     |  |  |  |           |     `- AFunctCall
+     |  |  |  |           |        |- printLine
+     |  |  |  |           |        `- (
+     |  |  |  |           |        |- ANoneCallParams
+     |  |  |  |           |        |- )
+     |  |  |  |           |        `- ;
+     |  |  |  |           `- }
+     |  |  |  `- AIfStatement
+     |  |  |     `- AIfStmt
+     |  |  |        |- if
+     |  |  |        |- (
+     |  |  |        |- ASingleBoolExp
+     |  |  |        |  `- ASingleBoolTerm
+     |  |  |        |     `- APosBoolNot
+     |  |  |        |        `- ASoloBoolComp
+     |  |  |        |           `- ANoneBoolParens
+     |  |  |        |              `- ALessNumComp
+     |  |  |        |                 |- ASoloExpression
+     |  |  |        |                 |  `- AMultTerm
+     |  |  |        |                 |     |- ASingleTerm
+     |  |  |        |                 |     |  `- APosNegation
+     |  |  |        |                 |     |     `- ANoneParentheticalExp
+     |  |  |        |                 |     |        `- ALitOperand
+     |  |  |        |                 |     |           `- AFloatLiteral
+     |  |  |        |                 |     |              `- 5.0
+     |  |  |        |                 |     |- *
+     |  |  |        |                 |     `- APosNegation
+     |  |  |        |                 |        `- ANoneParentheticalExp
+     |  |  |        |                 |           `- ALitOperand
+     |  |  |        |                 |              `- AFloatLiteral
+     |  |  |        |                 |                 `- 3.0
+     |  |  |        |                 |- <
+     |  |  |        |                 `- ASoloExpression
+     |  |  |        |                    `- ASingleTerm
+     |  |  |        |                       `- APosNegation
+     |  |  |        |                          `- ANoneParentheticalExp
+     |  |  |        |                             `- ALitOperand
+     |  |  |        |                                `- AIntLiteral
+     |  |  |        |                                   `- 1
+     |  |  |        |- )
+     |  |  |        `- {
+     |  |  |        |- ASomeStatements
+     |  |  |        |  |- ASomeStatements
+     |  |  |        |  |  |- ANoneStatements
+     |  |  |        |  |  `- ACallStatement
+     |  |  |        |  |     `- AFunctCall
+     |  |  |        |  |        |- printString
+     |  |  |        |  |        |- (
+     |  |  |        |  |        |- AOneCallParams
+     |  |  |        |  |        |  `- ASoloExpression
+     |  |  |        |  |        |     `- ASingleTerm
+     |  |  |        |  |        |        `- APosNegation
+     |  |  |        |  |        |           `- ANoneParentheticalExp
+     |  |  |        |  |        |              `- ALitOperand
+     |  |  |        |  |        |                 `- AStrLiteral
+     |  |  |        |  |        |                    `- "  If (false) Statement Fails"
+     |  |  |        |  |        |- )
+     |  |  |        |  |        `- ;
+     |  |  |        |  `- ACallStatement
+     |  |  |        |     `- AFunctCall
+     |  |  |        |        |- printLine
+     |  |  |        |        `- (
+     |  |  |        |        |- ANoneCallParams
+     |  |  |        |        |- )
+     |  |  |        |        `- ;
+     |  |  |        |- }
+     |  |  |        `- AYesElseElseStmt
+     |  |  |           |- else
+     |  |  |           `- {
+     |  |  |           |- ASomeStatements
+     |  |  |           |  |- ASomeStatements
+     |  |  |           |  |  |- ANoneStatements
+     |  |  |           |  |  `- ACallStatement
+     |  |  |           |  |     `- AFunctCall
+     |  |  |           |  |        |- printString
+     |  |  |           |  |        |- (
+     |  |  |           |  |        |- AOneCallParams
+     |  |  |           |  |        |  `- ASoloExpression
+     |  |  |           |  |        |     `- ASingleTerm
+     |  |  |           |  |        |        `- APosNegation
+     |  |  |           |  |        |           `- ANoneParentheticalExp
+     |  |  |           |  |        |              `- ALitOperand
+     |  |  |           |  |        |                 `- AStrLiteral
+     |  |  |           |  |        |                    `- "  If (false) Statement Passes"
+     |  |  |           |  |        |- )
+     |  |  |           |  |        `- ;
+     |  |  |           |  `- ACallStatement
+     |  |  |           |     `- AFunctCall
+     |  |  |           |        |- printLine
+     |  |  |           |        `- (
+     |  |  |           |        |- ANoneCallParams
+     |  |  |           |        |- )
+     |  |  |           |        `- ;
+     |  |  |           `- }
+     |  |  `- ACallStatement
+     |  |     `- AFunctCall
+     |  |        |- printLine
+     |  |        `- (
+     |  |        |- ANoneCallParams
+     |  |        |- )
+     |  |        `- ;
+     |  `- }
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ANoneStatements
+        |  `- ACallStatement
+        |     `- AFunctCall
+        |        |- Test6
+        |        `- (
+        |        |- ANoneCallParams
+        |        |- )
+        |        `- ;
+        `- }
+
+ 
+*test7.txt 
+.assembly extern mscorlib {}
+.assembly PEX4CodeGen
+{
+	.ver 1:0:1:0
+}
+
+.method static void Test7 () cil managed
+{
+	.maxstack 128
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "Nested If Statement Test"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	// Bool Expression
+	ldc.i4 3
+	ldc.i4 2
+	bgt Label_3
+		ldc.i4 0
+		br Label_4
+	Label_3:
+		ldc.i4 1
+	Label_4:
+
+	// If statement
+	brtrue Label_0
+	br Label_1
+	Label_0:
+	// Bool Expression
+	ldc.i4 5
+	ldc.i4 4
+	blt Label_8
+		ldc.i4 0
+		br Label_9
+	Label_8:
+		ldc.i4 1
+	Label_9:
+
+	// If statement
+	brtrue Label_5
+	br Label_6
+	Label_5:
+	ldstr "  Nested If Statement Fails"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+		br Label_7
+	Label_6:
+	ldstr "  Nested If Statement Passes"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	Label_7:
+		br Label_2
+	Label_1:
+	Label_2:
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ret
+}
+
+.method static void main() cil managed
+{
+	.maxstack 128
+	.entrypoint
+	call void Test7()
+
+	ret
+}
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ASomeFunctDeclarations
+     |  |- ANoneFunctDeclarations
+     |  |- function
+     |  |- Test7
+     |  `- (
+     |  |- ANoneParamDeclarations
+     |  |- )
+     |  `- {
+     |  |- ASomeStatements
+     |  |  |- ASomeStatements
+     |  |  |  |- ASomeStatements
+     |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |- ANoneStatements
+     |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |        |                    `- "Nested If Statement Test"
+     |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |        `- (
+     |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |        |- )
+     |  |  |  |  |  |        `- ;
+     |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |        |- printString
+     |  |  |  |  |        |- (
+     |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |        |- )
+     |  |  |  |  |        `- ;
+     |  |  |  |  `- ACallStatement
+     |  |  |  |     `- AFunctCall
+     |  |  |  |        |- printLine
+     |  |  |  |        `- (
+     |  |  |  |        |- ANoneCallParams
+     |  |  |  |        |- )
+     |  |  |  |        `- ;
+     |  |  |  `- AIfStatement
+     |  |  |     `- AIfStmt
+     |  |  |        |- if
+     |  |  |        |- (
+     |  |  |        |- ASingleBoolExp
+     |  |  |        |  `- ASingleBoolTerm
+     |  |  |        |     `- APosBoolNot
+     |  |  |        |        `- ASoloBoolComp
+     |  |  |        |           `- ANoneBoolParens
+     |  |  |        |              `- AGreaterNumComp
+     |  |  |        |                 |- ASoloExpression
+     |  |  |        |                 |  `- ASingleTerm
+     |  |  |        |                 |     `- APosNegation
+     |  |  |        |                 |        `- ANoneParentheticalExp
+     |  |  |        |                 |           `- ALitOperand
+     |  |  |        |                 |              `- AIntLiteral
+     |  |  |        |                 |                 `- 3
+     |  |  |        |                 |- >
+     |  |  |        |                 `- ASoloExpression
+     |  |  |        |                    `- ASingleTerm
+     |  |  |        |                       `- APosNegation
+     |  |  |        |                          `- ANoneParentheticalExp
+     |  |  |        |                             `- ALitOperand
+     |  |  |        |                                `- AIntLiteral
+     |  |  |        |                                   `- 2
+     |  |  |        |- )
+     |  |  |        `- {
+     |  |  |        |- ASomeStatements
+     |  |  |        |  |- ANoneStatements
+     |  |  |        |  `- AIfStatement
+     |  |  |        |     `- AIfStmt
+     |  |  |        |        |- if
+     |  |  |        |        |- (
+     |  |  |        |        |- ASingleBoolExp
+     |  |  |        |        |  `- ASingleBoolTerm
+     |  |  |        |        |     `- APosBoolNot
+     |  |  |        |        |        `- ASoloBoolComp
+     |  |  |        |        |           `- ANoneBoolParens
+     |  |  |        |        |              `- ALessNumComp
+     |  |  |        |        |                 |- ASoloExpression
+     |  |  |        |        |                 |  `- ASingleTerm
+     |  |  |        |        |                 |     `- APosNegation
+     |  |  |        |        |                 |        `- ANoneParentheticalExp
+     |  |  |        |        |                 |           `- ALitOperand
+     |  |  |        |        |                 |              `- AIntLiteral
+     |  |  |        |        |                 |                 `- 5
+     |  |  |        |        |                 |- <
+     |  |  |        |        |                 `- ASoloExpression
+     |  |  |        |        |                    `- ASingleTerm
+     |  |  |        |        |                       `- APosNegation
+     |  |  |        |        |                          `- ANoneParentheticalExp
+     |  |  |        |        |                             `- ALitOperand
+     |  |  |        |        |                                `- AIntLiteral
+     |  |  |        |        |                                   `- 4
+     |  |  |        |        |- )
+     |  |  |        |        `- {
+     |  |  |        |        |- ASomeStatements
+     |  |  |        |        |  |- ASomeStatements
+     |  |  |        |        |  |  |- ANoneStatements
+     |  |  |        |        |  |  `- ACallStatement
+     |  |  |        |        |  |     `- AFunctCall
+     |  |  |        |        |  |        |- printString
+     |  |  |        |        |  |        |- (
+     |  |  |        |        |  |        |- AOneCallParams
+     |  |  |        |        |  |        |  `- ASoloExpression
+     |  |  |        |        |  |        |     `- ASingleTerm
+     |  |  |        |        |  |        |        `- APosNegation
+     |  |  |        |        |  |        |           `- ANoneParentheticalExp
+     |  |  |        |        |  |        |              `- ALitOperand
+     |  |  |        |        |  |        |                 `- AStrLiteral
+     |  |  |        |        |  |        |                    `- "  Nested If Statement Fails"
+     |  |  |        |        |  |        |- )
+     |  |  |        |        |  |        `- ;
+     |  |  |        |        |  `- ACallStatement
+     |  |  |        |        |     `- AFunctCall
+     |  |  |        |        |        |- printLine
+     |  |  |        |        |        `- (
+     |  |  |        |        |        |- ANoneCallParams
+     |  |  |        |        |        |- )
+     |  |  |        |        |        `- ;
+     |  |  |        |        |- }
+     |  |  |        |        `- AYesElseElseStmt
+     |  |  |        |           |- else
+     |  |  |        |           `- {
+     |  |  |        |           |- ASomeStatements
+     |  |  |        |           |  |- ASomeStatements
+     |  |  |        |           |  |  |- ANoneStatements
+     |  |  |        |           |  |  `- ACallStatement
+     |  |  |        |           |  |     `- AFunctCall
+     |  |  |        |           |  |        |- printString
+     |  |  |        |           |  |        |- (
+     |  |  |        |           |  |        |- AOneCallParams
+     |  |  |        |           |  |        |  `- ASoloExpression
+     |  |  |        |           |  |        |     `- ASingleTerm
+     |  |  |        |           |  |        |        `- APosNegation
+     |  |  |        |           |  |        |           `- ANoneParentheticalExp
+     |  |  |        |           |  |        |              `- ALitOperand
+     |  |  |        |           |  |        |                 `- AStrLiteral
+     |  |  |        |           |  |        |                    `- "  Nested If Statement Passes"
+     |  |  |        |           |  |        |- )
+     |  |  |        |           |  |        `- ;
+     |  |  |        |           |  `- ACallStatement
+     |  |  |        |           |     `- AFunctCall
+     |  |  |        |           |        |- printLine
+     |  |  |        |           |        `- (
+     |  |  |        |           |        |- ANoneCallParams
+     |  |  |        |           |        |- )
+     |  |  |        |           |        `- ;
+     |  |  |        |           `- }
+     |  |  |        `- }
+     |  |  |        `- ANoElseElseStmt
+     |  |  `- ACallStatement
+     |  |     `- AFunctCall
+     |  |        |- printLine
+     |  |        `- (
+     |  |        |- ANoneCallParams
+     |  |        |- )
+     |  |        `- ;
+     |  `- }
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ANoneStatements
+        |  `- ACallStatement
+        |     `- AFunctCall
+        |        |- Test7
+        |        `- (
+        |        |- ANoneCallParams
+        |        |- )
+        |        `- ;
+        `- }
+
+ 
+*test8.txt 
+.assembly extern mscorlib {}
+.assembly PEX4CodeGen
+{
+	.ver 1:0:1:0
+}
+
+.method static void Test8 () cil managed
+{
+	.maxstack 128
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "While Loop Test"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	.locals init (int32 i )
+	ldc.i4 0
+	stloc i
+
+	Label_0:
+	ldloc i
+	ldc.i4 10
+	blt Label_2
+		ldc.i4 0
+		br Label_3
+	Label_2:
+		ldc.i4 1
+	Label_3:
+
+	brzero Label_1
+	ldstr "  "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc i
+	call void [mscorlib]System.Console::Write(int32)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc i
+	ldc.i4 1
+	add
+
+	stloc i
+
+	br Label_0
+	Label_1:
+	ldstr "  Loop Complete"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ret
+}
+
+.method static void main() cil managed
+{
+	.maxstack 128
+	.entrypoint
+	call void Test8()
+
+	ret
+}
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ASomeFunctDeclarations
+     |  |- ANoneFunctDeclarations
+     |  |- function
+     |  |- Test8
+     |  `- (
+     |  |- ANoneParamDeclarations
+     |  |- )
+     |  `- {
+     |  |- ASomeStatements
+     |  |  |- ASomeStatements
+     |  |  |  |- ASomeStatements
+     |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |- ANoneStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |        |                    `- "While Loop Test"
+     |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  `- ADeclarationStatement
+     |  |  |  |  |  |  |     `- AVarDec
+     |  |  |  |  |  |  |        |- int
+     |  |  |  |  |  |  |        `- i
+     |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+     |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |        |- i
+     |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |        |              `- AIntLiteral
+     |  |  |  |  |  |        |                 `- 0
+     |  |  |  |  |  |        `- ;
+     |  |  |  |  |  `- ALoopStatement
+     |  |  |  |  |     `- ALoopStmt
+     |  |  |  |  |        |- while
+     |  |  |  |  |        |- (
+     |  |  |  |  |        |- ASingleBoolExp
+     |  |  |  |  |        |  `- ASingleBoolTerm
+     |  |  |  |  |        |     `- APosBoolNot
+     |  |  |  |  |        |        `- ASoloBoolComp
+     |  |  |  |  |        |           `- ANoneBoolParens
+     |  |  |  |  |        |              `- ALessNumComp
+     |  |  |  |  |        |                 |- ASoloExpression
+     |  |  |  |  |        |                 |  `- ASingleTerm
+     |  |  |  |  |        |                 |     `- APosNegation
+     |  |  |  |  |        |                 |        `- ANoneParentheticalExp
+     |  |  |  |  |        |                 |           `- AVarOperand
+     |  |  |  |  |        |                 |              `- i
+     |  |  |  |  |        |                 |- <
+     |  |  |  |  |        |                 `- ASoloExpression
+     |  |  |  |  |        |                    `- ASingleTerm
+     |  |  |  |  |        |                       `- APosNegation
+     |  |  |  |  |        |                          `- ANoneParentheticalExp
+     |  |  |  |  |        |                             `- ALitOperand
+     |  |  |  |  |        |                                `- AIntLiteral
+     |  |  |  |  |        |                                   `- 10
+     |  |  |  |  |        |- )
+     |  |  |  |  |        `- {
+     |  |  |  |  |        |- ASomeStatements
+     |  |  |  |  |        |  |- ASomeStatements
+     |  |  |  |  |        |  |  |- ASomeStatements
+     |  |  |  |  |        |  |  |  |- ASomeStatements
+     |  |  |  |  |        |  |  |  |  |- ANoneStatements
+     |  |  |  |  |        |  |  |  |  `- ACallStatement
+     |  |  |  |  |        |  |  |  |     `- AFunctCall
+     |  |  |  |  |        |  |  |  |        |- printString
+     |  |  |  |  |        |  |  |  |        |- (
+     |  |  |  |  |        |  |  |  |        |- AOneCallParams
+     |  |  |  |  |        |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |        |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |        |  |  |  |        |        `- APosNegation
+     |  |  |  |  |        |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |        |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |        |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |        |  |  |  |        |                    `- "  "
+     |  |  |  |  |        |  |  |  |        |- )
+     |  |  |  |  |        |  |  |  |        `- ;
+     |  |  |  |  |        |  |  |  `- ACallStatement
+     |  |  |  |  |        |  |  |     `- AFunctCall
+     |  |  |  |  |        |  |  |        |- printInt
+     |  |  |  |  |        |  |  |        |- (
+     |  |  |  |  |        |  |  |        |- AOneCallParams
+     |  |  |  |  |        |  |  |        |  `- ASoloExpression
+     |  |  |  |  |        |  |  |        |     `- ASingleTerm
+     |  |  |  |  |        |  |  |        |        `- APosNegation
+     |  |  |  |  |        |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |        |  |  |        |              `- AVarOperand
+     |  |  |  |  |        |  |  |        |                 `- i
+     |  |  |  |  |        |  |  |        |- )
+     |  |  |  |  |        |  |  |        `- ;
+     |  |  |  |  |        |  |  `- ACallStatement
+     |  |  |  |  |        |  |     `- AFunctCall
+     |  |  |  |  |        |  |        |- printLine
+     |  |  |  |  |        |  |        `- (
+     |  |  |  |  |        |  |        |- ANoneCallParams
+     |  |  |  |  |        |  |        |- )
+     |  |  |  |  |        |  |        `- ;
+     |  |  |  |  |        |  `- AAssignmentStatement
+     |  |  |  |  |        |     `- AAssignment
+     |  |  |  |  |        |        |- i
+     |  |  |  |  |        |        |- :=
+     |  |  |  |  |        |        |- APlusExpression
+     |  |  |  |  |        |        |  |- ASoloExpression
+     |  |  |  |  |        |        |  |  `- ASingleTerm
+     |  |  |  |  |        |        |  |     `- APosNegation
+     |  |  |  |  |        |        |  |        `- ANoneParentheticalExp
+     |  |  |  |  |        |        |  |           `- AVarOperand
+     |  |  |  |  |        |        |  |              `- i
+     |  |  |  |  |        |        |  |- +
+     |  |  |  |  |        |        |  `- ASingleTerm
+     |  |  |  |  |        |        |     `- APosNegation
+     |  |  |  |  |        |        |        `- ANoneParentheticalExp
+     |  |  |  |  |        |        |           `- ALitOperand
+     |  |  |  |  |        |        |              `- AIntLiteral
+     |  |  |  |  |        |        |                 `- 1
+     |  |  |  |  |        |        `- ;
+     |  |  |  |  |        `- }
+     |  |  |  |  `- ACallStatement
+     |  |  |  |     `- AFunctCall
+     |  |  |  |        |- printString
+     |  |  |  |        |- (
+     |  |  |  |        |- AOneCallParams
+     |  |  |  |        |  `- ASoloExpression
+     |  |  |  |        |     `- ASingleTerm
+     |  |  |  |        |        `- APosNegation
+     |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |        |              `- ALitOperand
+     |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |        |                    `- "  Loop Complete"
+     |  |  |  |        |- )
+     |  |  |  |        `- ;
+     |  |  |  `- ACallStatement
+     |  |  |     `- AFunctCall
+     |  |  |        |- printLine
+     |  |  |        `- (
+     |  |  |        |- ANoneCallParams
+     |  |  |        |- )
+     |  |  |        `- ;
+     |  |  `- ACallStatement
+     |  |     `- AFunctCall
+     |  |        |- printLine
+     |  |        `- (
+     |  |        |- ANoneCallParams
+     |  |        |- )
+     |  |        `- ;
+     |  `- }
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ANoneStatements
+        |  `- ACallStatement
+        |     `- AFunctCall
+        |        |- Test8
+        |        `- (
+        |        |- ANoneCallParams
+        |        |- )
+        |        `- ;
+        `- }
+
+ 
+*test9.txt 
+.assembly extern mscorlib {}
+.assembly PEX4CodeGen
+{
+	.ver 1:0:1:0
+}
+
+.method static void Test9 () cil managed
+{
+	.maxstack 128
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "Nested While Loop Test"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "--------------------------------------------------"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	.locals init (int32 x )
+	ldc.i4 0
+	stloc x
+
+	.locals init (int32 y )
+	ldc.i4 0
+	stloc y
+
+	Label_0:
+	ldloc y
+	ldc.i4 3
+	blt Label_2
+		ldc.i4 0
+		br Label_3
+	Label_2:
+		ldc.i4 1
+	Label_3:
+
+	brzero Label_1
+	Label_4:
+	ldloc x
+	ldc.i4 3
+	blt Label_6
+		ldc.i4 0
+		br Label_7
+	Label_6:
+		ldc.i4 1
+	Label_7:
+
+	brzero Label_5
+	ldstr "  "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc x
+	call void [mscorlib]System.Console::Write(int32)
+
+	ldstr ", "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc y
+	call void [mscorlib]System.Console::Write(int32)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc x
+	ldc.i4 1
+	add
+
+	stloc x
+
+	br Label_4
+	Label_5:
+	ldc.i4 0
+	stloc x
+
+	ldloc y
+	ldc.i4 1
+	add
+
+	stloc y
+
+	br Label_0
+	Label_1:
+	ldstr "  Loop Complete"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ret
+}
+
+.method static void main() cil managed
+{
+	.maxstack 128
+	.entrypoint
+	call void Test9()
+
+	ret
+}
+
+- AFile
+     `- ANoneConstDeclarations
+     |- ASomeFunctDeclarations
+     |  |- ANoneFunctDeclarations
+     |  |- function
+     |  |- Test9
+     |  `- (
+     |  |- ANoneParamDeclarations
+     |  |- )
+     |  `- {
+     |  |- ASomeStatements
+     |  |  |- ASomeStatements
+     |  |  |  |- ASomeStatements
+     |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |- ANoneStatements
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |                    `- "Nested While Loop Test"
+     |  |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |  |        |- printString
+     |  |  |  |  |  |  |  |  |  |  |        |- (
+     |  |  |  |  |  |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |  |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |  |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |  |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |  |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |  |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |  |  |  |  |  |  |        |                    `- "--------------------------------------------------"
+     |  |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |  |  |  |  |  |        |- printLine
+     |  |  |  |  |  |  |  |  |  |        `- (
+     |  |  |  |  |  |  |  |  |  |        |- ANoneCallParams
+     |  |  |  |  |  |  |  |  |  |        |- )
+     |  |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  |  `- ADeclarationStatement
+     |  |  |  |  |  |  |  |  |     `- AVarDec
+     |  |  |  |  |  |  |  |  |        |- int
+     |  |  |  |  |  |  |  |  |        `- x
+     |  |  |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+     |  |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |  |  |        |- x
+     |  |  |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |  |  |        |              `- AIntLiteral
+     |  |  |  |  |  |  |  |        |                 `- 0
+     |  |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  |  `- ADeclarationStatement
+     |  |  |  |  |  |  |     `- AVarDec
+     |  |  |  |  |  |  |        |- int
+     |  |  |  |  |  |  |        `- y
+     |  |  |  |  |  |  |        |- AOptAgainstOptAssignment
+     |  |  |  |  |  |  |        `- ;
+     |  |  |  |  |  |  `- AAssignmentStatement
+     |  |  |  |  |  |     `- AAssignment
+     |  |  |  |  |  |        |- y
+     |  |  |  |  |  |        |- :=
+     |  |  |  |  |  |        |- ASoloExpression
+     |  |  |  |  |  |        |  `- ASingleTerm
+     |  |  |  |  |  |        |     `- APosNegation
+     |  |  |  |  |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |  |        |           `- ALitOperand
+     |  |  |  |  |  |        |              `- AIntLiteral
+     |  |  |  |  |  |        |                 `- 0
+     |  |  |  |  |  |        `- ;
+     |  |  |  |  |  `- ALoopStatement
+     |  |  |  |  |     `- ALoopStmt
+     |  |  |  |  |        |- while
+     |  |  |  |  |        |- (
+     |  |  |  |  |        |- ASingleBoolExp
+     |  |  |  |  |        |  `- ASingleBoolTerm
+     |  |  |  |  |        |     `- APosBoolNot
+     |  |  |  |  |        |        `- ASoloBoolComp
+     |  |  |  |  |        |           `- ANoneBoolParens
+     |  |  |  |  |        |              `- ALessNumComp
+     |  |  |  |  |        |                 |- ASoloExpression
+     |  |  |  |  |        |                 |  `- ASingleTerm
+     |  |  |  |  |        |                 |     `- APosNegation
+     |  |  |  |  |        |                 |        `- ANoneParentheticalExp
+     |  |  |  |  |        |                 |           `- AVarOperand
+     |  |  |  |  |        |                 |              `- y
+     |  |  |  |  |        |                 |- <
+     |  |  |  |  |        |                 `- ASoloExpression
+     |  |  |  |  |        |                    `- ASingleTerm
+     |  |  |  |  |        |                       `- APosNegation
+     |  |  |  |  |        |                          `- ANoneParentheticalExp
+     |  |  |  |  |        |                             `- ALitOperand
+     |  |  |  |  |        |                                `- AIntLiteral
+     |  |  |  |  |        |                                   `- 3
+     |  |  |  |  |        |- )
+     |  |  |  |  |        `- {
+     |  |  |  |  |        |- ASomeStatements
+     |  |  |  |  |        |  |- ASomeStatements
+     |  |  |  |  |        |  |  |- ASomeStatements
+     |  |  |  |  |        |  |  |  |- ANoneStatements
+     |  |  |  |  |        |  |  |  `- ALoopStatement
+     |  |  |  |  |        |  |  |     `- ALoopStmt
+     |  |  |  |  |        |  |  |        |- while
+     |  |  |  |  |        |  |  |        |- (
+     |  |  |  |  |        |  |  |        |- ASingleBoolExp
+     |  |  |  |  |        |  |  |        |  `- ASingleBoolTerm
+     |  |  |  |  |        |  |  |        |     `- APosBoolNot
+     |  |  |  |  |        |  |  |        |        `- ASoloBoolComp
+     |  |  |  |  |        |  |  |        |           `- ANoneBoolParens
+     |  |  |  |  |        |  |  |        |              `- ALessNumComp
+     |  |  |  |  |        |  |  |        |                 |- ASoloExpression
+     |  |  |  |  |        |  |  |        |                 |  `- ASingleTerm
+     |  |  |  |  |        |  |  |        |                 |     `- APosNegation
+     |  |  |  |  |        |  |  |        |                 |        `- ANoneParentheticalExp
+     |  |  |  |  |        |  |  |        |                 |           `- AVarOperand
+     |  |  |  |  |        |  |  |        |                 |              `- x
+     |  |  |  |  |        |  |  |        |                 |- <
+     |  |  |  |  |        |  |  |        |                 `- ASoloExpression
+     |  |  |  |  |        |  |  |        |                    `- ASingleTerm
+     |  |  |  |  |        |  |  |        |                       `- APosNegation
+     |  |  |  |  |        |  |  |        |                          `- ANoneParentheticalExp
+     |  |  |  |  |        |  |  |        |                             `- ALitOperand
+     |  |  |  |  |        |  |  |        |                                `- AIntLiteral
+     |  |  |  |  |        |  |  |        |                                   `- 3
+     |  |  |  |  |        |  |  |        |- )
+     |  |  |  |  |        |  |  |        `- {
+     |  |  |  |  |        |  |  |        |- ASomeStatements
+     |  |  |  |  |        |  |  |        |  |- ASomeStatements
+     |  |  |  |  |        |  |  |        |  |  |- ASomeStatements
+     |  |  |  |  |        |  |  |        |  |  |  |- ASomeStatements
+     |  |  |  |  |        |  |  |        |  |  |  |  |- ASomeStatements
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |- ASomeStatements
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |  |- ANoneStatements
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |        |- printString
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |        |- (
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |        |                    `- "  "
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |        |- )
+     |  |  |  |  |        |  |  |        |  |  |  |  |  |        `- ;
+     |  |  |  |  |        |  |  |        |  |  |  |  |  `- ACallStatement
+     |  |  |  |  |        |  |  |        |  |  |  |  |     `- AFunctCall
+     |  |  |  |  |        |  |  |        |  |  |  |  |        |- printInt
+     |  |  |  |  |        |  |  |        |  |  |  |  |        |- (
+     |  |  |  |  |        |  |  |        |  |  |  |  |        |- AOneCallParams
+     |  |  |  |  |        |  |  |        |  |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |        |  |  |        |  |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |        |  |  |        |  |  |  |  |        |        `- APosNegation
+     |  |  |  |  |        |  |  |        |  |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |        |  |  |        |  |  |  |  |        |              `- AVarOperand
+     |  |  |  |  |        |  |  |        |  |  |  |  |        |                 `- x
+     |  |  |  |  |        |  |  |        |  |  |  |  |        |- )
+     |  |  |  |  |        |  |  |        |  |  |  |  |        `- ;
+     |  |  |  |  |        |  |  |        |  |  |  |  `- ACallStatement
+     |  |  |  |  |        |  |  |        |  |  |  |     `- AFunctCall
+     |  |  |  |  |        |  |  |        |  |  |  |        |- printString
+     |  |  |  |  |        |  |  |        |  |  |  |        |- (
+     |  |  |  |  |        |  |  |        |  |  |  |        |- AOneCallParams
+     |  |  |  |  |        |  |  |        |  |  |  |        |  `- ASoloExpression
+     |  |  |  |  |        |  |  |        |  |  |  |        |     `- ASingleTerm
+     |  |  |  |  |        |  |  |        |  |  |  |        |        `- APosNegation
+     |  |  |  |  |        |  |  |        |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |        |  |  |        |  |  |  |        |              `- ALitOperand
+     |  |  |  |  |        |  |  |        |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |  |        |  |  |        |  |  |  |        |                    `- ", "
+     |  |  |  |  |        |  |  |        |  |  |  |        |- )
+     |  |  |  |  |        |  |  |        |  |  |  |        `- ;
+     |  |  |  |  |        |  |  |        |  |  |  `- ACallStatement
+     |  |  |  |  |        |  |  |        |  |  |     `- AFunctCall
+     |  |  |  |  |        |  |  |        |  |  |        |- printInt
+     |  |  |  |  |        |  |  |        |  |  |        |- (
+     |  |  |  |  |        |  |  |        |  |  |        |- AOneCallParams
+     |  |  |  |  |        |  |  |        |  |  |        |  `- ASoloExpression
+     |  |  |  |  |        |  |  |        |  |  |        |     `- ASingleTerm
+     |  |  |  |  |        |  |  |        |  |  |        |        `- APosNegation
+     |  |  |  |  |        |  |  |        |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |  |        |  |  |        |  |  |        |              `- AVarOperand
+     |  |  |  |  |        |  |  |        |  |  |        |                 `- y
+     |  |  |  |  |        |  |  |        |  |  |        |- )
+     |  |  |  |  |        |  |  |        |  |  |        `- ;
+     |  |  |  |  |        |  |  |        |  |  `- ACallStatement
+     |  |  |  |  |        |  |  |        |  |     `- AFunctCall
+     |  |  |  |  |        |  |  |        |  |        |- printLine
+     |  |  |  |  |        |  |  |        |  |        `- (
+     |  |  |  |  |        |  |  |        |  |        |- ANoneCallParams
+     |  |  |  |  |        |  |  |        |  |        |- )
+     |  |  |  |  |        |  |  |        |  |        `- ;
+     |  |  |  |  |        |  |  |        |  `- AAssignmentStatement
+     |  |  |  |  |        |  |  |        |     `- AAssignment
+     |  |  |  |  |        |  |  |        |        |- x
+     |  |  |  |  |        |  |  |        |        |- :=
+     |  |  |  |  |        |  |  |        |        |- APlusExpression
+     |  |  |  |  |        |  |  |        |        |  |- ASoloExpression
+     |  |  |  |  |        |  |  |        |        |  |  `- ASingleTerm
+     |  |  |  |  |        |  |  |        |        |  |     `- APosNegation
+     |  |  |  |  |        |  |  |        |        |  |        `- ANoneParentheticalExp
+     |  |  |  |  |        |  |  |        |        |  |           `- AVarOperand
+     |  |  |  |  |        |  |  |        |        |  |              `- x
+     |  |  |  |  |        |  |  |        |        |  |- +
+     |  |  |  |  |        |  |  |        |        |  `- ASingleTerm
+     |  |  |  |  |        |  |  |        |        |     `- APosNegation
+     |  |  |  |  |        |  |  |        |        |        `- ANoneParentheticalExp
+     |  |  |  |  |        |  |  |        |        |           `- ALitOperand
+     |  |  |  |  |        |  |  |        |        |              `- AIntLiteral
+     |  |  |  |  |        |  |  |        |        |                 `- 1
+     |  |  |  |  |        |  |  |        |        `- ;
+     |  |  |  |  |        |  |  |        `- }
+     |  |  |  |  |        |  |  `- AAssignmentStatement
+     |  |  |  |  |        |  |     `- AAssignment
+     |  |  |  |  |        |  |        |- x
+     |  |  |  |  |        |  |        |- :=
+     |  |  |  |  |        |  |        |- ASoloExpression
+     |  |  |  |  |        |  |        |  `- ASingleTerm
+     |  |  |  |  |        |  |        |     `- APosNegation
+     |  |  |  |  |        |  |        |        `- ANoneParentheticalExp
+     |  |  |  |  |        |  |        |           `- ALitOperand
+     |  |  |  |  |        |  |        |              `- AIntLiteral
+     |  |  |  |  |        |  |        |                 `- 0
+     |  |  |  |  |        |  |        `- ;
+     |  |  |  |  |        |  `- AAssignmentStatement
+     |  |  |  |  |        |     `- AAssignment
+     |  |  |  |  |        |        |- y
+     |  |  |  |  |        |        |- :=
+     |  |  |  |  |        |        |- APlusExpression
+     |  |  |  |  |        |        |  |- ASoloExpression
+     |  |  |  |  |        |        |  |  `- ASingleTerm
+     |  |  |  |  |        |        |  |     `- APosNegation
+     |  |  |  |  |        |        |  |        `- ANoneParentheticalExp
+     |  |  |  |  |        |        |  |           `- AVarOperand
+     |  |  |  |  |        |        |  |              `- y
+     |  |  |  |  |        |        |  |- +
+     |  |  |  |  |        |        |  `- ASingleTerm
+     |  |  |  |  |        |        |     `- APosNegation
+     |  |  |  |  |        |        |        `- ANoneParentheticalExp
+     |  |  |  |  |        |        |           `- ALitOperand
+     |  |  |  |  |        |        |              `- AIntLiteral
+     |  |  |  |  |        |        |                 `- 1
+     |  |  |  |  |        |        `- ;
+     |  |  |  |  |        `- }
+     |  |  |  |  `- ACallStatement
+     |  |  |  |     `- AFunctCall
+     |  |  |  |        |- printString
+     |  |  |  |        |- (
+     |  |  |  |        |- AOneCallParams
+     |  |  |  |        |  `- ASoloExpression
+     |  |  |  |        |     `- ASingleTerm
+     |  |  |  |        |        `- APosNegation
+     |  |  |  |        |           `- ANoneParentheticalExp
+     |  |  |  |        |              `- ALitOperand
+     |  |  |  |        |                 `- AStrLiteral
+     |  |  |  |        |                    `- "  Loop Complete"
+     |  |  |  |        |- )
+     |  |  |  |        `- ;
+     |  |  |  `- ACallStatement
+     |  |  |     `- AFunctCall
+     |  |  |        |- printLine
+     |  |  |        `- (
+     |  |  |        |- ANoneCallParams
+     |  |  |        |- )
+     |  |  |        `- ;
+     |  |  `- ACallStatement
+     |  |     `- AFunctCall
+     |  |        |- printLine
+     |  |        `- (
+     |  |        |- ANoneCallParams
+     |  |        |- )
+     |  |        `- ;
+     |  `- }
+     `- AMainDeclaration
+        |- function
+        |- main
+        |- (
+        |- )
+        `- {
+        |- ASomeStatements
+        |  |- ANoneStatements
+        |  `- ACallStatement
+        |     `- AFunctCall
+        |        |- Test9
+        |        `- (
+        |        |- ANoneCallParams
+        |        |- )
+        |        `- ;
+        `- }
+
+ 

@@ -1,0 +1,34 @@
+  // ------------------------------------------------------------
+  // Math Operation Test
+  // ------------------------------------------------------------ 
+  function Test3() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("Math Operation Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+
+    // Testing Integers
+    int x;
+    x := 5 - 4 + 4;
+    x := x * 2 / 2;
+    x := (x * x) * (5 - 5);
+    printString("  x = ");
+    printInt(x);
+    printLine();
+
+    // Testing Floats (don't worry if the rounding is a little off)
+    float y;
+    y := 10.44 + 9.79 - 10.115;
+    y := -(y * (2.0 / 1.0));
+    printString("  y = ");
+    printFloat(y);
+    printLine();
+
+    printLine();
+  }
+
+  function main() {
+    Test3();
+  }

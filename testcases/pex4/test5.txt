@@ -1,0 +1,32 @@
+  // ------------------------------------------------------------
+  // Boolean Operators
+  // ------------------------------------------------------------ 
+  function Test5() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("Boolean Operator Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+
+    if (1 < 4 & -2 < 4) {
+      printString("  And works");
+      printLine();
+    }
+
+    if (2 > 1 | 2 > 2) {
+      printString("  Or works");
+      printLine();
+    }
+
+    if (!(2 <= 1)) {
+      printString("  Not works");
+      printLine();
+    }
+
+    printLine();
+  }
+
+  function main() {
+    Test5();
+  }

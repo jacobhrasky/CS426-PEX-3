@@ -1,0 +1,47 @@
+  // ------------------------------------------------------------
+  // Relational Operators
+  // ------------------------------------------------------------ 
+  function Test4() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("Relational Operator Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+
+    if (5 > 2) {
+      printString("  Greater than works");
+      printLine();
+    }
+
+    if (2 < 5) {
+      printString("  Less than works");
+      printLine();
+    }
+
+    if (4 >= 4) {
+      printString("  Greater than or equal works");
+      printLine();
+    }
+
+    if (4 <= 4) {
+      printString("  Less than or equal works");
+      printLine();
+    }
+
+    if (5.0 = 5.0) {
+      printString("  Equals works");
+      printLine();
+    }
+
+    if (2.5 != 3.0) {
+      printString("  Not Equals works");
+      printLine();
+    }
+
+    printLine();
+  }
+
+  function main() {
+    Test4();
+  }

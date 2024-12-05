@@ -4,7 +4,7 @@
 	.ver 1:0:1:0
 }
 
-.method static void Test5 () cil managed
+.method static void Test9 () cil managed
 {
 	.maxstack 128
 	ldstr "--------------------------------------------------"
@@ -13,7 +13,7 @@
 	ldstr "\n"
 	call void [mscorlib]System.Console::Write(string)
 
-	ldstr "Boolean Operator Test"
+	ldstr "Nested While Loop Test"
 	call void [mscorlib]System.Console::Write(string)
 
 	ldstr "\n"
@@ -25,102 +25,76 @@
 	ldstr "\n"
 	call void [mscorlib]System.Console::Write(string)
 
-	// Bool Expression
-	ldc.i4 1
-	ldc.i4 4
-	ldc.i4 2
-	neg
-
-	ldc.i4 4
-	blt Label_3
-		ldc.i4 0
-		br Label_4
-	Label_3:
-		ldc.i4 1
-	Label_4:
-
-	blt Label_5
-		ldc.i4 0
-		br Label_6
-	Label_5:
-		ldc.i4 1
-	Label_6:
-
-	and
-
-	// If statement
-	brtrue Label_0
-	br Label_1
-	Label_0:
-	ldstr "  And works"
-	call void [mscorlib]System.Console::Write(string)
-
-	ldstr "\n"
-	call void [mscorlib]System.Console::Write(string)
-
-		br Label_2
-	Label_1:
-	Label_2:
-	// Bool Expression
-	ldc.i4 2
-	ldc.i4 1
-	ldc.i4 2
-	ldc.i4 2
-	bgt Label_10
-		ldc.i4 0
-		br Label_11
-	Label_10:
-		ldc.i4 1
-	Label_11:
-
-	bgt Label_12
-		ldc.i4 0
-		br Label_13
-	Label_12:
-		ldc.i4 1
-	Label_13:
-
-	or
-
-	// If statement
-	brtrue Label_7
-	br Label_8
-	Label_7:
-	ldstr "  Or works"
-	call void [mscorlib]System.Console::Write(string)
-
-	ldstr "\n"
-	call void [mscorlib]System.Console::Write(string)
-
-		br Label_9
-	Label_8:
-	Label_9:
-	// Bool Expression
-	ldc.i4 2
-	ldc.i4 1
-	ble Label_17
-		ldc.i4 0
-		br Label_18
-	Label_17:
-		ldc.i4 1
-	Label_18:
-
+	.locals init (int32 x )
 	ldc.i4 0
-	ceq
+	stloc x
 
-	// If statement
-	brtrue Label_14
-	br Label_15
-	Label_14:
-	ldstr "  Not works"
+	.locals init (int32 y )
+	ldc.i4 0
+	stloc y
+
+	Label_0:
+	ldloc y
+	ldc.i4 3
+	blt Label_2
+		ldc.i4 0
+		br Label_3
+	Label_2:
+		ldc.i4 1
+	Label_3:
+
+	brzero Label_1
+	Label_4:
+	ldloc x
+	ldc.i4 3
+	blt Label_6
+		ldc.i4 0
+		br Label_7
+	Label_6:
+		ldc.i4 1
+	Label_7:
+
+	brzero Label_5
+	ldstr "  "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc x
+	call void [mscorlib]System.Console::Write(int32)
+
+	ldstr ", "
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc y
+	call void [mscorlib]System.Console::Write(int32)
+
+	ldstr "\n"
+	call void [mscorlib]System.Console::Write(string)
+
+	ldloc x
+	ldc.i4 1
+	add
+
+	stloc x
+
+	br Label_4
+	Label_5:
+	ldc.i4 0
+	stloc x
+
+	ldloc y
+	ldc.i4 1
+	add
+
+	stloc y
+
+	br Label_0
+	Label_1:
+	ldstr "  Loop Complete"
 	call void [mscorlib]System.Console::Write(string)
 
 	ldstr "\n"
 	call void [mscorlib]System.Console::Write(string)
 
-		br Label_16
-	Label_15:
-	Label_16:
 	ldstr "\n"
 	call void [mscorlib]System.Console::Write(string)
 
@@ -131,7 +105,7 @@
 {
 	.maxstack 128
 	.entrypoint
-	call void Test5()
+	call void Test9()
 
 	ret
 }

@@ -1,0 +1,39 @@
+  // ------------------------------------------------------------
+  // Control Structures:  Nested While Statements
+  // ------------------------------------------------------------ 
+  function Test9() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("Nested While Loop Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+    
+    int x;
+    x := 0;
+    int y;
+    y := 0;
+
+    while (y < 3) {
+      while (x < 3) {
+        printString("  ");
+        printInt(x);
+        printString(", ");
+        printInt(y);
+        printLine();
+
+        x := x + 1;
+      }
+      x := 0;
+      y := y + 1;
+    }
+
+    printString("  Loop Complete");
+    printLine();
+    
+    printLine();
+  }
+
+  function main() {
+    Test9();
+  }

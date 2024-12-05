@@ -1,0 +1,33 @@
+  // ------------------------------------------------------------
+  // Control Structures:  While Statements
+  // ------------------------------------------------------------ 
+  function Test8() {
+    printString("--------------------------------------------------");
+    printLine();
+    printString("While Loop Test");
+    printLine();
+    printString("--------------------------------------------------");
+    printLine();
+    
+    int i;
+    i := 0;
+
+    while (i < 10) {
+      printString("  ");
+      printInt(i);
+      printLine();
+      i := i + 1;
+    }
+
+    printString("  Loop Complete");
+    printLine();
+
+    printLine();
+
+    // Testing to See if Function Calls within a Function Work
+    //Test9();
+  }
+
+  function main() {
+    Test8();
+  }

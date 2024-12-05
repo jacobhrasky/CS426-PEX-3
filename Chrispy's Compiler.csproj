@@ -86,8 +86,15 @@
     <Content Include="testcases\pex3\varDeclarationWrong.txt" />
     <Content Include="testcases\pex3\whileCorrect.txt" />
     <Content Include="testcases\pex3\whileWrong.txt" />
-    <Content Include="testcases\pex4\test.txt" />
-    <Content Include="testcases\pex4\testPrint.txt" />
+    <Content Include="testcases\pex4\test1.txt" />
+    <Content Include="testcases\pex4\test2.txt" />
+    <Content Include="testcases\pex4\test3.txt" />
+    <Content Include="testcases\pex4\test4.txt" />
+    <Content Include="testcases\pex4\test5.txt" />
+    <Content Include="testcases\pex4\test6.txt" />
+    <Content Include="testcases\pex4\test7.txt" />
+    <Content Include="testcases\pex4\test8.txt" />
+    <Content Include="testcases\pex4\test9.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Documentation.txt" />

@@ -1,4 +1,4 @@
-  // ------------------------------------------------------------
+ // ------------------------------------------------------------
   // Control Structures:  If Statements
   // ------------------------------------------------------------ 
   function Test6() {
@@ -30,34 +30,9 @@
     printLine();
 
     // Testing to See if Function Calls within a Function Work
-    Test7();
+    //Test7();
   }
 
-  // ------------------------------------------------------------
-  // Control Structures:  Nested If Statements
-  // ------------------------------------------------------------
-  function Test7() {
-    printString("--------------------------------------------------");
-    printLine();
-    printString("Nested If Statement Test");
-    printLine();
-    printString("--------------------------------------------------");
-    printLine();
-    
-    if (3 > 2) {
-      if (5 < 4) {
-        printString("  Nested If Statement Fails");
-        printLine();
-      }
-      else {
-        printString("  Nested If Statement Passes");
-        printLine();
-      }
-    }
-
-    printLine();
+  function main() {
+    Test6();
   }
-
-function main() {
-	Test6();
-}
