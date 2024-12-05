@@ -78,7 +78,6 @@ namespace CS426.analysis
 
         public override void CaseASomeFunctDeclarations(ASomeFunctDeclarations node)
         {
-            Console.WriteLine("Why dont you run more");
                 InASomeFunctDeclarations(node);
 
                 WriteLine(".method static void " + node.GetId() + "() cil managed");
