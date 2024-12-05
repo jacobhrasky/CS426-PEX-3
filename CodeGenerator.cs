@@ -76,26 +76,28 @@ namespace CS426.analysis
             WriteLine("\tret\n}");
         }
 
-        /*public override void CaseAFunctDeclarations(AFunctDeclarations node)
+        public override void CaseASomeFunctDeclarations(ASomeFunctDeclarations node)
         {
-            InAFunctDeclarations(node);
-            WriteLine(".method static void " + node.GetId() + "() cil managed");
-            WriteLine("{\n\t.maxstack 128");
+            Console.WriteLine("Why dont you run more");
+                InASomeFunctDeclarations(node);
 
-            OutAFunctDeclarations(node);
+                WriteLine(".method static void " + node.GetId() + "() cil managed");
+                WriteLine("{\n\t.maxstack 128");
+
+                if (node.GetStatements() != null)
+                {
+                    node.GetStatements().Apply(this);
+                }
+
+                WriteLine("\tret\n}\n");
+
+                OutASomeFunctDeclarations(node);
+        }
+
+        /*public override void OutASomeFunctDeclarations(ASomeFunctDeclarations node)
+        {
             WriteLine("\tret\n}\n");
         }*/
-
-        public override void InASomeFunctDeclarations(ASomeFunctDeclarations node)
-        {
-            WriteLine(".method static void " + node.GetId() + "() cil managed");
-            WriteLine("{\n\t.maxstack 128");
-        }
-
-        public override void OutASomeFunctDeclarations(ASomeFunctDeclarations node)
-        {
-            WriteLine("\tret\n}\n");
-        }
 
         public override void OutAVarDec(AVarDec node)
         {
